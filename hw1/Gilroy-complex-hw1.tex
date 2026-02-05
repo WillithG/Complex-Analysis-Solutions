@@ -1,0 +1,332 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\usepackage[shortlabels]{enumitem}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Complex Homework \#1}
+\rhead{28 January 2026}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Complex Analysis Homework \#1 } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Let us consider some special cases.
+Let us first take one of our fixed points to be $0$,
+say $v = 0$. Let us also study the case where $\rho = 1$ to begin.
+Our defining equation becomes $\abs{z} = \abs{z - w}$,
+notice that $z$ satisfies this system if and only if it satsifies
+$\abs{z}^2 = \abs{z-w}^2$.
+Let us write $z = a + bi$ and $w = c + di$ then \[
+	\abs{z} = \abs{z - w}
+	\iff c^2 + d^2 - 2ac - 2bd = 0.
+\]
+Now let us consider some cases for $w$. If $w$ is real and non-zero
+then $w = c$ and we can solve for $a = \frac{1}{2} c$. 
+$b$ is free and so the locus of points which solve this case is 
+$z = \frac{1}{2}c + bi$ for any fixed $c \in \R$ and for all $b \in
+\R$. This is exactly a vertical line of points. In particular,
+it is the vertical line of points through the origin, translated by $\frac{1}{2}c$.
+
+Performing an extremely similar calculation, if we consider the case where $w$ is purely
+imaginary, $w = di$ for some $d \in \R$, then our locus of points will
+be $z = a + \frac{1}{2}d$ for some for all $a \in \R$. These are
+horizontal lines. In particular, these are the horizontal line of
+points through the origin, translated by $\frac{1}{2}d$
+
+In the case where $w = c + di$ with $c,d$ non-zero. We are now looking
+for points which have the same distance from the origin after being
+translated by $-(c + di)$. If $c = d = 1$ then our locus of points is
+a diagonal line. In particular, it is the diagonal line passing
+through the origin and $-(1+i)$, translated\footnote{
+	Another way of saying this is that it's the line defined by the 
+	normal vector $[1, 1]$ and then translated by the vector 
+	$\frac{1}{2}[1,1]$. 
+} by $\frac{1}{2}(1+i)$. 
+Geometrically, the $\rho = 1$ case is the locus of lines which are
+equidistant from $0$ and $1 + i$. 
+Likewise, following a similar argument, for general $c,d$ we have that the locus of points is some 
+diagonal line.
+
+The entire discussion above holds for $v \neq 0$ but still $\rho = 1$,
+Except now the defining horizontal/vertical/diagonal lines are those
+relative to $v$, rather than relative to the origin.
+
+Now we consider the $\rho \neq 1$ case.
+It turns out we can show that $\rho \neq 1$ gives a circle by
+analyzing the conditions directly.
+Suppose that we have $\rho \neq 1$ and $v, w \in \C$ 
+arbitrary. There exists an isometry which translates $v$ to the
+origin, and which rotates $w$ to be on the real axis. 
+And so without loss of generality we can take $v = 0$ and $w \in \R$. 
+I will analyze the case where $w = 1$ to simplify the arithmetic, but the
+argument for other real $w$ is similar to the following.
+With these transformations our condtion becomes 
+\[
+	\abs{z}^2 = \rho \abs{z - 1}^2
+\]
+If we let $z = a + bi$ and expand the definitions, we have
+\begin{align*}
+	a^2(1 - \rho) + b^2(1- \rho) &= -2\rho a + \rho \\
+	\left(a^2 + \frac{2\rho}{1-\rho} a\right) + b^2 &= \frac{\rho}{1- \rho} && \rho \neq 1 \\
+	\left( a + \frac{\rho}{1 - \rho} \right)^2 + b^2 &= \frac{\rho}{1 - \rho} + \frac{\rho^2}{(1-\rho)^2} && \text{Completing the square} \\
+	\left( a + \frac{\rho}{1 - \rho} \right)^2 + b^2 &= \frac{\rho}{(1-\rho)^2}.
+\end{align*}
+This is manifestly a circle of radius
+$(\sqrt\rho)/(1-\rho)$. \wg{Note, I think I may have missed an extra
+factor of $\rho$ in my starting condition.}
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.7]{2.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+We show that there is no total ordering on $\C$ by considering the
+elements $1, i, 0 \in \C$.
+Suppose there is a total order on $\C$ denoted $\prec$
+Since $1,i,0$ are distinct, we have four possible cases to consider:
+$(1 \prec 0, i \prec 0), (1 \prec 0, i \succ 0), (1 \succ 0, i \prec 0),
+\text{ or } (1 \succ 0, i \succ 0)$. We show that we arrive at a
+contradiction in all cases.
+
+$(1 \succ 0, i \succ 0):$ Since $i \succ 0$ we have the following
+\begin{align*}
+	1 \succ 0 &\implies i \succ 0 && \text{Property $(c)$} \\
+		&\implies -1 \succ 0 && \text{Property $(c)$} \\
+		&\implies 0 \succ 1 && \text{Property $(b)$},
+\end{align*}
+a contradiction.
+
+$(1\succ 0, i \prec 0):$ Since $i \prec 0$ we have that $0 \prec -i$
+by property $(b)$. Then, by property $(c)$ and then $(b)$, we have the following
+\begin{align*}
+	-i \succ 0 \implies -1 \succ 0 \implies 0 \succ 1, 
+\end{align*}
+a contradiction.
+
+$(1 \prec 0, i \succ 0):$ Using similar reasoning, with $i \succ 0$, applying property $(c)$ a
+sufficient number of times with $w = i$ implies $1 \succ 0$. A contradiction.
+
+$(1 \prec 0, i \prec 0):$. Using similar reasoning, $i \prec 0$
+implies $-i \succ 0$. Then applying property $(c)$ a sufficient number
+of times with $w = -i$ gives $1 \succ 0$. A contradiction. 
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=1]{3.png}
+	\hfill
+\end{problem}
+\begin{solution}
+Suppose we have a function $f: \C \to \C$ defined by
+$f(z = x+iy) = u(x,y) + iv(x,y)$ where $x,y \in \R$.
+Then recall the Cauchy-Riemann equations are given by \[
+	\pdv{u}{x} = \pdv{v}{y} \qquad \pdv{v}{x} = -\pdv{u}{y}.
+\]
+
+Recalling the polar form of a complex number $z = re^{i \theta} =
+r\cos(\theta) + i\sin(\theta)$ for $r > 0$. We can read the variable
+transformation
+$x = r\cos(\theta)$ and $y = r\sin(\theta)$. 
+Being pedantic about our notation (we will abuse at the end), let us write
+\[
+	\tilde u(r, \theta) := u(r \cos(\theta), r\sin(\theta)) 
+	\qquad 
+	\tilde v(r, \theta) := v(r\cos(\theta), r\sin(\theta)).
+\]
+Now, recalling the partial derivative chain rule for multivariable
+functions we have 
+\begin{align*}
+	\pdv{\tilde u}{r} &= \pdv{u}{x} \cos(\theta) + \pdv{u}{y}\sin(\theta) \\
+	\pdv{\tilde u}{\theta} &= \pdv{u}{x}(-r\sin(\theta)) + \pdv{u}{y}r\cos(\theta) \\
+	\pdv{\tilde v}{r} &= \pdv{v}{x}\cos(\theta) + \pdv{v}{y}r\cos(\theta) \\
+	\pdv{\tilde v}{\theta} &= \pdv{v}{x}(-r\sin(\theta)) + \pdv{v}{y}r\cos(\theta).
+\end{align*}
+Now, using our original Cauchy-Riemann equations, we can derive
+relations between these equations.
+Consider, for example 
+\begin{align*}
+	\frac{1}{r} \pdv{\tilde v}{\theta} &= \pdv{v}{x}(- \sin\theta) + \pdv{v}{y}(\cos \theta) 
+			&& \text{Using the formulae above,}\\
+		&= \pdv{u}{y}(\sin \theta) + \pdv{u}{x}(\cos \theta) && \text{Using Cauchy-Riemann,}\\
+		&= \pdv{\tilde u}{\tilde r}.
+\end{align*}
+Using very similar reasoning will also give us that $(1/r)(\partial
+\tilde u/\partial \theta) = -(\partial \tilde v/ \partial r)$. 
+And now, we abuse notation by setting $u(r,\theta) = \tilde u(r,
+\theta)$ and $v(r, \theta) = \tilde v(r, \theta)$. 
+
+\item 
+Recall that our function $f(z) = u(x,y) + iv(x,y)$ is holomorphic if
+and only if $f$ is real differentiable (implying all the relevent
+partial derivatives exist) and $u,v$ satisfy the Cauchy-Riemann
+equations. We verify that $\log z : \C \to \C$ is holomorphic where
+it's defined, by checking if it satisfies the Cauchy-Riemann
+equations.
+
+For $\log z$ we have $u(r,\theta) = \log r$ and $v(r, \theta) =
+\theta$. Then notice we have 
+\begin{align*}
+	\pdv{u}{r} &= \frac{1}{r} = \frac{1}{r} \cdot 1 = \frac{1}{r} \pdv{v}{r} \\
+	\frac{1}{r} \pdv{u}{\theta} &= 0 = - \pdv{v}{r},
+\end{align*}
+And so, indeed, the complex logarithm function is holomorphic where it
+is defined.
+\end{solution}
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Writing $f(x+iy) = u(x,y) + iv(x,y)$ we can read that $u(x,y) =
+\sqrt{\abs{x}\abs{y}}$ and $v(x,y) = 0$.
+
+First we need to verify that the partial derivatives for $u,v$ exist
+at $(0,0)$. Since $v = 0$ both its partial derivatives exist and evaluate
+to zero everywhere. Now consider $u$. Recalling the definition for
+partial derivative, consider 
+\[
+	u_x(0,0) := \lim_{h \to 0} \frac{u(h, 0) - u(0,0)}{h}
+	= \lim_{h \to 0} 
+		\frac{\sqrt{\abs{h}\abs{0}} - \sqrt{0}}
+		{h} 
+	= 0,
+\]
+And so the partial derivative $u_x$ exists at $(0,0)$ and evaluates to
+$0$. A similar calculation will show that the partial derivative
+$u_y$ exists and evaluates to $0$ at $0$.
+
+Now we can check if $u,v$ satisfy the Cauchy-Riemann equations 
+at $(0,0)$.
+Recall that the Cauchy-Riemann equationsa are given by \[
+	\pdv{u}{x} = \pdv{v}{y} \qquad \pdv{v}{x} = -\pdv{u}{y}.
+\]
+Since all relevent partial derivatives evaluate to $0$ at $z = 0$, 
+the Cauchy-Riemann equations are sastisfied at $z = 0$.
+The fact that the Cauchy-Riemann equations are satisfied shows that
+the difference quotients of our function along the real and imaginary
+axes about $(0,0)$ agree.
+
+However, we show that this function is not holomorphic by constructing
+two sequences of difference quotients approaching $z = 0$ which disagree.
+
+Consider a sequence along the real line which approaches $z = 0$ (such as
+$\{1/n\}_{n=1}^{\infty}$). Given this sequence of complex numbers we
+have the difference quotients are all $0$:
+\[
+	\frac{f(z_n) - f(0)}{z} 
+	= \frac{ \sqrt{\abs{1/n}\abs{0}} - 0}{1/n} = 0.
+\]
+And so the limit of the difference quotients, with respect to this
+sequence, exists and evaluates to $0$.
+
+Now, consider a sequence of complex numbers approaching $0$ via the
+ray which passes through $0$ and $1 + i$. One such sequence is 
+$\{1/n + i (1/n)\}$. Our difference quotients are now\[
+	\frac{f(z_n) - f(0)}{z_n} 
+	= \frac{ \sqrt{\abs{1/n} \abs{1/n}} }{1 + i (1/n)} 
+	= \frac{1}{1+i} 
+	= \frac{1}{2}(1 - i),
+\]
+	for all $n$. 
+	It follows that the limit of the difference quotients with respect
+	to this sequence exists and evalutes to $0.5(1 - i)$.	
+
+We have then shown that the limit
+	\[
+	\lim_{z \to 0} \frac{f(z) - f(0)}{z}
+\]
+	does not exist, since it is not well-defined with respect to
+	choice of limit approach.
+	And so, $f$ is not differentiable at $0 \in \C$ by
+	definition.
+
+I think this argument shows that, whilst all partial derivatives for
+$u,v$ exist at $(x,y) = (0,0)$ and the Cauchy-Riemann equations are
+satisifed, It must be that the given function is not
+real-differentiable at $z = 0$. 
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 5 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{5.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Let $f: U \to \C$ be given by $f(x+iy) = u(x,y) + iv(x,y)$ with
+$u(x,y) = a$ for some $a \in \R$. Then both partial derivatives of $u$ vanish everywhere
+on $U$, i.e. $\partial
+u/ \partial x = 0$ and $\partial u / \partial y = 0$.
+Since $f$ is holomorphic on $U$ we have that $f$ satisfies the
+Cauchy-Riemann equations on $U$. And so we have \[
+	\pdv{v}{x} = 0 \qquad \pdv{v}{y} = 0,
+\]
+everywhere on $U$, in other words $\nabla v = 0$.
+Since $f$ is holomorphic on $U$ we have that $v(x,y)$ is
+differentiable as a real function everywhere on $U$. 
+It then follows that $v(x,y) = b$ for some $b \in \R$ as a real
+function on $U$ (a result from the real-analysis of multivariate
+functions\footnote{
+	I thiiiiiink we might also need that $U$ is connected, but my
+	multivariable real analysis is a bit rusty.
+}).
+Then, by definition, $f = u + iv$ is a constant function.
+\end{solution}
+
+\newpage
+
+\end{document}

@@ -1,0 +1,174 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathcal C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Algs Homework \#}
+\rhead{03 November 2021}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Algorithms HW } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Following the definition, for $z,w \in \C$ we have the power series \[
+	exp(z + w) = \sum_{n \geq 0} \frac{(z+w)^n}{n!},
+\]
+which expands to \[
+	exp(z + w) = \sum_{n \geq 0} \frac{1}{n!}\sum_{m=0}^{n}
+	\binom{n}{m} z^m w^{n-m}.
+\]
+Collect the terms containing $z^2$. We have \[
+	\mathit{n=2:} \qquad
+	\frac{1}{2!} \binom{2}{2} z^2 +
+	\frac{1}{3!} \binom{3}{2} z^2 w +
+	\frac{1}{4!} \binom{4}{2} + \cdots.
+\]
+Factoring out $z^2/2!$ gives
+\begin{align*}
+	n=2: \qquad 
+	\frac{z^2}{2!} \displaystyle \sum_{m \geq 2} \binom{m}{2} \frac{2!}{m!} w^{m-2} 
+	&= \frac{z^2}{2!} \displaystyle \sum_{m \geq 2} \frac{m!}{2!(m-2)!} \frac{2!}{m!} w^{m-2} && \text{factorial definition of binom}\\
+	&= \frac{z^2}{2!} \sum_{m \geq 2} \frac{1}{(m-2)!} w^{m-2} \\
+	&= \frac{z^2}{2!} \sum_{m \geq 0 } \frac{1}{m!} w^{m} && \text{Re-indexing sum}\\
+	&= \frac{z^2}{2!} \cdot exp(w).
+\end{align*}
+Repeating this argument for the other $z$ terms of degree $n$ gives \[
+	exp(z+w) = \sum_{n \geq 0} \frac{z^n}{n!} exp(w) = exp(z)exp(w).
+\]
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.75]{2.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+We can show that the given function is $C^\infty$ by induction on 
+$n$ in $f^{(n)}(x)$. We claim that \[
+	f^(n)(x) = \begin{cases}
+		0 & x \leq 0 \\
+		p(1/x)e^{-1/x^2} & x > 0
+	\end{cases},
+\]
+where $p(1/x)$ is some polynomial in $1/x$. 
+We show that $f \in C^1$. The only place we need to check
+differentiability is at the origin. The limit of the difference
+quotients approaching the origin from the left is $0$. 
+From the right we have \[
+	\lim_{h \to 0^+} \frac{f(h) - f(0)}{h}
+	= \lim_{h \to 0^+} \frac{e^{-1/h^2}}{h}
+	= 0,
+\]
+
+where the final limit can be seen by applying the change of variables
+$t = 1/h^2$ and then using L'Hopital's rule.
+It follows that the first derivative exists at $0$ and evaluates
+to $0$. Then using the chain rule for all other $x$ we have that 
+\[
+	f'(x) = \begin{cases}
+		0 & x \leq 0 \\
+		\frac{2}{x^3} e^{-1/x^2} & x > 0
+	\end{cases}.
+\]
+
+Now suppose that
+\wg{fill in the rest of the argument here}
+
+We have shown that $f \in C^\infty$. The discussion above also shows
+that $f^{(n)}(x)(0) = 0$ for all $n \geq 0$. And so, it follows that
+the power series expansion about the origin is $f(x) \approx 0$. 
+However, $f$ is not identically zero on any neighbourhood of $0$
+and so there does not exist a neighbourhood about $0$ where the power 
+series expansion equals the function. Thus $f$ does not have a
+convergent power series about $0$.
+
+I think the takeaway from this question is to see a smooth function $\R \to
+\R$ which is not analytic, with the intuition being that it goes to
+zero at the origin slower than any polynomial. 
+I think Ben alluded to the idea that we'll see that holomorphic
+functions always have a convergent power series over the domain where
+it is holomorphic. And so I suppose this same thing cannot happen in
+the complex case.
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{3.png}
+	\hfill
+\end{problem}
+\begin{solution}
+\begin{enumerate}[(a)]
+\item Let $f(z) = \sum_{n \geq 0} nz^n$. Recalling the radius of 
+convergence theorem, we have that $1/R = L = \limsup \abs{a_n}^{1/n}$.
+Consider the following, we want to evaluate \[
+	\lim_{m \to \infty}\sup_{n \geq m} n^{1/n} 
+	= \lim_{m \to \infty} m^{1/m},
+\]
+Using a logarithm transformation and L'Hopital's rule we find that 
+\begin{align*}
+	\ln L &= \lim_{m \to \infty} \frac{\ln m}{m} \\
+		&= \lim_{m \to \infty} \frac{1/m}{1} \\
+		&= 0. 
+\end{align*}
+And so $L = e^{0} = 1 = 1/R$. Thus the power series $f$ converges absolutely
+for all $\abs{z} < R = 1$. 
+\end{enumerate}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}[4]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+\end{document}
