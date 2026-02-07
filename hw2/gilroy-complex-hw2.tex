@@ -18,8 +18,8 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Homework \#2}
+\rhead{06 February 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -34,7 +34,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Analysis Homework \#2} 
 
 %------------------------- Problem 1 -----------------------
 
@@ -84,7 +84,7 @@ Repeating this argument for the other $z$ terms of degree $n$ gives \[
 \begin{solution}
 We can show that the given function is $C^\infty$ by induction on 
 $n$ in $f^{(n)}(x)$. We claim that \[
-	f^(n)(x) = \begin{cases}
+	f^{(n)}(x) = \begin{cases}
 		0 & x \leq 0 \\
 		p(1/x)e^{-1/x^2} & x > 0
 	\end{cases},
@@ -110,18 +110,20 @@ to $0$. Then using the chain rule for all other $x$ we have that
 	\end{cases}.
 \]
 
-Now suppose that
-\wg{fill in the rest of the argument here}
+For the induction step we can use a similar limit argument to check that the
+$n$th derivative exists and is equal to $0$ at $x = 0$. Moreover, the
+product rule will give the claimed form of the $n$th derivative.
 
 We have shown that $f \in C^\infty$. The discussion above also shows
-that $f^{(n)}(x)(0) = 0$ for all $n \geq 0$. And so, it follows that
+that $f^{(n)}(0) = 0$ for all $n \geq 0$. And so, it follows that
 the power series expansion about the origin is $f(x) \approx 0$. 
-However, $f$ is not identically zero on any neighbourhood of $0$
-and so there does not exist a neighbourhood about $0$ where the power 
+However, $f$ is not identically zero on any neighbourhood of $0$, in
+other words
+there does not exist a neighbourhood about $0$ where the power 
 series expansion equals the function. Thus $f$ does not have a
 convergent power series about $0$.
 
-I think the takeaway from this question is to see a smooth function $\R \to
+I think the takeaway from this question is to see an example of a smooth function $\R \to
 \R$ which is not analytic, with the intuition being that it goes to
 zero at the origin slower than any polynomial. 
 I think Ben alluded to the idea that we'll see that holomorphic
@@ -155,7 +157,19 @@ Using a logarithm transformation and L'Hopital's rule we find that
 \end{align*}
 And so $L = e^{0} = 1 = 1/R$. Thus the power series $f$ converges absolutely
 for all $\abs{z} < R = 1$. 
-\wg{Should we also evalaute $\abs z = 1$?}
+
+\wg{Let purple indicate some string of thoughts that I do not feel
+completely resolved on.}
+\wg{In principle, I think we also need to check for all the 
+terms of $\abs z = 1$. For $z\in \R$ and $\abs z \geq 1$ this sum
+definitely diverges}
+\wg{
+	Write $z = r \exp(i \theta)$ with $r = 1$. 
+	Then our power series becomes 
+	$f(z) = \sum_{n \geq 0} n \exp(in\theta)$, 
+	the exponential term only adding a phase to each term.
+	I think this series then diverges for all $\abs z = 1$. 
+}
 
 Now suppose $f(z) = \sum_{n \geq 0} z^n /n^2$. Using similar reasoning
 we want to evaluate \[
@@ -214,5 +228,57 @@ And then, recalling that $\log 1 = 0$, our power series expansion about $z = 1$ 
 \end{solution}
 
 \newpage
+
+%------------------------- Problem 5 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{5.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+\wg{
+	Apologies, I didn't make a huge amount of headway into this
+	problem. Two questions prior we found a few power series whose
+	radii of convergence was $R = 1$ (i.e. power series which 
+	converge absolutely on the unit disc).
+}
+\wg{
+	However, I was playing a bit instead with the geometric series
+	$f(z) = \sum_{n \geq 0} z^n$. However, I had some trouble 
+	understanding how to formualte the constraints of having
+	a function which is equal to the geometric
+	series on the unit disc, and which is holomorphic. I'll probs 
+	come chat about this one at office hours.
+}
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 6 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{6.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Recall that a complex function $f: \C \to \C$ 
+is conformal at $z \in \C$ if and only if it is holomorphic at $z$ and
+$f'(z) \neq 0$.
+For $f = \exp$ we have that $f$ is entire with $f'(z) = \exp(z)$. 
+Moreover, $f'(a+bi) = \exp(a + bi) = \exp(a)\exp(ib)$. In particular,
+$\abs{f'(z)} = \abs{\exp(a)} > 0$ for $a \in \R$, the inequality being
+strict.
+That is, $f'(z) \neq 0$ for all $z \in \C$ and so $f$ is conformal for
+all $z \in \C$. 
+
+
+\end{solution}
+
+\newpage
+
+
 
 \end{document}

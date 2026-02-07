@@ -1,0 +1,134 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathcal C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Algs Homework \#}
+\rhead{03 November 2021}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Algorithms HW } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+We start by splitting the integrand with partial fractions.
+Notice that \[
+\frac{1}{(x-a)(x-b)} = \frac{1}{(a-b)(x-a)} - \frac{1}{(a-b)(x-b)}.
+\]
+Next we paramaterize $S_r = \gamma(t) = r\exp(it)$ with $\abs a < r <
+\abs b$.
+Now, computing our integral directly gives
+\begin{align*}
+	\int_{S_r}\frac{1}{(z-a)(z-b)} dz 
+	&= \int_{t=0}^{2\pi} f(\gamma(t)) \gamma'(t) dt \\
+	&= \int \frac{i}{a-b} 
+		\left( \frac{r \exp(it)}{r\exp(it) - a} - \frac{r \exp(it)}{r\exp(it) - b}\right) dt \\
+	&= \frac{i}{a-b} \int_{t = 0}^{2\pi} \left( \frac{1}{1 - \frac{a}{r}\exp(-it)} - \frac{1}{1 - \frac{b}{r}\exp(-it)} \right) dt
+\end{align*}
+\wg{if we can show that the integrand is $1$ then we are done}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Notice that $Re(e^{ix^2}) = \cos(x^2)$ for $x \in \R$. 
+To that end we consider integrating $\int_\gamma f(z) dz$
+where $f(z) = e^{iz^2}$ over 
+the following contour.
+\wg{insert contour}
+
+Notice that $f'(z)$ is entire with $f'(z) = 2ize^{iz^2}$, and so 
+also has continuous derivative. By Cauchy's Theorem we have that 
+$\int_\gamma f(z) dz = 0$ for all $R$. The integral we are interested 
+in is $\lim_{R \to \infty} Re \int_{A} f(z) dz$. To that end,
+we compute the integral over the other parts of the curve.
+
+Consider the integral along $C$. We can parameterize this part of 
+the curve as $\gamma(t) = t e^{i \pi/4}$ with $t: R \to 0$. 
+Then consider 
+\begin{align*}
+	\int_C f(z) dz &= - \int_0^R f(\gamma(t)) \gamma'(t) dt \\
+		&= - \int_0^R e^{i t^2(e^{i \pi/4})^2} e^{i \pi/4} dt \\
+		&= - e^{i \pi / 4} \int_0^R e^{-t^2} dt
+	\intertext{Then in the limit $R \to \infty$, }
+	\int_C f(z) dz &= - e^{i \pi / 4} \frac{\sqrt \pi }{2}. 
+\end{align*}
+
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}[3]
+	\hfill
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}[4]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}[4]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+\end{document}
