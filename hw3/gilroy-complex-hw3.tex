@@ -3,6 +3,7 @@
 \usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
 \usepackage{xcolor, tikz-cd}
 \newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newenvironment{wgenv}{\color{violet}}{}
 \newcommand{\OO}{\mathcal O}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\R}{\mathbb R}
@@ -73,10 +74,11 @@ Now, computing our integral directly gives
 \begin{solution}
 Notice that $Re(e^{ix^2}) = \cos(x^2)$ for $x \in \R$. 
 To that end we consider integrating $\int_\gamma f(z) dz$
-where $f(z) = e^{iz^2}$ over 
+where $f(z) = e^{-z^2}$ over 
 the following contour.
 \wg{insert contour}
 
+\begin{wgenv}
 Notice that $f'(z)$ is entire with $f'(z) = 2ize^{iz^2}$, and so 
 also has continuous derivative. By Cauchy's Theorem we have that 
 $\int_\gamma f(z) dz = 0$ for all $R$. The integral we are interested 
@@ -93,6 +95,53 @@ Then consider
 	\intertext{Then in the limit $R \to \infty$, }
 	\int_C f(z) dz &= - e^{i \pi / 4} \frac{\sqrt \pi }{2}. 
 \end{align*}
+\end{wgenv}
+We integrate along part $A$ of the curve above. We parameterize this
+part of the curve at $\gamma(t) = t \in [0,R]$. Then we have 
+\begin{align*}
+	\lim_{R \to \infty} \int_A f(z) dt
+	&= \lim_{R \to \infty} \int_{t=0}^R f(\gamma(t))\gamma'(t) dt \\
+	&= \lim_{R \to \infty} \int_{t=0}^R e^{-t^2} dt \\
+	&= \int_{t=0}^\infty e^{-t^2} dt \\
+	&= \frac{\sqrt \pi}{2},
+\end{align*}
+as given in the book.
+
+\wg{How do we show that the integral over part $B$ is zero?}
+
+Notice that $f$ is entire with continuous derivative. By Cauchy's
+theorem we have \[
+	-\int_{C} f(z) dz = \int_A f(z) dz = \sqrt\pi / 2. 
+\]
+Consider the integral along $C$. We paramaterize this part of the
+curve as $\gamma(t) = t e^{i \pi /4}$ with $t: R \to 0$.
+Now consider
+\begin{align*}
+	-\int_C f(z) dz 
+	&= -\int_{t=R}^0 f(\gamma(t)) \gamma'(t) dt \\ 
+	&= e^{i\pi/4}\int_{t=0}^R e^{(t e^{i\pi/4})^2} dt \\
+	&= e^{i\pi/4}\int_{t=0}^R e^{(\frac{t}{\sqrt 2} (1 + i))^2} dt \\
+	&= e^{i\pi/4}\int_{t=0}^R e^{-it^2} dt \\
+	&= e^{i\pi/4}\int_{t=0}^R \cos(-t^2) + i \sin(-t^2) dt \\
+	&= e^{i\pi/4}\int_{t=0}^R \cos(t^2) - i \sin(-t^2) dt \\
+	&= \frac{1}{\sqrt 2}(1 + i )\int_{t=0}^R \cos(t^2) - i \sin(-t^2) dt \\
+	&= \frac{1}{\sqrt 2} \left[
+		\int_0^R \cos(t^2) + \sin(t^2) dt 
+		+ i\left(\int_0^R \cos(t^2) - \sin(t^2) dt \right)
+	\right]	
+\end{align*}
+Now, taking the limit $R \to \infty$ and recalling Cauchy's formula
+gives 
+\[
+	\int_0^\infty \cos(t^2) + \sin(t^2) dt 
+	+ i\left(\int_0^\infty \cos(t^2) - \sin(t^2) dt \right)
+	= \frac{\sqrt{2 \pi}}{2}
+\]
+Comparing the real and imaginary part of this equation gives
+$\int_0^\infty \cos(t^2) dt = \int_0^\infty \sin(t^2) dt$ 
+and then gives $\int_0^\infty \cos(t^2) dt = (\sqrt{2\pi})/4$
+
+
 
 
 \end{solution}
