@@ -7,7 +7,7 @@
 \newcommand{\OO}{\mathcal O}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\R}{\mathbb R}
-\newcommand{\C}{\mathcal C}
+\newcommand{\C}{\mathbb C}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\im}{\text{im }}
@@ -78,24 +78,6 @@ where $f(z) = e^{-z^2}$ over
 the following contour.
 \wg{insert contour}
 
-\begin{wgenv}
-Notice that $f'(z)$ is entire with $f'(z) = 2ize^{iz^2}$, and so 
-also has continuous derivative. By Cauchy's Theorem we have that 
-$\int_\gamma f(z) dz = 0$ for all $R$. The integral we are interested 
-in is $\lim_{R \to \infty} Re \int_{A} f(z) dz$. To that end,
-we compute the integral over the other parts of the curve.
-
-Consider the integral along $C$. We can parameterize this part of 
-the curve as $\gamma(t) = t e^{i \pi/4}$ with $t: R \to 0$. 
-Then consider 
-\begin{align*}
-	\int_C f(z) dz &= - \int_0^R f(\gamma(t)) \gamma'(t) dt \\
-		&= - \int_0^R e^{i t^2(e^{i \pi/4})^2} e^{i \pi/4} dt \\
-		&= - e^{i \pi / 4} \int_0^R e^{-t^2} dt
-	\intertext{Then in the limit $R \to \infty$, }
-	\int_C f(z) dz &= - e^{i \pi / 4} \frac{\sqrt \pi }{2}. 
-\end{align*}
-\end{wgenv}
 We integrate along part $A$ of the curve above. We parameterize this
 part of the curve at $\gamma(t) = t \in [0,R]$. Then we have 
 \begin{align*}
@@ -150,32 +132,150 @@ and then gives $\int_0^\infty \cos(t^2) dt = (\sqrt{2\pi})/4$
 
 %------------------------- Problem 3 -----------------------
 
-\begin{problem}[3]
+\begin{problem}
+	\includegraphics[scale=0.8]{3.png}
 	\hfill
 \end{problem}
 \begin{solution}
+Let us write $f(z) = u(x,y) + iv(x,y)$ and $z = x + iy$. Consider
+$\sum_{n=1}^{\infty} f_n(z) = \sum_{n=1}^{\infty} u_n(x,y) + iv(x,y)$ 
+converges uniformly to $f(z)$ means that $\sum_{n\geq 1} u_n$ and
+$\sum_{n \geq 1} v_n$ converge uniformly to $u$ and $v$ respectively.
+
+Now recall that we can decompose our integral into linear combination
+of integrals over multivariable real functions, and consider the following
+\begin{align*}
+	\int_\gamma f(z) dz 
+	&= \int_\gamma (u dx - v dy) + i \int_\gamma (v dx + u dy) \\
+	&= \int_\gamma \sum_{n \geq 1} u_n  dx
+		- \int_\gamma \sum_{n \geq 1} v_n  dy
+		+ i \int_\gamma \sum_{n \geq 1} v_n dx
+		+ i \int_\gamma \sum_{n\geq 1} u_n dy \\
+	&= \sum_{n \geq 1} \int_\gamma u_n  dx
+		- \sum_{n \geq 1}\int_\gamma v_n  dy
+		+ i \sum_{n \geq 1}\int_\gamma v_n dx
+		+ i \sum_{n \geq 1}\int_\gamma u_n dy \\
+	&= \sum_{n \geq 1} \left(
+		\int_\gamma(u_n dx - v_n dy) + i \int_\gamma (v_n dx + u dy)
+		\right) \\
+	&= \sum_{n \geq 1} \int_\gamma f_n(z) dz,
+\end{align*}
+where the third equality holds since each of the relevent series of
+real functions converge uniformally, as discussed above\footnote{
+	There may be some other measure theoretic conditions on the curve,
+	perhaps that the curve is finite measure.
+}.
 \end{solution}
 
 \newpage
 
 %------------------------- Problem 4 -----------------------
 
-\begin{problem}[4]
-	\hfill
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
 \end{problem}
 
 \begin{solution}
+In this solution, I will let $\bar R$ denote the rectangle and its
+interior.
+We split up our solution into cases: $z_0 \in U \setminus \bar R$,
+$z_0 \in R$, $z_0 \in \text{Int }R$. 
+When $z_0 \in U \setminus \bar R$ we can find an open set $V \subseteq
+U$ such that $R \subseteq V$ but $z_0 \not \in V$. 
+Since $V \subseteq U \setminus z_0$ we have that $f$ is holomorphic on 
+$V$. Then, by Goursat's lemma we have that $\int_R f(z) dz = 0$.
+We cannot have the case where $z_0 \in R$ since for $\int_R f(z) dz$
+to be well-defined, we need $f(z)$ to be defined for all $z \in R$. 
+But this is not the case if we have $z_0 \in R$.
+
+Lastly, consider $z_0 \in \text{Int } R$. 
+Suppose $D(z_0, \varepsilon)$ denotes the closed ball about $z_0$ with
+radius $\varepsilon$. Then let us define a new region $R' = \text{Int
+} R \setminus D(z_0, \varepsilon)$. Notice that $R'$ is an open set in
+$\C$ where $f$ is holomorphic and bounded. Moreover, $\partial R'$ has
+two components $\partial R' = R \sqcup S_{\varepsilon, z_0}$. 
+Orient $R$ counter clockwise and orient $S_{\varepsilon, z_0}$
+clockwise. Then there's a version of Cauchy's Theorem
+(that's a bit more general than the specific one we proved in class,
+but which Ben used in another proof \wg{perhaps I should discuss this
+at the end}) which gives us that \[
+	\int_R f(z) dz = \int_{S_{\varepsilon, z_0}} f(z) dz.
+\]
+Now consider the integral around the small circle centered at $z_0$.
+We show this integral is zero by bounding it. 
+Since $f$ is bounded we have that $\abs{f(z)} \leq M$ for some $M \in
+\C$ for all $z \in \C$. Now, consider
+\begin{align*}
+	\int_{S_{\varepsilon, z_0}} f(z) dz 
+		&\leq \sup_{z \in S_{\varepsilon, z_0}} \abs{f(z)} \cdot 2\pi \varepsilon \\
+		&= \leq M \cdot 2\pi \varepsilon && \text{Since $f$ is bounded,} \\ 
+		&\to 0 && \text{as $\varepsilon \to 0$}. 
+\end{align*}
+This then gives the desired result $\int_R f(z) dz = 0$. 
+
+\wg{Perhaps come back and discuss the general version of Cauchy's theorem.}
+
 \end{solution}
 
 \newpage
 
 %------------------------- Problem 4 -----------------------
 
-\begin{problem}[4]
+\begin{problem}
+	\includegraphics[scale=0.8]{5.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Consider the function $f(z) = \bar z$ on the unit disc $\Delta$. 
+We saw some time ago that $f$ is not a holomorphic function since 
+it does not satisfy the Cauchy-Riemann equations.
+Indeed, writing $f(x+iy) = x - iy$ we see that $u(x,y) = x$ and
+$v(x,y) = -y$ and then neither $\partial u/\partial x = \partial v /
+\partial y$ nor $\partial u / \partial y = - \partial v / \partial x$
+are satisfied for any $z \in \C$. In particular, there is no 
+point in $\C$ where $f$ is holomorphic. 
+
+However, $f$ is continuous on $\Delta$ (in fact, on all of $\C$).
+Consider the following limit for some $z_0 \in \C$
+\begin{align*}
+	\lim_{z \to z_0} f(z) &= \lim_{x + iy \to x_0 + i y_0} (x - iy) \\
+		&= \lim_{x \to x_0} x - i \lim_{y \to y_0} y && \text{using linearity of limits,} \\
+		&= x_0 - i y_0 \\
+		&= f(z_0).
+\end{align*}
+And so $f(z) = \bar z$ is continuous by definition. 
+
+I claim now that $f$ cannot be approximated arbitrarily well 
+by polynomials on $\Delta$. A function $g: \C \to \C$ 
+being approximated arbitrarily
+well on $\Delta$ by polynomials means (I think) that there is some 
+neighbourhood about each point $z_0 \in U \subseteq \Delta$ such that 
+$f$ has a convergent power series. 
+\wg{(Perhaps there are other interpretations, 
+I will discuss this more at the end)}
+Now, for any $z_0 \in \C$, if $f$ had a convergent power series about
+$z_0$ then we would have found an open neighbourhood 
+where $f$ is holomorphic. This is a contradiction since, as argued above,
+$f$ does not satisfy the Cauchy-Riemann equations for any 
+point in $\C$.
+
+We have shown in class that if a function is holomorphic on some domain
+then it is analytic on that same domain. And conversely, any power
+series is holomorphic on its domain of convergence. However, 
+there still exist complex functions which are continuous but not
+holomorphic.
+
+\wg{I will note, perhaps another way of interpreting 
+``uniformally approximated arbitrarily well by polynomials''
+might mean something more like: for a given point $z_0$ there's a sequence of polynomials
+$p_n$ such that $\abs{f(z_0) - p_n(z_0)} \to 0$ as $n \to \infty$
+where $p_n$ can be defined just on some neighbourhood of $z_0$.
+This might be the same thing as $f$ having a convergent power series 
+at the point $z_0$, but it's not entirely clear to me.
+}
+
+
 \end{solution}
 
 \newpage
