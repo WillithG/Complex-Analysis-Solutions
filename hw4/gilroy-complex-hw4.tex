@@ -1,0 +1,190 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Algs Homework \#}
+\rhead{03 November 2021}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Algorithms HW } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}[1]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+If at some point $z_0 \in \C$ we have some power series coefficient
+$c_n = 0$ then, recalling that the formula for the power series
+coefficients, we have \[
+	f^{(n)}(z_0) = 0,
+\]
+for some $n$.
+Let us cover $\C$ with sets where the $n$th derivative is zero.
+Let $Z_n := \{z_0 \in \C: f^{(n)} = 0\}$ be the set where the $n$th
+derivative of $f$ is zero. Then, the statement in the question can be
+rewritten as \[
+	\C = \bigcup_{n = 0}^\infty Z_n.
+\]
+However, there are only countably many such sets $Z_n$ yet $\C$ is an
+uncountable set. This means there is at least one $\tilde n$ where
+$Z_{\tilde n}$ is uncountable.
+
+We claim that $Z_{\tilde n}$ then has a limit point.
+Consider tiling $\C$ with closed unit squares. One of these squares
+must contain uncountably many points of $Z_{\tilde n}$, otherwise we
+would have shown that $Z_{\tilde n}$ is countable.
+That is, we have some square, a closed and bounded subset of $\C$,
+which contains uncountably many points of $Z_{\tilde n}$. It follows 
+by Bolzano-Weierstrass that $Z_{\tilde n}$ has an accumulation point
+in that square. But in particular, $Z_{\tilde n}$ has an accumulation
+point.
+
+Now recall that $Z_{\tilde n}$ are the points where $f^{(\tilde n)}$
+vanish. We have found a sequence of points in $\C$ converging to some 
+limit point in $\C$ where $f^{(\tilde n)} = 0$. It follows then by the
+identity theorem for holomorphic functions that $f^{(\tilde n)}$ is
+identically zero.
+Moreover, it then follows that $f^{(\tilde n + k)}$ is also
+identically zero for all $k \in \Z_+$. In other words we have that the 
+power series coefficients $c_n = 0$ for all $n \geq \tilde n$. 
+
+Now we can write $f$ as a polynomial by repeatedly writing down the
+antiderivatives for $f^{(\tilde n)}$. We can determine the polynomial
+coefficients by inspecting the power series at $z = 0 $. 
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{3.png}
+	\hfill
+\end{problem}
+\begin{solution}
+\wg{Hmmm this might be bollocks, in particular, $\sum_i \abs{f_i(z)}$
+may not be holomorphic}
+
+In this situation the Cauchy integral formulae give us the following
+\begin{align*}
+	\frac{d}{dz}(\sum_i \abs{f_i(z)}) 
+	&= \frac{1}{2\pi i } \int_\gamma \frac{\sum_i \abs{f_i(z)}}{(z - \xi)^2} d\xi \\
+	&= \frac{M}{2\pi i } \int_\gamma \frac{1}{(z - \xi)^2} d\xi \\
+\end{align*}
+Suppose that $\gamma$ is a circle of radius $R$ centered 
+at $z$. Then $1/(z-\xi)^2$ has an antiderivative on the punctured domain
+bounded by $\gamma$. By the fundamental theorem of calculus the above
+integral is then $0$.
+Then we have. \[
+	\frac{d}{dz}(\sum_i \abs{f_i(z)})  = 0. 
+	\]
+	By linearity of the derivative, this is only true when
+	$\frac{d}{dz}\abs{f_i(z)} = 0$ for each $i$. And then this implies
+	that each $f_i$ is constant on $U$. 
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+We want to construct $f(x+iy) = u(x,y) + iv(x,y)$ which is holomorphic
+on $\Delta$. Recall that this means we need both $u,v$ to be
+differentiable as multivariable real functions. Moreover, we need
+$u,v$ to satisfy the Cauchy-Riemann equations \[
+	\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} 
+	\qquad \frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x}.
+\]
+Recall from multivariable calculus that we can take single-variable
+integrals to partially recover a function from its derivatve by taking
+indefinite integrals
+\begin{align*}
+	\int \left( \pdv{v}{x} \right) dx &= v(x,y) + C(x) \\
+	\int \left( \pdv{v}{y} \right) dy &= v(x,y) + D(y),
+\end{align*}
+for any differentiable functions $C,D : \R \to \R$. \wg{What are the bounds in this
+set up?}
+
+Here, we are given $u(x,y)$ and so we can paritally determine $v$ by
+computing 
+\begin{align*}
+	v(x,y) + C(x) &= \int \left( -\pdv{u}{y} \right) dx \\
+	v(x,y) + D(y) &= \int \left( \pdv{u}{x} \right) dy.
+\end{align*}
+However, this gives us a system of two equations with three unknowns. 
+And so we can only ever determine $v$ up to either a function of $x$
+or a function of $y$. 
+
+Note that this process of integrating our partial derivatives to
+reconstruct $v$ works (locally) exactly when 
+$\pdv{}{x}(\partial v / \partial y)
+= \pdv{}{y}(\partial v / \partial x)$ (this is tantamount to
+``partials commuting''). If $v$ is a
+twice differentiable real function then its partials must commute.
+The harmonic condition on $u$ satisfies this condition in our case;
+consider 
+\begin{align*}
+	\frac{\partial^2 v}{\partial y \partial x}
+	&= \pdv{}{y} \left(-\pdv{u}{y} \right) && \text{Cauchy-Riemann} \\
+	&= -\frac{\partial^2 u}{\partial y^2} \\
+	&= \frac{\partial^2 u}{\partial x^2}  && \text{Harmonic condition on $u$} \\
+	&= \pdv{}{x} \pdv{u}{x} \\
+	&= \pdv{}{x} \pdv{v}{y} && \text{Cauchy-Riemann} \\
+	&= \frac{\partial ^2 v}{\partial x \partial y}. \\
+\end{align*}
+
+\end{solution}
+
+\newpage
+
+\end{document}
