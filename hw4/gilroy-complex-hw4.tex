@@ -107,6 +107,17 @@ coefficients by inspecting the power series at $z = 0 $.
 	\hfill
 \end{problem}
 \begin{solution}
+We have that $\sum_i \abs{f_i(z)} = M$ for some constant $M \in \C$. 
+In particular, we must have that each $\abs{f_i(z)} \leq M$ for all $z
+\in U$; as a sum of non-negative real numbers, if any $\abs{f_i(z)}$ was
+unbounded on $U$ then the sum $\sum_i \abs{f_i(z)}$ would be unbounded
+on $U$.
+
+That is, for each of the holomorphic functions $f_i$ we have $\abs{f_i(z)}$ is bounded on $U$. 
+But then by the maximum modulus principle we have that each $f_i$ is 
+constant on $U$. 
+
+\iffalse
 \wg{Hmmm this might be bollocks, in particular, $\sum_i \abs{f_i(z)}$
 may not be holomorphic}
 
@@ -126,6 +137,7 @@ Then we have. \[
 	By linearity of the derivative, this is only true when
 	$\frac{d}{dz}\abs{f_i(z)} = 0$ for each $i$. And then this implies
 	that each $f_i$ is constant on $U$. 
+\fi
 \end{solution}
 
 \newpage
