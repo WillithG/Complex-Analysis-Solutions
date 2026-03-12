@@ -1,0 +1,263 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Algs Homework \#}
+\rhead{03 November 2021}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Algorithms HW } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}[1]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}[2]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{3.png}
+	\hfill
+\end{problem}
+\begin{solution}
+First notice that we can rewrite $\sin x$ in terms of complex
+exponential: $\sin x = (e^{ix} - e^{-ix})/2i$ for any real $x$.
+And so if we take $z \in S^1$ we will have $z = e^{ix}$ and then we
+can write our given integral in terms of a contour integral about the
+unit circle: 
+\[
+	\int_{0}^{2\pi} \frac{dx}{2 - \sin x} = \int_{S^1} \frac{dz}{iz} \frac{1}{2 - (z - z\inv)/2i}
+\]
+Rearranging gives us the following
+\begin{align*}
+	\int_{S^1} \frac{dz}{iz} \frac{1}{2 - (z-z\inv)/2i} 
+	&= \int_{S^1} \frac{dz}{iz} \frac{2i}{4i - z + z\inv} \\
+	&= 2 \int_{S^1} \frac{dz}{4iz - z^2 + 1}.
+\end{align*}
+Now the rational function $f(z) = \frac{1}{4iz-z^2 + 1}$ should have two
+poles in $\C$. If we can find the poles and compute the residue of any
+pole which lies inside the unit circle we can then use the residue
+theorem to complete the integral.
+
+Notice that we can rewrite the denominator as \[
+	-z^2 + 4iz + 1 = -(z-2i)^2 -3,
+\]
+and so we can rearrange for the roots 
+\begin{align*}
+	(z-2i)^2 &= -3 \\
+	z - 2i &= \pm i \sqrt 3 \\
+	z &= i (2 \pm \sqrt 3). 
+\end{align*}
+And then we can factor our denominator into the product of its roots
+\[
+	-z^2 + 4iz + 1 = (z - i(2 + \sqrt 3))(z - i(2 - \sqrt 3)). 
+\]
+The moduli of each of these roots is \[
+	\abs{i(2+ \sqrt 3)} = 7 + 4\sqrt 3 \approx 14 
+	\qquad \abs{i(2- \sqrt 3)} = 7 - 4 \sqrt 3 \approx 0.07.
+\]
+And so only the latter root lies inside of our contour.
+
+We compute the residue of $f$ at $p := i(2 - \sqrt 3)$. 
+Notice that $f$ only has a simple root at $p$. And so we can compute
+the residue at $p$ as follows 
+\begin{align*}
+	res_p(f) 
+	&= \lim_{z \to p} (z - i(2 - \sqrt 3)) \frac{1}{(z-i(2 - \sqrt 3))(z - i(2 + \sqrt 3))} \\
+	&= \lim_{z \to p} \frac{1}{z - i(2 + \sqrt 3)} \\
+	&= \frac{1}{i(2 - \sqrt 3) - i(2 + \sqrt 3)} \\
+	&= \frac{1}{-2i \sqrt 3}. 
+\end{align*}
+
+Then, lastly, applying the residue theorem gives us the following
+value of our desired integral 
+\begin{align*}
+	\int_{0}^{2\pi} \frac{dx}{2 - \sin x}		
+	&= 2 \int_{S^1} \frac{dz}{4iz - z^2 + 1} \\
+	&= 2 (2\pi i \cdot \text{res}_p f) \\
+	&= \frac{4\pi}{-2\sqrt 3}. 
+\end{align*}
+
+
+\end{solution}
+
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Let $f(z) = \log z /(z^2 + a^2)$ and then consider integrating this
+function over the following contour.
+\[
+\begin{tikzpicture}[scale=2]
+
+% parameters
+\def\R{2.5}
+\def\eps{0.4}
+
+% axes
+\draw[->] (-3,0) -- (3,0) node[right] {$Re$};
+\draw[->] (0,-0.2) -- (0,2.7) node[above] {$Im$};
+
+% large semicircle
+\draw[thick, ->] (\R,0) arc (0:180:\R);
+
+% small semicircle around origin
+\draw[thick, ->] (-\eps,0) arc (180:0:\eps);
+
+% real axis segments
+\draw[thick, ->] (\eps,0) -- (\R,0);
+\draw[thick, ->] (-\R,0) -- (-\eps,0);
+
+% labels
+%\node at (\R+0.2,0) {$R$};
+%\node at (\eps,-0.2) {$\varepsilon$};
+
+\node at (1.8,1.4) {$C_R$};
+\node at (0.55,0.25) {$S_R$};
+\node at (\R/2, -0.25) {$I_R$};
+\node at (-\R/2, -0.25) {$I_{-R}$}; 
+
+\end{tikzpicture}
+\]
+Where $C_R$ is a semicircle of radius $R$ and $S_R$ is a semicircle
+about the origin of radius $1/R$
+
+For sufficiently large $R$ we have that the contour contains a single
+pole at $z = ia$. We can thus use the residue theorem to compute the
+integral over the entire contour. Let us discuss the residue of $f$ at
+$z = ia$. Notice that we can factor the denominator $z^2 + a^2 =
+(z-ia)(z+ia)$. And so in particular $f$ has a simple pole at $z = ia$. 
+Since we have a simple pole at $z = ia$,
+we can use the following expression
+\begin{align*}
+	Res_{z=ia} f(z) &= \lim_{z \to ia} (z-ia) \frac{\log z}{(z-ia)(z+ia)}\\
+	&= \lim_{z \to ia } \frac{\log z}{z + ia} \\
+	&= \frac{\log(ia)}{2ia},
+\end{align*}
+if we take our branch cut for $\log z$ at some $\theta$ slightly larger
+than $\pi$ (so that the contour integral is well defined on $I_{-R}$). 
+And so, by the residue theorem, we have \[
+\int_\gamma f(z) dz = 2\pi i \frac{\log ia}{2ia} = \frac{\pi
+\log(ia)}{a}. 
+\]
+
+
+Let us now consider the integral of this function over each of the
+pieces of our contour.
+
+\underline{$C_R$:} Consider \[
+	\int_{C_r} \frac{\log z}{z^2 + a^2} \leq \pi R \cdot \sup_{z \in
+	C_R} \abs{f(z)}
+	\leq 2\pi R \cdot \abs{ \frac{\ln R}{R^2 + a^2} }.
+\]
+Notice that the expression $R (\ln R)/(R^2 + a^2) \leq (\ln
+	R)/(R)$ which goes to $0$ as $R \to \infty$ (a quick application
+	of L'H\'opital's rule will yield this result.)
+And so \[
+	\lim_{R \to \infty} \int_{C_R} f(z) dz = 0.
+\]
+
+\underline{$S_R$:} Using a similar sort of estimate we have \[
+	\int_{C_R} \frac{\log z}{z^2 + a^2} dz 
+	\leq \pi \frac{1}{R} \cdot \sup_{z \in C_R} \abs{ \frac{\ln z}{z^2 +
+	a^2}}
+	= \pi \frac{1}{R} \cdot \frac{\ln R}{(1/R)^2 + a^2}.
+\]
+We want to show that this latter expression goes to $0$ as $R \to
+	\infty$. Notice first that as $R \to \infty$ we have that
+	$(1/R)^2 + a^2$ is dominated by $a^2$. Moreover, we argued above
+	that $\lim_{R \to \infty} (\ln R)/R = 0$.
+And so, we have
+\begin{align*}
+	\int_{C_R} \frac{\log z}{z^2 + a^2} dz 
+	&\leq \pi \frac{1}{R} \frac{\ln R}{a^2} \\
+	&= \frac{\pi}{a^2} \frac{\ln R}{R} \\
+	& \to_{R \to \infty} 0. 
+\end{align*}
+
+\underline{$I_{-R}$}. Now lastly, let us compare the integral over $I_{-R}$ to the integral
+over $I_R$. We have \[
+\int_{I_{-R}} f(z) dz = - \int_{-1/R}^{-\infty} \frac{\log z}{z^2 +
+a^2} dz = \int_{1/R}^{\infty} \frac{\log z}{z^2 + a^2} dz,
+\]
+where in the last equality we have made the substituion $z \mapsto
+-z$. In particular $\log(-z) = \log z$ for $z$ a real number and
+$\log$ meaning complex logarithm. Since $\log(r e^0) = \ln\abs{r} + 0$
+and so $\log(-r e^0) = \ln \abs{-r} = \ln{r}$. Note also that the
+negative sign in the second expression comes from ``reversing the
+orientation of the contour on $I_{-R}$'' (following the orientation in
+the image of the
+contour, the bounds on the second integral would read ``$-\infty$ to $-1/R$'')
+
+By the residue theorem  and the arguments above, we have 
+\begin{align*}
+	\frac{\pi \log(ia)}{a} &= 
+	\int_{\gamma} f(z) dz \\
+	&= 2 \lim_{R\to \infty }\int_{I_R} \frac{\log z}{z^2 + a^2} dz \\
+	&= 2 \int_{0}^\infty \frac{\log z}{z^2 + a^2} dz \\
+\end{align*}
+And so the desired integral is given by \[
+	\frac{\pi \log(ia)}{2a}.
+\]
+	\wg{Looks like I have $\log(ia)$ instead of $\log(a)$. Perhpas
+	there's a typo in the question, or perhaps I have missed some
+	final argument?}
+
+
+\end{solution}
+
+\newpage
+
+\end{document}
