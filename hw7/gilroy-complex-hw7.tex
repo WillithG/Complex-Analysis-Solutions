@@ -157,10 +157,22 @@ is,
 \[
 	f(z) = a_0 + a_{-1}z + \cdots a_{-k}z^k.
 \]
-\wg{We have shown that $f$ is a polynomial about $0$. I suppose we
-need to try and show that it's actually linear near $z=0$. But even if
-we show that, we want to show that $f$ is globally a linear function.
-How would we do that?}
+Moreover, since this $f$ is entire this series holds everywhere on
+$\C$ (has infinite radius of convergence). \wg{I think I see this
+intuitively, but note to self to try and think about this using
+Hadamard}
+
+We have shown that $f$ is a polynomial, but recall that $\C$ is
+algebraically closed. And so if $f$ is degree $k$ then it has $k$
+roots in $\C$. That is, there are $k$ points in $\C$ where $f(z) = 0$.
+However, it must be that $k=1$, otherwise we would have shown that $f$
+is not injective. That is, we in fact have that $f$ is a degree $1$
+polynomial
+\[
+	f(z) = a_0 + a_{-1} z,
+\]
+for some $a_0, a_1 \in \C$. 
+
 
 \end{solution}
 
