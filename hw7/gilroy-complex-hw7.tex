@@ -1,0 +1,171 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Algs Homework \#}
+\rhead{03 November 2021}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Algorithms HW } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Cosider the following limit, we have 
+\begin{align*}
+	\lim_{z \to 0}\abs{z f(z)}	
+	&= \lim_{z \to 0}\abs{z}\abs{f(z)} \\
+    &\leq \lim_{z \to 0}\abs{z}\frac{1}{\sqrt{\abs{z}}} \\
+	&= \lim_{z \to 0}\sqrt{\abs z}\\
+	&= 0,
+\end{align*}
+and so $\lim_{z \to 0} \abs{zf(z)} = 0$. 
+I particular we then have that $\lim_{z \to 0} zf(z) = 0$ since $0$ is
+the only complex number with zero modulus.
+
+Now, we can construct a holomorphic extension of $f$ on $\Delta$.
+(Note that this is the proof of an alternative characterization of 
+the Riemann Removable singularity theorem that we saw in class).
+
+Let $h: \Delta \to \C$ be defined by 
+\[
+	h(z) = \begin{cases}
+		z^2f(z) & z \neq 0  \\
+		0 & z = 0.
+	\end{cases}
+\]
+Notice that $h$ is holomorphic on $\Delta^\star$ as the product of two
+holomorphic functions on $\Delta^\star$. 
+We show that $h$ is also holomorphic at $z = 0$. We have 
+\[
+	h'(0) = \lim_{z\to 0} \frac{z^2f(z) - 0}{z} 
+	= \lim_{z \to 0} zf(z)  = 0,
+\]
+where the last equality follows by the argument above. And so $h$ is
+holomorphic at $0$ and in particular $h'(0) = 0$.
+
+Since $h$ is holomorphic at $z= 0$ it has a power series expansion
+about $z = 0$
+\[
+	h(z) = c_0 + c_1 z + c_2 z^2+ c_3 z^3 + \cdots 
+\]
+However, by definition $c_0 = h(0) = 0$ and $c_1 = h'(0) = 0$ and so
+we actually have 
+\[
+	h(z) = c_2 z^2 + c_3z^3 + \cdots 
+\]
+Recall that for $z \neq 0$ we have
+\[
+	f(z) = \frac{h(z)}{z^2} 
+	= c_2 + c_3 z + c_4 z^2 + \cdots
+\]
+In other words, the power series
+\[
+	c_2 + c_3 z + c_4 z^2 + \cdots
+\]
+agrees with $f(z)$ for all $z \neq a$ in $\Delta^\star$. However, this power series ia
+also manifestly holomorphic on all of $\Delta$. And so we have found a
+holomorphic function which extends $f$ to $\Delta \to \C$. 
+
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}[2]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}
+	
+	\includegraphics[scale=0.8]{3.png}
+	\hfill
+\end{problem}
+\begin{solution}
+	Recall that the residue of a meromorphic function $f: U \to \C$ at
+	a point $p \in U$ is given by the $a_{-1}$ coefficient in it's
+	Laurent expansion about $p$.
+	For this question we determine the Laurent expansion of
+	$\sin^3(z)$ about $z = 0$ by using power series that we already
+	know.
+
+	Recall the Taylor expansion of $\sin z$ about $z= 0$ is given by \[
+		\sin z = z - \frac{z^3}{3!}	+ \frac{z^5}{5!} - \cdots
+	\]
+	And so in particular we have the following Laurent series
+	expansion of $\sin^3(1/z)$ about $z = 0$
+	\[
+	\sin^3\left(\frac{1}{z}\right)	= \left[
+		\frac{1}{z} - \frac{1}{3!}\frac{1}{z^3} + \frac{1}{5!} \frac{1}{z^5} - \cdots
+	\right]^3
+	\]
+	Now, notice that the largest power of $z$ in this expansion is
+	going to be $1/z^3$ with all other terms having a lower power of
+	$z$. That is the coefficients of the Laurent series expansion is
+	$a_n = 0$ for all $n \geq -2$. In particular $a_{-1} = 0$ and so 
+	the residue of $\sin^3(1/z)$ about $z = 0$ is $0$. 
+
+	Note that althought the residue of our function is $0$ at $z=0$,
+	our function does have a singularity at $0$. In fact, the Laurent
+	series expansion about $z=0$ has infinitely many terms with negative powers of
+	$z$ and so the singularity at $z= 0$ is essential.
+
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}[4]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+\end{document}
