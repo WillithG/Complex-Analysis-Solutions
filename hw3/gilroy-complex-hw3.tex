@@ -19,8 +19,8 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Homework \#3}
+\rhead{10 February 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -35,7 +35,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Analysis Homework \# 3} 
 
 %------------------------- Problem 1 -----------------------
 
@@ -49,17 +49,59 @@ We start by splitting the integrand with partial fractions.
 Notice that \[
 \frac{1}{(x-a)(x-b)} = \frac{1}{(a-b)(x-a)} - \frac{1}{(a-b)(x-b)}.
 \]
-Next we paramaterize $S_r = \gamma(t) = r\exp(it)$ with $\abs a < r <
+Next we paramaterize $S_r = \gamma(t) = r\exp(it)$ has $\gamma'(t) =
+ri \exp(it)$ with $\abs a < r <
 \abs b$.
 Now, computing our integral directly gives
 \begin{align*}
 	\int_{S_r}\frac{1}{(z-a)(z-b)} dz 
 	&= \int_{t=0}^{2\pi} f(\gamma(t)) \gamma'(t) dt \\
-	&= \int \frac{i}{a-b} 
-		\left( \frac{r \exp(it)}{r\exp(it) - a} - \frac{r \exp(it)}{r\exp(it) - b}\right) dt \\
-	&= \frac{i}{a-b} \int_{t = 0}^{2\pi} \left( \frac{1}{1 - \frac{a}{r}\exp(-it)} - \frac{1}{1 - \frac{b}{r}\exp(-it)} \right) dt
+	&= \frac{1}{a-b} \int_{t=0}^{2\pi}
+		\left( \frac{1}{r\exp(it) - a} - \frac{1}{r\exp(it) - b}\right)
+			ri \exp(it) dt 
 \end{align*}
-\wg{if we can show that the integrand is $1$ then we are done}
+\wg{if we can show that this final integral is $i$ then we are done}
+
+Let us integrate this term by term. Consider the first term
+\begin{align*}
+	\int_{t=0}^{2\pi}\frac{ri \exp(it)}{r\exp(it) - a} dt.
+\end{align*}
+The integrand has the following antiderivative \[
+	\ln(r \exp(it) - a) = \ln(r\exp(it)(1 - a/r \exp(-it))) 
+	= it + \ln(r) + \ln(1 - a/r \exp(-it)),
+\]
+an expression valid for $t \in (-\pi,\pi)$. Recall that
+	$r$ is a real number and that $a/r < 1$
+Then we have 
+\begin{align*}
+	\int_{t=0}^{2\pi}\frac{ri \exp(it)}{r\exp(it) - a} dt 
+	&= \left[ it + \ln(r) + \ln(1 - a/r \exp(-it)) \right]_{t=0}^{2\pi} \\
+	&= 2\pi i.
+\end{align*}
+\wg{I am a little confused here because we are evaluating an integral 
+over a real quantity $t \in \R$. However, the integrand is still a 
+complex function and we are using the complex logarithm to find this 
+antiderivative.
+}
+
+Now consider the second term \[
+	\int_{t=0}^{2\pi} \frac{ri \exp(it)}{r \exp(it) -b} dt.
+\]
+\wg{Cauchy's Theorem gives us that the function 
+$1/(z-b)$ is holmorphic on the open set bounded by $S_r$ and 
+so this second integral should equal $0$ (which then gives us 
+the answer that we're looking for)
+. However, 
+using the same antiderivative logic as above makes it look like
+we should get something like }
+
+\wg{
+$\left[ it + \ln(b) + \ln(r/b - \exp(-it)) \right]_{t=0}^{2\pi}$.
+Which doesn't seem quite right.
+There's soemthing about this reasoning which shouldn't apply based 
+on the condition that $r < \abs{b}$. 
+}
+
 \end{solution}
 
 \newpage
@@ -72,11 +114,38 @@ Now, computing our integral directly gives
 \end{problem}
 
 \begin{solution}
-Notice that $Re(e^{ix^2}) = \cos(x^2)$ for $x \in \R$. 
-To that end we consider integrating $\int_\gamma f(z) dz$
+Consider integrating $\int_\gamma f(z) dz$
 where $f(z) = e^{-z^2}$ over 
 the following contour.
-\wg{insert contour}
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[scale=2]
+
+	% Axes
+	\draw[->] (-0.2,0) -- (2.2,0) node[right] {};
+	\draw[->] (0,-0.2) -- (0,2.2) node[above] {};
+
+	% Points
+	\coordinate (O) at (0,0);
+	\coordinate (R) at (2,0);
+	\coordinate (A) at ({2*cos(45)},{2*sin(45)}); % R*exp(i*pi/4)
+
+	% Contour
+	\draw[thick,->] (O) -- (R) node[midway,below] {$A$};
+	\draw[thick,->] (R) arc[start angle=0,end angle=45,radius=2];
+	\draw[thick,->] (A) -- (O) node[midway,left] {$C$};
+
+	% Labels
+	\node at (R) [below] {$R$};
+	\node at (A) [above right] {$B$};
+
+	% Optional: small arrow indicating arc direction
+	\draw[->] ({2*cos(22.5)},{2*sin(22.5)}) arc[start angle=22.5,end angle=27,radius=0.1];
+
+	\end{tikzpicture}
+	\caption{Contour that we will follow for this integral.}
+	\label{<label>}
+\end{figure}
 
 We integrate along part $A$ of the curve above. We parameterize this
 part of the curve at $\gamma(t) = t \in [0,R]$. Then we have 
@@ -89,9 +158,37 @@ part of the curve at $\gamma(t) = t \in [0,R]$. Then we have
 \end{align*}
 as given in the book.
 
-\wg{How do we show that the integral over part $B$ is zero?}
+Next we show that the integral over section $B$ goes to zero.
+We can estimate \[
+	\int_{B} e^{-z^2} dz \leq \sup_{z \in B} \abs{f(z)} \cdot R \pi/4.
+\]
+Consider $\sup_{z \in B} \abs{f(z)}$. 
+We can paramaterize the points in $B$ as $z = Re^{it}$ for $t \in [0,
+\pi/4]$. Notice that $\abs{f(z)} = \abs{e^{-z^2}} = e^{-Re(z^2)}$.
+\wg{
+If we can show that $e^{-Re(z^2)} \leq e^{-g(R)}$ for some non-zero function of
+$R$. Then} 
+\[
+	\lim_{R \to \infty} \int_B e^{-z^2} dz \leq
+		\lim_{R \to \infty}(\sup_{z \in B} \abs{f(z)} \cdot R \pi/4) 
+		= \lim_{R \to \infty}(e^{-g(R)} \cdot R \pi/4) = 0
+\]
+However, we have $e^{-Re(z^2)} = e^{-R^2\cos(2t)}$ and so 
+$\sup_{t \in [0, \pi/4]}\abs{e^{-z^2}} = e^{0}$ achieved at $t = \pi/4$.
+which means that, using this estimate we get 
+$\int_{B} e^{-z^2} dz \leq \sup \abs{f(z)} \cdot R\pi/4 = 1 \cdot
+R\pi/4$.
+On the other hand $\sup_{t \in [0, \pi/4)} \abs{f(z)} = e^{- \alpha
+R^2}$, i.e. $f(z)$ achieves $1$ only at $t = \pi /4$. 
+And so perhaps a finer estimate of this integral would give the result 
+that the integral over $B$ goes to $0$ as $R \to \infty$, or perhaps 
+we need to make a subtle argument with the contour about the point
+$Re^{\pi/4}$.
 
-Notice that $f$ is entire with continuous derivative. By Cauchy's
+
+\wg{For the remainder of this problem, suppose that we actually
+proved that the integral over $B$ goes to zero as $R \to \infty$.}
+Notice that $f$ is entire with continuous derivative. Then, by Cauchy's
 theorem we have \[
 	-\int_{C} f(z) dz = \int_A f(z) dz = \sqrt\pi / 2. 
 \]

@@ -13,6 +13,7 @@
 \newcommand{\inv}{^{-1}}
 \newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
 \newcommand{\anglee}[1]{\langle #1 \rangle}
+\newcommand{\ep}{\varepsilon}
 \usepackage[shortlabels]{enumitem}
 
 % Numbering macros
@@ -107,11 +108,60 @@ holomorphic function which extends $f$ to $\Delta \to \C$.
 
 %------------------------- Problem 2 -----------------------
 
-\begin{problem}[2]
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Let $g(z) = f(1/z)$. Let us understand what kind of singularity occurs
+at $g(0)$. If $g$ had a removable singularity at $0$ then we would
+have that $g$ has a power series expansion about $z=0$ as $g(z) = c_0
++ c_1z + c_2z + \cdots$ and then in particular $g(0) = c_0$ some
+finite value. However, this then implies that $f(z)$ is bounded for
+large $z$. And then, as an entire function, this would imply that $f$
+is constant. In other words $f(z) = b$ for some $b \in \C$, a special
+case of the desired form. 
+
+Now suppose $f$ is non-constant. We cannot have a removable
+singularity for $g$ at $z=0$. Consider what happens if $g$ has an
+essential singularity at $z = 0$. In this case we can apply the
+Casorati-Weierstrass theorem; we have that the image under $g$ of any
+neighbourhood of the origin $D_\ep(0)$ is dense in $\C$. By definition 
+$g(D_\ep(0)) = f(\C \setminus D_{1/\ep}(0))$ is dense in $\C$. 
+Now, recall that $f$ is holomorphic and so is, in particular, an open map.
+That is the image of some other disc $f(D_\delta(0))$ is open in $\C$ 
+and so must intersect $f(\C \setminus D_{1/\ep}(0))$. However, for
+sufficiently small $\delta, \ep$ we have that $D_\delta(0)$ and $\C
+\setminus D_{1/\ep}(0)$ are disjoint, yet their images under $f$
+intersect. This means there are two distinct $z_1, z_2 \in \C$ with
+$f(z_1) = f(z_2)$, contradicting the injectivity of $f$.
+And so $g$ cannot have an essential singularity at $z = 0$. 
+
+If $f$ is nonconstant, we are left with a pole at $z=0$ for $g$. That
+is the Laurent series for $g$ at $z = 0$ is given by \[
+g(z) = \frac{a_{-k}}{z^k} + \frac{a_{-k+1}}{z^{k-1}} + \cdots + a_0 +
+a_1 z + a_2 z^2+ \cdots
+\]
+for some $a_i \in \C$ and with not all of the $a_i = 0$ for $i < 0$. 
+Now since $g(z) = f(1/z)$ we have a Laurent series for $f(z)$ at $z=0$
+by plugging in $1/z$ into the series above. That is, near $z =0$ we
+have
+\[
+	f(z) = a_{-k}z^k + a_{-k+1}z^{k-1} + \cdots a_{-1}z + a_0 
+	+ \frac{a_1}{z} + \frac{a_2}{z^2k} + \cdots 
+\]
+However, we have that $f$ is entire, and so is in particular
+not singular at $z= 0$. Thus we have $a_i = 0$ for all $i \geq 1$. That
+is, 
+\[
+	f(z) = a_0 + a_{-1}z + \cdots a_{-k}z^k.
+\]
+\wg{We have shown that $f$ is a polynomial about $0$. I suppose we
+need to try and show that it's actually linear near $z=0$. But even if
+we show that, we want to show that $f$ is globally a linear function.
+How would we do that?}
+
 \end{solution}
 
 \newpage

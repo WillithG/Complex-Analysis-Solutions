@@ -1,7 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1770859583 "/home/willithg/2026Spring/Complex/hw3/gilroy-complex-hw3.tex" "gilroy-complex-hw3.pdf" "gilroy-complex-hw3" 1770859584 0
+["pdflatex"] 1772076790 "/home/willithg/2026Spring/Complex/hw5/gilroy-complex-hw5.tex" "gilroy-complex-hw5.pdf" "gilroy-complex-hw5" 1772076791 0
+  "%OUTDIR%/gilroy-complex-hw5.aux" 1772076791 114 4ab967b11775f913780cd52f752d81cd "pdflatex"
   "/etc/texmf/web2c/texmf.cnf" 1714944770 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/willithg/2026Spring/Complex/hw3/gilroy-complex-hw3.tex" 1770859582 13434 d85e94ebfee4f1f0422fd4a80df3d466 ""
+  "/home/willithg/2026Spring/Complex/hw5/gilroy-complex-hw5.tex" 1772076790 8810 2ea0356955addd97cd3c80a3cf074f5d ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
@@ -160,16 +161,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1681034085 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1726363669 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1737130128 7878947 d6ce6cd1bea6a8c50ac3a07237cc9779 ""
-  "1.png" 1770489212 16538 8d962c63dc29b42a903427a48bb17085 ""
-  "2.png" 1770495926 10440 8ccc49c3b84d4dbdd902645636f3d2c5 ""
-  "3.png" 1770731397 30103 403e15d2e1a4d8de10124e746b48cdf6 ""
-  "4.png" 1770842241 22691 eeb317289ad39e18835a1f27696c26b8 ""
-  "5.png" 1770845432 25862 f2f58244fc9c105e2ddaa1ffb0978bba ""
-  "gilroy-complex-hw3.aux" 1770859584 290 65ec6283e73b709a4113336d5acc2043 "pdflatex"
-  "gilroy-complex-hw3.tex" 1770859582 13434 d85e94ebfee4f1f0422fd4a80df3d466 ""
-  "hmcpset.cls" 1770489140 4085 98027ce36439082fce2e02ac517d4e29 ""
+  "1.png" 1771983942 16091 98939f991af18e98d63671f60f98c03f ""
+  "2.png" 1772059681 7363 22da7283b8ac3fd099c86efdff1cee50 ""
+  "3.png" 1772069657 8143 8a657d37df820117470509f6bb71ac99 ""
+  "4.png" 1772075698 20387 d9bf1488203cc62c778bb06b1c139e1d ""
+  "gilroy-complex-hw5.tex" 1772076790 8810 2ea0356955addd97cd3c80a3cf074f5d ""
+  "hmcpset.cls" 1771983880 4085 98027ce36439082fce2e02ac517d4e29 ""
   (generated)
-  "gilroy-complex-hw3.aux"
-  "gilroy-complex-hw3.log"
-  "gilroy-complex-hw3.pdf"
+  "%OUTDIR%/gilroy-complex-hw5.aux"
+  "%OUTDIR%/gilroy-complex-hw5.log"
+  "gilroy-complex-hw5.pdf"
   (rewritten before read)

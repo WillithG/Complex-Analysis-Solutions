@@ -20,8 +20,8 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Homework \#4}
+\rhead{18 February 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -36,15 +36,98 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Homework \#4 } 
 
 %------------------------- Problem 1 -----------------------
 
-\begin{problem}[1]
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Let us start with $\cos(z)$. Recalling the power series for $\cos$ we
+have \[
+\cos(x+iy) = 1 - \frac{(x-iy)^2}{2!} + \frac{(x+iy)^4}{4!} - \cdots 
+\]
+Also recall the binomial expansion \[
+	(x+iy)^M = \sum_{k=0}^{M} \binom{M}{k} x^{M - k} (iy)^{k}.
+\]
+The imaginary terms of the above power series is given by the terms
+with an odd power of $(iy)$. Consider the terms which have a factor of
+$(iy)^1$: 
+\begin{align*}
+	& (iy)\left[
+		- \frac{1}{2!}\binom{2}{1} x + \frac{1}{4!}\binom{4}{3}x^3
+		- \frac{1}{6!}\binom{6}{5}x^5 + \frac{1}{8!}\binom{8}{7}x^7 - \cdots
+	\right] \\
+	&= \frac{iy}{1!}\left[
+		- \frac{1}{1!} x + \frac{1}{3!}x^3
+		- \frac{1}{5!}x^5 + \frac{1}{7!}x^7 - \cdots
+	\right] \\
+	&= -iy\sin(x)
+\end{align*}
+A similar line of reasoning applied to terms with an odd-powered
+factor of $iy$ gives \[
+	\sin(x)\left[
+		-\frac{iy}{1!} + \frac{(iy)^3}{3!} - \frac{(iy)^5}{5!} + \cdots 
+	\right]
+	= -i\sin(x)\left[
+		\frac{y}{1!} + \frac{y^3}{3!} + \frac{y^5}{5!} + \cdots
+	\right]
+	\text{ or }
+	= \sin(x)\sin(iy)
+\]
+Using very similar reasoning on the terms with even-powers of $(iy)$
+gives \[
+	\cos(x)\left[
+		1 - \frac{(iy)^2}{2!} + \frac{(iy)^4}{4!} + \cdots 
+	\right]
+	= \cos(x) \left[
+		1 + \frac{y^2}{2!} + \frac{y^4}{4!} + \cdots 
+	\right]
+	\text{ or }
+	= \cos(x)\cos(iy)
+\]
+And so overall we have (emphasizing the real and imaginary parts,
+rather than writing in the most elegant way), \[
+	\cos(x+iy) = \cos(x)\left[
+		1 + \frac{y^2}{2!} + \frac{y^4}{4!} + \cdots 
+	\right] - i \left[
+		y + \frac{y^3}{3!} + \frac{y^5}{5!} + \cdots
+	\right]
+	\sin(x).
+\]
+
+Notice that the first sum is a sum of only positive numbers.
+We require $x = 2n\pi - \pi/2$ for the real part to vanish.
+For $x$ as above, $\sin(x)$ does not vanish. And 
+so, we require a $y$ value for that second infinite sum to
+vanish. Notice that $y=0$ is sufficient; but since it's a sum of odd
+powers of $y$ we could have that a negative value of $y$ perhaps makes
+that second infinite sum vanish.
+\wg{Wolfram Alpha tells me that second sum is equal to $\sinh(y)$, in which case
+the imaginary part only vanishes for $y=0$ and then our roots for 
+$\cos(x+iy)$ is exactly the set $\{(2n\pi - \pi/2, 0)\}_{n\in \Z}$}
+
+Recall the power series for $\sin(z)$,
+\[
+	\sin(x+iy) = (x+iy) - \frac{(x+iy)^3}{3!} + \frac{(x+iy)^5}{5!} - \cdots
+\]
+Using the exact same reasoning as for $\cos(z)$ we get that 
+\[
+	\sin(x+iy) = \sin(x) \left[
+		1 + \frac{y^2}{2!} + \frac{y^4}{4!} + \frac{y^6}{6!} + \cdots 
+	\right]
+	+ i \cos(x)\left[ y + \frac{y^3}{3!} + \frac{y^5}{5!} + \cdots \right].
+\]
+Here, we require at least that $x = 2\pi n$, for such an $x$ we have
+$\cos(x) \neq 0$ and so we need a $y$ value which makes the second
+infinite sum vanish. \wg{Again, using the fact that the second sum is
+a power series for $\sinh(y)$, which only has $y=0$ as a root, we get
+that our roots for $\sin(x+iy)$ is exactly the set $\{2n\pi, 0 \}_{n
+\in \Z}$. }
+
 \end{solution}
 
 \newpage
@@ -112,6 +195,7 @@ In particular, we must have that each $\abs{f_i(z)} \leq M$ for all $z
 \in U$; as a sum of non-negative real numbers, if any $\abs{f_i(z)}$ was
 unbounded on $U$ then the sum $\sum_i \abs{f_i(z)}$ would be unbounded
 on $U$.
+\wg{Note to self, I think this is cap}
 
 That is, for each of the holomorphic functions $f_i$ we have $\abs{f_i(z)}$ is bounded on $U$. 
 But then by the maximum modulus principle we have that each $f_i$ is 

@@ -2,6 +2,7 @@
 \usepackage[margin=1in,headheight=14pt]{geometry}
 \usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
 \usepackage{xcolor, tikz-cd}
+\usepackage{hyperref}
 \newcommand{\wg}[1]{\textcolor{violet}{#1}}
 \newcommand{\OO}{\mathcal O}
 \newcommand{\Q}{\mathbb Q}
@@ -18,8 +19,8 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Homework \#6}
+\rhead{12 March 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -34,26 +35,143 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Analysis Homework \# 6} 
 
 %------------------------- Problem 1 -----------------------
 
-\begin{problem}[1]
+\begin{problem}
+	\includegraphics[scale=0.7]{1.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Let me just clarify the set up a bit. The input to $M$ is supposed to
+be a real number since it fixes the modulus of $z$ over the supremum
+in the definition of $M$. Then, I think the way this question is
+supposed to be interpreted is that $s \in \R$. Moreover, the output of
+$M$ is another real number, $\abs{f(z)} \in \R$, and so I think $\log
+$ is supposed to refer to ``real log'' here. (Indeed, I'm not sure I
+know what it means for a complex function to be convex, but perhaps
+such a notion exists.)
+
+Let $g(s) := \log M(e^s)$, we want to show that $g$ is convex, that is
+for all $s_1, s_2 \in \R$ we want to show that for all $t \in [0,1]$
+we have \[
+	g(ts_1 + (1-t)s_2) \leq t g(s_1) + (1-t)g(s_2).
+\]
+We can rewrite this condition by unpacking $g$ and applying the real
+exponential to both sides (an increasing function). That is,
+equivalently we want to show \[
+	M(e^{ts_1 + (1-t)s_2}) \leq M(e^{s_1})^t M(e^{s_2})^{(1-t)}. 
+\]
+
+Consider now $f$ as a holomorphic function on the smaller annulus
+between $r_1 = e^{s_1}$ and $r_2 = e^{s_2}$ (without loss of
+generality suppose $e^{s_1} \leq e^{s_2}$). Then, 
+the maximum modulus principle applied to $f$ tells us that 
+\[
+	\sup_{r_1 \leq \abs z \leq r_2} \abs{f(z)} 
+	\leq \max(\sup_{\abs{z} = r_1} \abs{f(z)}, \sup_{\abs z = r_2} \abs{f(z)}). 
+\]
+In other words that \[
+	M(r) \leq \max(M(r_1), M(r_2)),
+\]
+for any $r_1 \leq r \leq r_2$. 
+\wg{This is somewhere along the way of waht we want to show, but this is certainly weaker.}
+\wg{Apologies, I'm not super sure how to continue this question}. 
 \end{solution}
 
 \newpage
 
 %------------------------- Problem 2 -----------------------
 
-\begin{problem}[2]
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+We showed in class that a rhumb line is mapped to a straight line in
+the complex plane under the Mercator projection. Recall that the
+Mercator projection is the composition of complex logarithm after
+stereographic projection. In particular, all of these maps are
+conformal. The straight line that we end up with as the image of a
+rhumb line is a finite line in the complex plane. However, whilst the
+mercator map is conformal, we know that it is not an isometry.
+Nevertheless, if we understand the length distortions we may still be
+able to conclude that the original rhumb line is finite in length.
+\wg{The question states
+	``Any rhumb line has finite length'', even those which ``run'' for infinite time?}
+\wg{(Such curves end up spiraling around the north pole infinitely
+I suppose it's somewhat unclear to me whether these end up having
+infinite length when run for infinite time. Do they always ``move at
+unit speed?''). Or otherwise perhaps the question means for us to consider rhumb lines
+run for finite time?}
+
+One approach is to take a finite length line the complex plane,
+integrate it against the distance scaling factor to find the length of the
+curve which is the inverse of the line (with an appropriately chosen domain we can
+construct an inverse to logarithm).
+Then we can repeat the process against this
+new curve to find the length of the original corresponding rhumb line. Since
+this is not a Riemmannian geometry class I think this is not the
+intended approach and so I will avoid doing all those integrals (I've
+also not taken such a class so I'm not sure how well I would be able
+to do them =P).
+
+Let us discuss however the images of rhumb lines under stereographic projection.
+Doing some reading on the internet tells me that curves in the complex
+plane which are mapped to straight lines under the logarithm map are
+called\footnote{\url{https://en.wikipedia.org/wiki/Logarithmic_spiral}}
+\textit{Logarithmic Spirals}.
+This means in particular that they are the image in the complex plane
+of Rhumb lines after stereographic projection. 
+Such curves are given by in polar coordiantes $(r, \phi)$ by the
+following equation
+\[
+	r = a e^{k \phi},
+\]
+where $a > 0, k \in \R$, in particular, $k = \text{cotan }\theta$ where
+$\theta$ is the constant bearing made by the rhumb line (called the
+``pitch angle'' in the article above). 
+The length of such a spiral is given by integrating $ds^2 = dr +
+rd\phi$ along the curve. The wikipedia article tells me that the
+length of such a curve has a closed form: 
+\[
+	L(\phi_1, \phi_2) = \frac{r(\phi_2) - r(\phi_1)}{\sin \theta}.
+\]
+In terms of the Riemman sphere, $\phi_1, \phi_2$ are supposed to
+represent the start and end points of our rhumb lines. In particular,
+we have 
+\[
+	L(-\infty, \phi_2) = \frac{r(\phi_2)}{\sin \theta},
+\]
+which is a finite quantity. In terms of rhumb lines this
+says that a rhumb line started anywhere and run for a finite time has
+finite length, when measured after stereographic projection. Notice that this formula
+does not apply if $\theta = 0$. In this case, however, our rhumb line
+is actually following the trajectory of a meridian and is a great
+circle (we know this is finite).
+
+Lastly, to show that a rhumb line is finite length, I would want to
+take the curve defined by $r = a e^{k \phi}$ and then use the distortion factor of
+steroegraphic projection (whatever this may be) to understand how this length scales when
+mapped back onto the riemann sphere. Note that steroegraphic
+projection does not have an ``inverse'' since the north pole is mapped
+``to infinity''. However, we can construct a map from the complex
+plane to $S^2 \setminus \text{ (north pole) }$ following the same
+process which gave us stereographic projection. 
+
+(In particular, I
+think at this point I cannot necessarily conclude that the length of a
+rhumb line is finite, even if the length of a Logarithmic spiral is
+finite in the complex plane. I think I would need to integrate the curve with the appropriate
+scaling factor.)
+
+
+
+
+
 \end{solution}
 
 \newpage
@@ -188,7 +306,7 @@ we can use the following expression
 \end{align*}
 if we take our branch cut for $\log z$ at some $\theta$ slightly larger
 than $\pi$ (so that the contour integral is well defined on $I_{-R}$). 
-And so, by the residue theorem, we have \[
+By the residue theorem, we have \[
 \int_\gamma f(z) dz = 2\pi i \frac{\log ia}{2ia} = \frac{\pi
 \log(ia)}{a}. 
 \]

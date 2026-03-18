@@ -1,0 +1,239 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\pdv}[2]{\frac{\partial #1}{\partial #2}}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Complex Homework \#5}
+\rhead{25 February 2026}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Complex Analysis Homework \#5} 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Consider the following. Let $U$ be the open set $\Delta \setminus \{0\}$
+and let $u: U \to \R$ be the real logarithm $\ln(x^2 +y^2)$. Notice
+that this function is indeed harmonic, we have that \[
+	\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial x^2}
+= \frac{2(y^2 - x^2)}{(x^2 + y^2)^2} + \frac{2(x^2 - y^2)}{x^2 + y^2}
+= 0. 
+\]
+We show that this cannot be the real part of any holomorphic function
+on $U$. Suppose $f: U \to \C$ is holomorphic with $f(x,y) = u(x,y) +
+iv(x,y)$. We can write a condition on $f'$ in terms of $u$ using the
+Cauchy-Riemann equations. Recall that we can write the complex
+differential operator $\partial / \partial z = \frac{1}{2}(\pdv{}{x} +
+\frac{1}{i}\pdv{}{y})$. And so we have
+\begin{align*}
+	\pdv{f}{z} 
+	&= \frac{1}{2} \left( \pdv{}{x} + \frac{1}{i} \pdv{}{y} \right) (u + iv) \\
+	&= \frac{1}{2} \left( u_x -i u_y + i v_x + v_y \right) \\
+	&= \frac{1}{2} \left( u_x -i u_y + i (-u_y) + v_x \right) && \text{Cauchy-Riemann}\\
+	f'(z) &= u_x - iu_y. 
+\end{align*}
+Applying this with $u(x,y) = \ln(x^2 + y^2)$ gives \[
+	f'(z:=x+iy) = \frac{2(x- iy)}{(x^2 + y^2)^2} = \frac{2}{z}.
+\]
+Where the last equality comes from noticing \[
+	\frac{1}{z} = \frac{1}{x + iy} = \frac{x-iy}{x^2 + y^2}. 
+\]
+I digress; we have shown that if $u = \ln(x^2 + y^2)$ were the
+	real part of some holomorphic function $f$ then we would have
+	$f'(z) = 2/z$. In other words, $f$ would need to be the
+	antiderivate to $2/z$ on $\Delta \setminus \{0\}$. 
+	However we have seen that $1/z$ has no antiderivative on any open
+	set containing a circle centered at the origin. And so no such $f$
+	exists on $\Delta \setminus \{0\}$. 
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+
+Let us denote our rational function $f(z) = P(z)/ Q(z)$ for complex
+polynomials $P,Q$.
+Suppose $f$ satisfies $\abs z = 1$ implies $\abs{f(z)} = 1$, then we
+want to find conditions on $P,Q$.
+Recall that $1 = \abs{z} = z \cdot \bar z$, i.e., $\bar z = 1/z$. Moreover,
+$\abs{f} = 1$ when $\abs z = 1$ means that we have \[
+	\frac{P(z)}{Q(z)} = \frac{\bar Q(1/z)}{\bar P(1/z)},
+\]
+where $\bar P, \bar Q$ mean the polynomial whose coefficients are the
+complex conjugates of the coefficients of $P,Q$ respectively.
+This shows that if $a$ is a root of $f$ then $1/a$ is a root of $\bar
+f$. Moreover, if $b$ is a pole of $f$ then $1/b$ is a pole of $\bar
+f$. Notice that $g:= \bar f$ is also a rational function (multiply $(\bar
+Q(1/z))/(\bar P(1/z))$ by some appropriate power of $z^k$ with $k \in
+\Z$) and so we have rational functions $f,g$ such that $fg = 1$
+everywhere on $S^1$, which definitely contains a limit point as a
+subset of $\C$. And so in fact $fg$ is the constant function $1$
+everywhere on $\C$. Factoring $P,Q$ gives that we must have  \[
+1 = f(z)g(z) = f(z) \bar f(1/z) = 
+\frac{\Pi_k (z - a_k) \Pi_j (1/z -\bar b_j)}{ \Pi_j (z - b_j) \Pi_k(1/z - \bar a_k)}
+= z^{\tilde m} \frac{\Pi_k (z - a_k) \Pi_j (1 - z\bar b_j)}{ \Pi_j (z
+- b_j) \Pi_k(1 - z\bar a_k)},
+\]
+for some appropriate $\tilde m \in \Z$. 
+\wg{I'll be honest, I'm not totally sure what to do with this.
+Assuming that $P,Q$ have no common divisors then we need that each
+factor $(z -a_k)$ must in fact equal some $(1 - z \bar a_k)$ and
+likewise each factor $(z-b)$ must in fact equal some $(1 - z\bar b_j)$
+(ish, I'm not so sure what to do with this $z^{\tilde m}$ out front.)}
+
+
+\iffalse
+Let us denote our rational function
+$f(z) = (a_0 + a_1z + \cdots + a_n z^n)/ (b_0 + b_1z + \cdots b_m
+z^m)$
+We want to find conditions on $a_i, b_i$ such that $f(S^1) \subseteq
+S^1$. By definition, $f$ preserves $S^1$ if $\abs{z} = 1$ implies
+$\abs{f(z)} =1$.
+Notice that we have \[
+\abs{f(z)} = \frac{\sum_{i=0}^{n} \abs{a_i} \abs{z}^i}{\sum_{j=0}^{m}
+\abs{b_j}\abs{z}^j}. 
+\]
+And so, if $\abs{z} = 1$ then we have \[
+\abs{f(z)} = \frac{\abs{a_0} + \abs{a_1} \cdots + \abs{a_n}}{\abs{b_0} +
+\abs{b_1} + \cdots + \abs{b_m}}
+\]
+\fi
+
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{3.png}
+	\hfill
+\end{problem}
+\begin{solution}
+Since $c \in S^1$ we have\footnote
+{
+Recall $c \in S^1$ means $c \cdot \bar c = \abs c = 1$. In other words
+$\bar c = 1/c$. 
+} 
+$\bar c = 1/c$. And so if $p$ is a polynomial we want to show
+that there exists some $c \in S^1$ such that $\abs{1/c - p(c)} \geq
+1$. If $z \in S^1$ then $\abs{1/z - p(z)} = \abs{z} \abs{1/z - p(z)} =
+\abs{1 - zp(z)}$. Let us denote $f(z) := 1 - zp(z)$. Notice that we
+have $f(0) = 1$.
+
+Suppose for contradiction that we strictly have $\abs{f(c)} < 1$ for all $c
+\in S^1$. Since $f$ is non-constant and holomorphic on $\Delta$ we must have that $\abs{f(z)} < 1$
+for all $z \in \Delta$ by the maximum modulus principle. 
+Indeed, $\abs{f}: \overline \Delta \to \R$ is a continuous function
+on a compact set and so by the extreme value theorem 
+there elements in $\Delta$ such that $\abs{f}$
+achieves its maximum and its minimum. If we had strictly that $\abs{f} < 1$
+on $S^1$
+but that $\abs{f(z_0)}
+\geq 1$ for some $z_0 \in \Delta$ then that would mean $\abs{f}$ achieved its maximum for some
+point not on $S^1$ (i.e. it's maximized on the interior $S^1$). 
+Then the maximum modulus principle would conclude that $f$ is
+constant. But $f(z) = 1 - zp(z)$ is nonconstant on $\Delta$ and so we
+have that $\abs{f(z)} < 1$ for all $z \in \Delta$. 
+
+We have that $\abs{f(z)} < 1$ on $S^1$ means that we must have
+$\abs{f(z)} < 1$ for all $z \in S^1$. 
+However, we
+have that $f(0) = 1$, a contradiction. 
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+I must admit, I'm not suuuper sure how to do this problem, but here
+are some thoughts. The only approximation theorem we've learned in
+class is the Runge approximation theorem. However, that does not seem
+to apply here since the desired $f$ is not continuous on any
+neighbourhood of $0$, let alone holomorphic.
+
+On the other hand a similar function \[
+	g(z) := \begin{cases}
+		-1 & Re(z) < 0  \\
+		0 & Re(z) \geq 0
+	\end{cases}
+\]
+is equal to $H(Re(z)) -1$ where $H$ is the heaviside function, or the
+step function with a single step. We can approximate $H(x)$ pointwise as \[
+	H(x) = \lim_{k \to \infty} \frac{1}{1 + e^{-2kx}}.
+\]
+Consider, for a fixed $k$, we then have \[
+	g_k(z) 
+	= \frac{1}{1 + (1 + (-2kRe(z) + (-2kRe(z))^2/2 \cdots + )} - 1 
+= \frac{1 + (-2kRe(z)) + (-2kRe(z))^2/2  + \cdots}{2 + (-2kRe(z) +
+(-2kRe(z))^2/2 + \cdots}.
+\]
+Recalling that $Re(z) = (z + \bar z)/2$ then the above expression is
+at least a rational power series in $z, \bar z$ (although perhaps not
+a rational function of $z$). We can truncate the power series in the
+numerator and denominator to then have a rational power series
+approximation of $g_k(z)$, which in turn is an approximation of $g$. 
+
+Now, in terms of heaviside functions we can write the desired function
+as \[
+f(z) = (H(Re(z)) - 1) + H(Re(z))e^z \approx \frac{e^z -
+e^{-2kRe(z)}}{1 + e^{-2kRe(z)}}. 
+\]
+Taylor expanding the numerator and denominator of this expression
+would then give us some rational power series in $z, \bar z$ which we
+could then truncate to get some rational polynomial (in $z, \bar z$)
+approximation of the function we want. (However, this is rational and
+not polynomial, and moreover is rational in $z, \bar z$ and not just
+in $z$).
+\end{solution}
+
+\newpage
+
+\end{document}

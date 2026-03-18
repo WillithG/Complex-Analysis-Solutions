@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.1.17)  18 MAR 2026 18:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.1.17)  25 FEB 2026 22:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/willithg/2026Spring/Complex/hw7/gilroy-complex-hw7.tex
-(/home/willithg/2026Spring/Complex/hw7/gilroy-complex-hw7.tex
+**/home/willithg/2026Spring/Complex/hw5/gilroy-complex-hw5.tex
+(/home/willithg/2026Spring/Complex/hw5/gilroy-complex-hw5.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-01-16> (./hmcpset.cls
 Document Class: hmcpset 2005/03/10 v0.04 HMC Math Dept problem set class
@@ -415,30 +415,30 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count300
 \enitdp@description=\count301
 )
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 36.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 37.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count302
 \l__pdf_internal_box=\box67
-) (./gilroy-complex-hw7.aux)
-\openout1 = `gilroy-complex-hw7.aux'.
+) (%OUTDIR%/gilroy-complex-hw5.aux)
+\openout1 = `gilroy-complex-hw5.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -474,19 +474,19 @@ LaTeX Font Info:    ... okay on input line 36.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \celsius on input line 36.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 36.
+LaTeX Info: Redefining \celsius on input line 37.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 37.
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 36.
-Package gensymb Info: Using \upOmega for \ohm on input line 36.
+LaTeX Info: Redefining \ohm on input line 37.
+Package gensymb Info: Using \upOmega for \ohm on input line 37.
 
 Package gensymb Warning: Not defining \micro.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 36.
+(lastpage)             ! on input line 37.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count303
@@ -521,50 +521,50 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-<1.png, id=4, 582.67688pt x 100.12407pt>
+<1.png, id=4, 585.68813pt x 50.43843pt>
 File: 1.png Graphic file (type png)
 <use 1.png>
-Package pdftex.def Info: 1.png  used on input line 43.
-(pdftex.def)             Requested size: 466.14214pt x 80.09935pt.
+Package pdftex.def Info: 1.png  used on input line 44.
+(pdftex.def)             Requested size: 468.55113pt x 40.35078pt.
 
-Overfull \hbox (3.1871pt too wide) in paragraph at lines 43--45
+Overfull \hbox (5.5961pt too wide) in paragraph at lines 44--46
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--45
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
  []
 
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 45.
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 46.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 45.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 46.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 45.
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 46.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 45.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 46.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 45.
+(Font)              scaled to size 12.50409pt on input line 46.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 45.
+(Font)              scaled to size 9.37807pt on input line 46.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 45.
+(Font)              scaled to size 7.29405pt on input line 46.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 45.
+(Font)              scaled to size 12.50409pt on input line 46.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 45.
+(Font)              scaled to size 9.37807pt on input line 46.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 45.
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 64.
+(Font)              scaled to size 7.29405pt on input line 46.
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 50.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -578,26 +578,18 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  <./1.png (PNG copy)>]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
-
-[2]
-<2.png, id=23, 590.95781pt x 50.43843pt>
+<2.png, id=20, 592.46344pt x 34.62938pt>
 File: 2.png Graphic file (type png)
 <use 2.png>
-Package pdftex.def Info: 2.png  used on input line 112.
-(pdftex.def)             Requested size: 472.76688pt x 40.35078pt.
+Package pdftex.def Info: 2.png  used on input line 89.
+(pdftex.def)             Requested size: 473.97139pt x 27.70352pt.
 
-Overfull \hbox (9.81184pt too wide) in paragraph at lines 112--114
+Overfull \hbox (11.01636pt too wide) in paragraph at lines 89--91
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
 
@@ -608,28 +600,60 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[3 <./2.png (PNG copy)>]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
-
-[4]
-<3.png, id=31, 582.67688pt x 30.1125pt>
+[2 <./2.png (PNG copy)>]
+<3.png, id=24, 592.46344pt x 34.62938pt>
 File: 3.png Graphic file (type png)
 <use 3.png>
-Package pdftex.def Info: 3.png  used on input line 173.
-(pdftex.def)             Requested size: 466.14214pt x 24.09001pt.
+Package pdftex.def Info: 3.png  used on input line 150.
+(pdftex.def)             Requested size: 473.97139pt x 27.70352pt.
 
-Overfull \hbox (3.1871pt too wide) in paragraph at lines 173--175
+Overfull \hbox (11.01636pt too wide) in paragraph at lines 150--152
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
+Underfull \hbox (badness 10000) in paragraph at lines 150--152
 
+ []
+
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 158.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 158.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 158.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 158.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 158.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 158.
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
+
+[3 <./3.png (PNG copy)>]
+<4.png, id=29, 592.46344pt x 146.79843pt>
+File: 4.png Graphic file (type png)
+<use 4.png>
+Package pdftex.def Info: 4.png  used on input line 191.
+(pdftex.def)             Requested size: 473.97139pt x 117.43889pt.
+
+Overfull \hbox (11.01636pt too wide) in paragraph at lines 191--193
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--193
+
+ []
+
+
+Overfull \hbox (56.70204pt too wide) detected at line 217
+\OML/zplm/m/it/12 g[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 z\OT1/zplm/m/n/12 ) = [] \OMS/zplm/m/n/12 ^^@ \OT1/ppl/m/n/12 1 \OT1/zplm/m/n/12 = []\OT1/ppl/m/n/12 .
  []
 
 
@@ -639,7 +663,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[5 <./3.png (PNG copy)>]
+[4 <./4.png (PNG copy)>]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -647,22 +671,22 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[6] 
+[5] 
 AED: lastpage setting LastPage
-(./gilroy-complex-hw7.aux) ) 
+(%OUTDIR%/gilroy-complex-hw5.aux) ) 
 Here is how much of TeX's memory you used:
- 16963 strings out of 476091
- 344262 string characters out of 5794081
- 1860330 words of memory out of 5000000
- 36999 multiletter control sequences out of 15000+600000
- 527982 words of font info for 79 fonts, out of 8000000 for 9000
+ 17000 strings out of 476091
+ 344751 string characters out of 5794081
+ 1863330 words of memory out of 5000000
+ 37028 multiletter control sequences out of 15000+600000
+ 537671 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,12n,94p,577b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on gilroy-complex-hw7.pdf (6 pages, 150875 bytes).
+ 98i,11n,94p,577b,303s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on %OUTDIR%/gilroy-complex-hw5.pdf (5 pages, 166092 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 83 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
