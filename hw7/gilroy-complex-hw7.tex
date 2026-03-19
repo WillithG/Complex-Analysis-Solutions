@@ -19,7 +19,7 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
+\chead{Complex Homework \#7}
 \rhead{03 November 2021}
 \lfoot{}
 \cfoot{}
@@ -35,7 +35,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Homework \#7} 
 
 %------------------------- Problem 1 -----------------------
 
@@ -157,7 +157,7 @@ is,
 \[
 	f(z) = a_0 + a_{-1}z + \cdots a_{-k}z^k.
 \]
-Moreover, since this $f$ is entire this series holds everywhere on
+Moreover, since $f$ is entire this series holds everywhere on
 $\C$ (has infinite radius of convergence). \wg{I think I see this
 intuitively, but note to self to try and think about this using
 Hadamard}
@@ -221,11 +221,65 @@ for some $a_0, a_1 \in \C$.
 
 %------------------------- Problem 4 -----------------------
 
-\begin{problem}[4]
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Recall that $res_p(gf'/f)$ is the $a_{-1}$ coefficient in the Laurent
+series expansion of $gf'/f$ about $p$. We determine this expansion.
+Near $p$ we can write
+\[
+	f(z) = (z-p)^k h(z)
+\]
+where $h$ is some
+holomorphic function on a neighbourhood about $p$ which does not
+vanish on some neighbourhood about $p$ (this latter claim follows from
+isolation of zeroes of holomorphic functions).
+Applying usual differentiation rules gives $f'(z) = k(z-p)^{k-1} h(z)
++ (z-p)^k h'(z)$. And so,
+\[
+	\frac{f'(z)}{f(z)} = 
+	\frac{k}{z-p} + \frac{h'(z)}{h(z)}
+\]
+where the latter term is holomorphic about $p$, since there exists a
+neighbourhood about $p$ where $h(z)$ is non-vanishing. As an aside,
+note then that we have just shown that $res_p(f'/f) = k = Mult_p(f)$. 
+
+Now consider 
+\[
+	\frac{gf'}{f} = g(z) \left[
+	\frac{k}{z-p} + \frac{h'(z)}{h(z)},
+	\right].
+\]
+Since $g$ is holomorphic on $U$ it has a power series expansion about
+$p$, say $g(z) = b_0 + b_1(z-p) + b_2(z-p)^2 + \cdots$. 
+It follows then that
+\[
+	res_p(gf'/f) = ``a_{-1}\left(g(z)\left[
+		\frac{k}{z-p} + \frac{h'(z)}{h(z)}
+	\right]\right)'' = b_0 k = g(p)Mult_p(f).
+\]
+
+If in particular $g(z) = z$ then we have $res_p(zf'/f) = p Mult_p(f)$. 
+And so the Residue formula gives \[
+\int_{\partial D} \frac{z f'(z)}{f(z)} dz = 2\pi i \sum_{p \in D} p
+Mult_p(f). 
+\]
+A weighted sum of points in an (appropriate) disc, weighted by the
+order of vanishing of $f$ at those points. Note that only finitely
+many terms of the sum on the right hand side of this expression are
+non-zero. 
+
+\wg{Indeed, we have seen that the zeroes of a holomorphic function
+are isolated and so form a discrete set inside $\bar D$; a closed
+discrete set contained in a compact set must be finite. (wait actually
+it's unclear to me whether the collection of zeroes inside a closed
+disc is compact without assuming that it's first finite). And then if
+$f$ has only finitely many zeroes in $\bar D$ then it must have only
+finitely many zeroes in $D$.}
+
 \end{solution}
 
 \newpage
