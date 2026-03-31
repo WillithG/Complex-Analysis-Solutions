@@ -14,12 +14,13 @@
 \newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
 \newcommand{\anglee}[1]{\langle #1 \rangle}
 \usepackage[shortlabels]{enumitem}
+\newenvironment{wgenv}{\color{violet}}{}
 
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Homework \#8}
+\rhead{25 March 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -34,7 +35,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Analysis Homework \#8} 
 
 %------------------------- Problem 1 -----------------------
 
@@ -74,7 +75,9 @@ To make sense of this last statement we can view our extended $f$ ``in
 the other patch'' given by the transition $z \mapsto 1/z$. In this
 sense, we can view $f(\infty)$ as $f(1/z)$, and we have defined this
 value to be $0$ as $z \to 0$.
-\wg{how do we argue this function to be holomorphic?}
+\wg{We have argued how to continuously extend a non-constant
+holomorphic function from $\C$ to $\hat \C$, but we need to argue that
+this extension is holomorphic at $z = \infty$. }
 
 \end{solution}
 
@@ -136,7 +139,6 @@ e^z$ converges uniformally, I wonder if this might imply that $e^z$
 has a zero in $\C$ (which would be a contradiction). But I'm not sure
 I have a theorem that says anything like this at hand.
 
-
 \end{solution}
 
 \newpage
@@ -168,7 +170,9 @@ triple of distinct points. And so if a Mobius
 transformations fixes at least three points, it must be the identity.
 Hence, a non-identity Mobius transformation must fix either $0,1,2$
 points. \wg{Neither of these transformations appear to fix zero
-points}
+points. Note, by inspecting the equation $f(z) = z$ for a general
+Mobius transformation, I think we can show that there's no Mobius
+transformation which fixes zero points.}
 
 Now consider the given functions. Note that $\lambda z = z$ is solved
 only by $z= 0$ if $\lambda = 1$. If $\lambda = 1$ then $f(z) =
@@ -185,9 +189,12 @@ non-identity Mobius transformation can only have $0,1$, or $2$ fixed
 points.
 But we also need to
 argue that there are only three conjugacy classes in $PGL_2(\C)$.
-That is, a there could be multiple conjugacy classes of $PGL_2(\C)$
+That is, a priori there could be multiple conjugacy classes of $PGL_2(\C)$
 with a given number of fixed points.
 
+\wg{Apologies, the following will be a bit rambly. I was hoping 
+to characterize the Mobius transformations based on the solutions to 
+the equation $f(z) = z$.}
 Let $f(z) = (az + b)/(cz+d)$ be a Mobius transformation. Note that 
 $f(z) = z$ is given by the quadratic equation 
 \[
@@ -205,8 +212,16 @@ If $d=a$ then our Mobius transformation is equivalent to $f(z) = (z +
 \tilde b)/1$ which only has a fixed point at infinity. Likewise if $d
 \neq a$ then we have a fixed point $z = b/(d-a)$ but also our Mobius
 transformation is equivalent to $f(z) = \tilde a z - \tilde b$. 
-\wg{hmmm this does not seem to be helping much.}
 
+Without loss of generality, we can choose our coordinate system so
+that one fixed point is at $\infty$. For $\infty$ to be fixed we must
+have $c=0$ \wg{I am guessing here, I suppose this needs to be shown
+better.} 
+Then the fixed point equation $f(z) = z$ becomes $(a-d)z = -b$. 
+\wg{From this point I would try to explicitly construct the change 
+of basis matrices which sends $f$ to $\lambda z$ if $a \neq d$ (I
+suppose this is the transformation which further sends $-b/(a-d)$ to
+$0$), and the change of basis which sends $f$ to $f + 1$ if $a = d$. }
 \end{solution}
 
 \newpage
@@ -232,7 +247,8 @@ That is, if we find a rational $g$ with $g^{\circ 3}$ in some
 conjugacy class of a mobius transformation, then we have found the $g$
 such that $g^{\circ 3} = f$ for all $f$ in the same conjugacy class.
 
-Note that we can represent rational functions as matrices with the
+Consider first $g$ as a degree $1$ rational function.
+Note that we can represent degree $1$ rational functions as matrices with the
 same method that we have been representing mobius transformations as
 matrices (except now the representation of some rational functions
 will have zero determinant). And so we can use matrix multiplication
@@ -260,6 +276,23 @@ least three solutions to $g^3(z) = \lambda z$.
 \wg{could there be any other solution?}
 
 \wg{how about for the other function?}
+\begin{wgenv}
+	For $f(z) = z + 1$ we have that 
+	\[
+	\begin{bmatrix}
+		1 & 1/3 \\ 0 & 1
+	\end{bmatrix}^3 =
+	\begin{bmatrix}
+		1 & 1 \\ 0 & 1
+	\end{bmatrix}.
+	\]
+	However we haven't said anything about whether 
+	any other degree $1$ map might cube to give the desired map.
+	In particular, I think it is possible for a power of a non-upper triangular
+	matrix to become upper triangular.
+
+	Lastly, we would need to address non-degree $1$ rational functions.
+\end{wgenv}
 
 \end{solution}
 
@@ -300,11 +333,68 @@ And we so we have
 
 %------------------------- Problem 6 -----------------------
 
-\begin{problem}[4]
-	\hfill
+\begin{problem}
+	\includegraphics[scale=0.8]{6.png}
 \end{problem}
 
 \begin{solution}
+To begin, suppose that the zeroes of $f(z)$ are $z_1, \cdots, z_n \in
+\Delta$. 
+Then, I claim that we can write $f(z) = (z- z_1) \cdots (z - z_n)
+g(z)$ where $g$ is a non-vanishing holomorphic function on $\Delta$.
+
+Recall that, by inspecting the power series of $f$ about a zero, say
+$z_1$, we can write $f(z) = (z-z_1) g_1(z)$ locally about $z_1$ for some $m$ and where
+$g_1$ is non-vanishing on a neighbourhood of $z_1$ (since the zeroes
+are isolated). 
+But now $g_1$ is a holomorphic function on $\Delta$ with zeroes at the
+remaning points $z_2, \cdots, z_n$. And so, about $z_2$ we can write
+$g_1(z) = (z-z_2)g_2(z)$ where $g_2$ is non-vanishing on a
+neighbourhood of $z_2$. Note that $g_2$ is also non-vanishing on a
+neighbourhood of $z_1$ because $g_1$ is.
+Now, we can write $f(z) = (z-z_1)(z-z_2)g_2(z)$. Continuing this
+process yields the claimed form of $f$.
+Note that this construction deals with $n$ distinct zeroes of $f$ in
+$\Delta$, however, essentially the same construction can be used if we
+have ``repeated zeroes'' (unclear to me whether that's disallowed in the
+question set-up). 
+
+Now applying the product rule to compute $f'(z)$ yields
+\[
+	f'(z) = \sum_{i=1}^n (\Pi_{k \in ([n]\setminus i)} (z-z_i) g(z)) + \Pi_{i=1}^n (z-z_i) g'(z)
+\]
+And then 
+\[
+	\frac{f'(z)}{f(z)} = \sum_{i=1}^n \frac{1}{z-z_i} + \frac{g'(z)}{g(z)}
+\]
+
+Recall that the argument principle will yield
+\[
+	\frac{1}{2\pi i} \int_{S^1} \frac{f''(z)}{f'(z)} = \sum_{p \in \Delta} Mult_p(f')
+\]
+So long as $f'(z)$ does not vanish on $S^1$. 
+
+\begin{wgenv}
+Now, if there were some relationship between $f''/f'$ and $f'/f$ 
+I could rewrite the desired integral in terms of the things that we
+know. I think there might be something like this. 
+Recalling that $f''/f'$ is called the ``logarithmic derivative of
+$f'$'' we could notice that 
+\[
+	f''/f' = \frac{d}{dz} \log(f') = \frac{d}{dz} \log(f'/f \cdot f)
+	= \frac{d}{dz} \log(f'/f) + f'/f,
+\]
+However, applying something like this to the desired integral is not
+super clear to me. 
+On the other
+hand the $f'/f$ term contains the term $g'(z)/g(z)$, the integral of
+which should come to $0$ since $g$ is nonvanishing on $\Delta$. 
+
+Moreover, the question is asking ``prove or disprove''. And so, I
+could have attempted this question by inspecting particlar holomorphic functions on
+the unit disc, and attempted to inspect their derivatives. 
+\end{wgenv}
+
 \end{solution}
 
 \newpage
