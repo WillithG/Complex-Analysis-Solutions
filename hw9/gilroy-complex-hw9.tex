@@ -1,0 +1,212 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Algs Homework \#}
+\rhead{03 November 2021}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Algorithms HW } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}[1]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+Let $p,q$ be two points of the upper half plane with the same real
+part. If $\gamma$ is a curve in the upper half plane, the length of
+$\gamma$ under the hyperbolic metric is given by contracting the
+tangent vectors against the metric along the curve 
+\[
+??
+\]
+If $\gamma$ is not the vertical line connecting $p,q$ then it moves a
+nonzero amount parallel to the real line. For a fixed imaginary value,
+the hyperbolic length of a horizontal line is given by a scaling of
+its euclidean length. In particular, any distance travelled in the
+real direction adds a positive value to the length of our curve.
+In particular this means that the geodesic connecting $p,q$ is given
+by the curve which does not travel in the real direction at all ---
+this is namely the vertical line connecting $p,q$.
+\wg{Re-read this sentence to see if it makes any sense.}
+
+Now suppose that $p,q$ two points no longer lying on a vertical line.
+We saw in the previous question that any automorphism of $\mathbb H$
+is a hyperbolic isometry. In particular, it must bring geodesics to
+geodesics.
+Then, it is sufficient to show that there
+exists an automorphism of $\mathbb H$ which brings $p,q$ to a vertical
+line. For a given $p,q$ there's a unique semicircle meeting the real
+axis at a right angle specified by three points in the complex plane
+$p,q,x$ where $x \in \R$. By triple transitivity of the Mobius transformations, there's
+then a unique Mobius transformation mapping $(x,p,q) \mapsto (0,
+\tilde p, \tilde q)$ where $\tilde p, \tilde q$ are now on a vertical
+line passing through $0$. 
+
+Recall that the automorphisms of $\mathbb H$ are a subgroup of
+$PSL_2(\R) \leq PGL_2(\C)$ and so, we need to argue that the
+transformation found above has real entires and determinant $1$
+\wg{Come back to this}
+
+
+\end{solution}
+
+
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}[3]
+	\hfill
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
+	\hfill
+\end{problem}
+\begin{solution}
+Let $f$ be as given in the question. First suppose that $f(0) = 0$
+recall the Schwarz lemma for such a function states 
+\[
+	\abs{f(z)} \leq \abs{z} \text{for all } z \in \Delta 
+	\qquad
+	\text{ and } 
+	\qquad \abs{f'(0)} \leq 1,
+\]
+and if equality is achieved in either for some $z_0 \in \Delta$, then $f$ is a rotation. 
+Suppose $f$ has a fixed point, i.e. $f(z_0) = z_0$ for some $z_0 \in
+\Delta$. But then we have 
+$\abs{f(z_0)} = \abs{z_0}$ and so $f$ is a rotation. And so $f$ just
+has the single fixed point at the origin. 
+
+Now let $f$ be general (i.e. drop the assumption $f(0) = 0$). 
+Since $f : \Delta \to \Delta$ we have that $f(0) = a$ for some $a \in
+\Delta$. 
+Now, recall that the Blaschke map $\phi_a$ is an automorphism of $\Delta$ which
+exchanges $0$ and $a$. Since $\phi_a$ is an automorphism of $\Delta$
+there exists some $\tilde a \in \Delta$ such that $\phi(\tilde a) =
+a$. Now the map $h = \phi_a \circ f : \Delta \to \Delta$ is
+holomorphic, as the composition of two holomorphic functions, and
+fixes $0$. 
+\wg{What can we say from here?}
+
+Lastly, if $f: \Delta \to \Delta$ is the identity restricted to the
+disc, then $f$ has infinitely many fixed points. 
+
+\end{solution}
+
+
+\newpage
+
+%------------------------- Problem 6 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{6.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+First, we need to verify that the proposed $f$ has outputs to the
+upper half plane. And then, if we can construct an inverse function,
+then we have shown that the given function is a biholomorphism $\tilde
+\Delta \to \mathbb H$ where $\tilde \Delta$ denotes the upper half disc. 
+
+\wg{Come back and argue that the outputs of the function are in the upper half plane}
+
+Let $w \in \mathbb H$. We want to show that there is a unique $z \in
+\tilde \Delta$ such that $w = -1/2(z + 1/z)$. Rearranging this equation
+gives 
+\[
+	0 = z^2 + 2wz + 1. 
+\]
+As a quadratic equation, this has two roots $z_0, z_1 \in \C$. 
+Recalling then that we can factor our quadratic as $0 = (z -z_0)(z-z_1)$, 
+the coefficients from this quadratic give the following relations on
+the roots
+\begin{align}
+	z_0 z_1 &= 1 \\
+	z_0 + z_1 &= -2w. 
+\end{align}
+This first equation gives us that $z_0$ and $z_1$ are inverses of each
+other. I claim that neither $z_0, z_1$ lie on $S^1$. Suppose $z_0 \in
+S^1$ then equation $1$ would imply that $z_1 \in S^1$ and that $z_0,
+z_1$ are conjugate to each other. But then their sum is real. And then
+equation $2$ cannot be satisfied since $w \in \mathbb H$ and so $-2w$
+has strictly negative imaginary part. Hence, neither $z_0, z_1$ lie on
+$S^1$. 
+
+Now, equation $1$ implies that one of the roots lies in $\Delta$ and
+the other root lies in $\mathbb C \setminus \Delta$, since $z \mapsto
+1/z$ exchanges the unit circle and its complement. Let's say that $z_0
+\in \Delta$. 
+Now I claim that equation $2$ can only be satisifed if in fact $z_0
+\in \tilde \Delta$. 
+If we write $z_0 = r e^{i \theta}$ for $r < 1$ then $z_1 = z_0^{-1} =
+1/r e^{-i \theta}$ (i.e. $z_1$ lies on the same ray as
+$\overline{z_0}$ but with larger magnitude). And so if $z_0$ were to
+lie in the lower half disc we would have that $z_0 + z_1$ has positive
+imaginary part. But as noted earlier, $w \in \mathbb H$ and so $-2w$
+has negative imaginary part. Thus, we must have $z_0 \in \tilde
+\Delta$.
+
+
+We have shown that given $w \in \mathbb H$ the equation $0 = z^2 + 2wz
++ 1$ has a unique solution in $\tilde \Delta$. In other words, 
+we have shown that there exists a function $\mathbb H \to \tilde
+\Delta$ which inverts the given $f$. Hence $f$ is a holomorphic
+bijection, thus $f$ is a biholomorphism $\tilde \Delta \to \mathbb H$. 
+
+\end{solution}
+
+\newpage
+
+
+
+\end{document}
