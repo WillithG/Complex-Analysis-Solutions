@@ -8,6 +8,7 @@
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Z}{\mathbb Z}
+%\newcommand{\H}{\mathbb H}
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\im}{\text{im }}
 \newcommand{\inv}{^{-1}}
@@ -38,11 +39,71 @@
 
 %------------------------- Problem 1 -----------------------
 
-\begin{problem}[1]
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+We show that automorphisms of $\mathbb H$ are isometries by direct
+calculation. Let $f \in PSL_2(\R)$, $z = x + iy \in \mathbb H$, and $w
+= f(z)$. If we allow $\abs{dz}^2$ to denote $\abs{dz}^2 = dx^2 + dy^2$ then our
+metric is $\frac{\abs{dz}^2}{y^2}$. To show that $f$ is an isometry we need
+to show that 
+\[
+	\frac{\abs{dw}^2}{Im(f)^2} = \frac{\abs{dz}^2}{y^2}. 
+\]
+We have that $dw = f'(z) dz$ and so let us compute the derivative
+$f'(z)$. Recall that $f(z) = \frac{az + b}{cz + d}$ for $a,b,c,d \in
+\R$ and $ad-bc = 1$. Then using the quotient rule gives 
+\begin{align*}
+	f'(z) &= \frac{a}{cz+d} - \frac{c(dz+b)}{(cz+d)^2} \\
+	&= \frac{acz + ad - acz - bc}{(cz+d)^2} \\
+	&= \frac{1}{(cz+d)^2}.
+\end{align*}
+And so 
+\[
+	\frac{\abs{dw}^2}{\abs{dz}^2} = \frac{1}{\abs{cz+d}^2}.
+\]
+On the other hand let us compute $Im(f)^2$. 
+We have 
+\begin{align*}
+	w &= \frac{az+b}{cz+d} \\
+	&= \frac{(az+b)\overline{(cz+d)}}{\abs{cz+d}^2} \\
+	&= \frac{(az+b)(c\bar z+d)}{\abs{cz+d}^2} && a,b,c,d \in \R \\
+	&= \frac{ac\abs{z}^2 + adz + bc \bar z + bd}{\abs{cz+d}^2}.
+\end{align*}
+Now, notice that the denominator is a real number and that 
+the only part of the numerator which may contain imaginary terms is
+$adz + bc\bar z$. Consider 
+\begin{align*}
+	adz + bc\bar z &= ad(x+iy) + bc(x - iy) \\
+	Im(adz + bc\bar z) &= ady - bcy \\
+	&= y. 
+\end{align*}
+That is, 
+\[
+	\frac{Im(w)^2}{Im(z)^2} = \frac{1}{\abs{cz+d}^2} \frac{y^2}{y^2} = \frac{1}{\abs{cz+d}^2}. 
+\]
+We have thus shown that automorphisms of $\mathbb H$ are isometries of
+the hyperbolic metric. 
+
+Now let $f : \mathbb H \to \mathbb H$ be an isometry of the upper half
+plane with the hyperbolic metric. 
+We have that, $ds^2 = \frac{dx^2+dy^2}{y^2}$ which is a conformal
+transform of the euclidean metric. Which means that its isometries
+must be conformal. We have seen that the only conformal functions of
+$\C$ are the holomorphic functions and the antiholomorphic functions.
+An antiholomorphic function cannot be a function $\mathbb H \to
+\mathbb H$. And so $f$ is a holomorphic function of $\mathbb H$. 
+
+Now that we know $f$ is holomorphic, the calculation above shows that
+$f$ must satisfy 
+\[
+	\frac{\abs{f'(z)}^2}{Im(f(z))} = \frac{1}{Im(z)}.
+\]
+If $f(x,y) = u(x,y) + iv(x,y)$ this expression gives us a condition on $v$. 
+
 \end{solution}
 
 \newpage
@@ -81,9 +142,17 @@ exists an automorphism of $\mathbb H$ which brings $p,q$ to a vertical
 line. For a given $p,q$ there's a unique semicircle meeting the real
 axis at a right angle specified by three points in the complex plane
 $p,q,x$ where $x \in \R$. By triple transitivity of the Mobius transformations, there's
-then a unique Mobius transformation mapping $(x,p,q) \mapsto (0,
-\tilde p, \tilde q)$ where $\tilde p, \tilde q$ are now on a vertical
-line passing through $0$. 
+then a unique Mobius transformation $M$ mapping $(x,p,q) \mapsto (0,
+\tilde p, \tilde q)$ where $\tilde p, \tilde q \in \mathbb H$ and are
+colinear.
+
+A priori this $M \in PGL_2(\C)$, however, if we can show that $M \in
+PSL_2(\R)$ then are done. Since $M \in GL_2(\C)$ it has determinant $D
+\neq 0$. We can scale $M$ by any $\lambda \in \C$ to acquire an
+equivalent transformation. But $\abs{\lambda M} = \lambda^2 D$,
+and so scaling $M$ by $1/\sqrt{D}$ means that $M$ can be considered to
+have determinant $1$ without loss of generality.
+
 
 Recall that the automorphisms of $\mathbb H$ are a subgroup of
 $PSL_2(\R) \leq PGL_2(\C)$ and so, we need to argue that the
@@ -92,6 +161,7 @@ transformation found above has real entires and determinant $1$
 
 
 \end{solution}
+\newpage
 
 
 
@@ -130,15 +200,22 @@ Now let $f$ be general (i.e. drop the assumption $f(0) = 0$).
 Since $f : \Delta \to \Delta$ we have that $f(0) = a$ for some $a \in
 \Delta$. 
 Now, recall that the Blaschke map $\phi_a$ is an automorphism of $\Delta$ which
-exchanges $0$ and $a$. Since $\phi_a$ is an automorphism of $\Delta$
-there exists some $\tilde a \in \Delta$ such that $\phi(\tilde a) =
-a$. Now the map $h = \phi_a \circ f : \Delta \to \Delta$ is
+exchanges $0$ and $a$. 
+Now the map $h = \phi_a \circ f : \Delta \to \Delta$ is
 holomorphic, as the composition of two holomorphic functions, and
 fixes $0$. 
+From the argument in the above paragraph can only have the origin as a
+fixed point. 
 \wg{What can we say from here?}
 
-Lastly, if $f: \Delta \to \Delta$ is the identity restricted to the
-disc, then $f$ has infinitely many fixed points. 
+We have shown that if $f$ is non identity then it can only have a
+single fixed point. The constant map $f: \Delta \to \Delta$ via $f(z) = a$ for
+some $a \in \Delta$ has a fixed point at $a$.
+If $f: \Delta \to \Delta$ is the identity restricted to the
+disc has every point as a fixed point.
+
+Overall the possibilities for the set of fixed points are $\Delta,
+\{a\}$ where $a \in \Delta$ \wg{can we have no fixed points?}
 
 \end{solution}
 
