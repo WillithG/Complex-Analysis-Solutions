@@ -10,6 +10,7 @@
 \newcommand{\Z}{\mathbb Z}
 %\newcommand{\H}{\mathbb H}
 \newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\abssq}[1]{\left|#1\right|^2}
 \newcommand{\im}{\text{im }}
 \newcommand{\inv}{^{-1}}
 \newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
@@ -19,8 +20,8 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Analysis Homework \# 9}
+\rhead{15 April 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -35,7 +36,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Analysis Homework \# 9} 
 
 %------------------------- Problem 1 -----------------------
 
@@ -119,19 +120,25 @@ If $f(x,y) = u(x,y) + iv(x,y)$ this expression gives us a condition on $v$.
 Let $p,q$ be two points of the upper half plane with the same real
 part. If $\gamma$ is a curve in the upper half plane, the length of
 $\gamma$ under the hyperbolic metric is given by contracting the
-tangent vectors against the metric along the curve 
+tangent vectors against the metric along the curve. That is if
+$\gamma: [0,1] \to \mathbb H$ with $\gamma(0) = p$ and $\gamma(1) =
+q$ then the hyperbolic length of this curve is 
 \[
-??
+	L = \int_a^b \sqrt{g_{\gamma(t)}(\gamma'(t), \gamma'(t))} dt,
 \]
+where $g_{(x,y)}(u,v)$ means the contraction of tangent vectors $u,v$
+in the tangent space at $p = (x,y) \in \mathbb H$. (I am using some
+conceptual understanding from physics here, is this also the way one
+would say this in metric geometry?)
+
 If $\gamma$ is not the vertical line connecting $p,q$ then it moves a
 nonzero amount parallel to the real line. For a fixed imaginary value,
 the hyperbolic length of a horizontal line is given by a scaling of
-its euclidean length. In particular, any distance travelled in the
-real direction adds a positive value to the length of our curve.
+its euclidean length. That is, any distance travelled in the
+``real direction'' by $\gamma$ adds a positive value to the length of our curve.
 In particular this means that the geodesic connecting $p,q$ is given
 by the curve which does not travel in the real direction at all ---
 this is namely the vertical line connecting $p,q$.
-\wg{Re-read this sentence to see if it makes any sense.}
 
 Now suppose that $p,q$ two points no longer lying on a vertical line.
 We saw in the previous question that any automorphism of $\mathbb H$
@@ -146,7 +153,7 @@ then a unique Mobius transformation $M$ mapping $(x,p,q) \mapsto (0,
 \tilde p, \tilde q)$ where $\tilde p, \tilde q \in \mathbb H$ and are
 colinear.
 
-A priori this $M \in PGL_2(\C)$, however, if we can show that $M \in
+A priori our transform $M \in PGL_2(\C)$, however, if we can show that $M \in
 PSL_2(\R)$ then are done. Since $M \in GL_2(\C)$ it has determinant $D
 \neq 0$. We can scale $M$ by any $\lambda \in \C$ to acquire an
 equivalent transformation. But $\abs{\lambda M} = \lambda^2 D$,
@@ -156,8 +163,8 @@ have determinant $1$ without loss of generality.
 
 Recall that the automorphisms of $\mathbb H$ are a subgroup of
 $PSL_2(\R) \leq PGL_2(\C)$ and so, we need to argue that the
-transformation found above has real entires and determinant $1$
-\wg{Come back to this}
+transformation found above has real entires.
+
 
 
 \end{solution}
@@ -167,10 +174,78 @@ transformation found above has real entires and determinant $1$
 
 %------------------------- Problem 3 -----------------------
 
-\begin{problem}[3]
+\begin{problem}
+	\includegraphics[scale=0.8]{3.png}
 	\hfill
 \end{problem}
 \begin{solution}
+We found in problem $1$ that the automorphisms of the upper half plane
+are exactly the automorphisms of the hyperbolic metric on the upper
+half plane. We also know a biholomorphism between $\mathbb H$ and
+$\Delta$ and so we can use this to compute a candidate metric on
+$\Delta$ which is preserved under any automorphism of $\Delta$.
+
+We saw in class a biholomorphism $\Delta \to \mathbb H$ via \[
+	h(z) = i \cdot \frac{1+z}{1-z}.
+\]
+This map has holomorphic inverse $f: \mathbb H \to \Delta$ via 
+\[
+	f(z) = \frac{z-i}{z+i}.
+\]
+Now let us denote the hyperbolic metric on $\mathbb H$ by $ds^2 =
+(dx^2 + dy^2)/y^2 = \abs{dz}^2 / y^2$. Then using the relation
+$dw = f'(z) dz$ where $w = f(z)$ we can compute how the metric transforms under $f$. 
+Using the quotient rule we get that 
+\[
+	f'(z) = \frac{2i}{(z+i)^2}. 
+\]
+And so \[
+	\abssq{dz} = \frac{\abs{z+i}^4}{4} \abssq{dw}. 
+\]
+
+Now if $z = x + iy \in \mathbb H$, let us compute $y = Im(z)$ in
+terms of $w$. 
+We have that
+\begin{align*}
+	x + iy &= i \cdot \frac{1 + w}{1 - w} \\
+	&= i \cdot \frac{1 - \bar w + w - \abssq{w}}{\abssq{1 - w}} \\
+	y &= \frac{1 - \abssq{w} + Re(w - \bar w)}{\abssq{1 - w}} \\
+	y &=  \frac{1 - \abssq{w}}{\abssq{1 - w}}.
+\end{align*}
+Note that if $a \in \C$ then $a - \bar a$ is a purely imaginary
+number. 
+
+Now we can compute a candidate metric 
+\begin{align*}
+	ds^2 &= \frac{1}{y^2} \abssq{dz} \\
+	&= \left(\frac{\abssq{1-w}}{1 - \abs{w}^2}\right)^2 \frac{\abs{z+i}^4}{4} \abssq{dw}. 
+\end{align*}
+Now notice that ssince $w = \frac{z-i}{z+i}$ we have that 
+$1 - w = \frac{2i}{z + i}.$
+And so $\abssq{z+i} = 4/\abssq{1-w}$. 
+Now, we are left with 
+\[
+	ds^2 = \frac{1}{\left(1 - \abssq{w}\right)^2} \abssq{dw},
+\]
+where $w \in \Delta$. This is our candidate metric on $\Delta$.
+
+Recall that the automorphisms of $\Delta$ are of the form 
+\[
+	g(z) = e^{i \theta} \phi_a(z),
+\]
+for some angle $\theta$ and where $\phi_a$ is a Blaschke map.
+If we show that rotations and all $\phi_a$ are isometries of our
+proposed metric then compositions of such maps (i.e. all automorphisms
+of $\Delta$) will also be isometries. 
+Notice that the conformal factor of our candidate metric depends only
+on $\abssq{w}$, the magnitude of our point in $\Delta$. Thus, it is
+certainly preserved under rotations. 
+The last thing to compute is whether the Blaschke maps all satisfy 
+\[
+	\frac{\abssq{\phi'_a(z)}}{\left(1 - \abssq{\phi_a(z)}\right)^2} = \frac{1}{\left(1- \abssq{z}\right)^2},
+\]
+for all $z \in \Delta$ and all $a \in \Delta$. 
+
 \end{solution}
 
 \newpage
@@ -182,31 +257,60 @@ transformation found above has real entires and determinant $1$
 	\hfill
 \end{problem}
 \begin{solution}
-Let $f$ be as given in the question. First suppose that $f(0) = 0$
-recall the Schwarz lemma for such a function states 
+Let $f$ be as given in the question. First suppose that $f(0) = 0$.
+We show that if this function has a nonzero fixed point then it is the
+identity.
+Recall the Schwarz lemma for such a function states 
 \[
 	\abs{f(z)} \leq \abs{z} \text{for all } z \in \Delta 
 	\qquad
 	\text{ and } 
 	\qquad \abs{f'(0)} \leq 1,
 \]
-and if equality is achieved in either for some $z_0 \in \Delta$, then $f$ is a rotation. 
+and if equality is achieved in either for some nonzero $z_0 \in \Delta$, then
+$f$ is a rotation. 
 Suppose $f$ has a fixed point, i.e. $f(z_0) = z_0$ for some $z_0 \in
 \Delta$. But then we have 
-$\abs{f(z_0)} = \abs{z_0}$ and so $f$ is a rotation. And so $f$ just
-has the single fixed point at the origin. 
+$\abs{f(z_0)} = \abs{z_0}$ and so $f$ is a rotation, $f(z) =
+e^{i\theta} z$. However, since $f(z_0) = z_0$ and $z_0 \neq 0$ it must
+be that $e^{i\theta} = 1$, i.e. $f$ is the identity. 
+That is, a nonidentity holomorphic $f$ with $f(0) = 0$ only fixes the origin.
 
 Now let $f$ be general (i.e. drop the assumption $f(0) = 0$). 
-Since $f : \Delta \to \Delta$ we have that $f(0) = a$ for some $a \in
-\Delta$. 
-Now, recall that the Blaschke map $\phi_a$ is an automorphism of $\Delta$ which
-exchanges $0$ and $a$. 
-Now the map $h = \phi_a \circ f : \Delta \to \Delta$ is
-holomorphic, as the composition of two holomorphic functions, and
-fixes $0$. 
-From the argument in the above paragraph can only have the origin as a
-fixed point. 
-\wg{What can we say from here?}
+I claim that if $f$ has more than one fixed point then it must be the
+identity on $\Delta$. 
+Suppose that $f$ has two distinct fixed points $f(a) = a$ and $f(b) =
+b$. Now let $g: \Delta \to \Delta$ be defined by 
+\[
+	g = \phi_a \circ f \circ \phi_a^{-1},
+\]
+where $\phi_a: \Delta \to \Delta$ is the Blaschke map (the
+automorphism of the disc) which exchanges $0$ and $a$. 
+Since $f(a) = a$ this function satisfies $g(0) = 0$. 
+Notice that $\phi_a(b)$ is also a nonzero fixed point of $g$. And
+so by the argument above, $g$ is the identity.
+Now conjugating $g$ by $\phi_a$ implies that $f(z) = z$ is the
+identity (recall that $\phi_a\inv = \phi_a$). 
+Thus, we have shown that if $f$ has two distinct fixed points then it
+must be the identity on $\Delta$. In other words, a non-identity
+holomorphic function on $\Delta$ has at most a single fixed point. 
+
+We show that there exists a holomorphic function on $\Delta$ whose set
+of fixed points is the empty set.
+Let $x \in \R$ be nonzero and consider the Blaschke map 
+\[
+	\phi_x = \frac{z - x}{1 - xz}. 
+\]
+The fixed point equation $\phi_x(z) = z$ is equivalent to
+\[
+	0 = x(1 - z^2).
+\]
+However the solutions to this equation in $z$ are only for $z \in
+\partial \Delta$. That is, this equation has no solutions in $\Delta$
+and so $\phi_x$ has no fixed points in $\Delta$. 
+Recall that $\phi_x$ is a holomorphic function on $\Delta$ since it is
+an automorphism of $\Delta$. 
+
 
 We have shown that if $f$ is non identity then it can only have a
 single fixed point. The constant map $f: \Delta \to \Delta$ via $f(z) = a$ for
@@ -214,13 +318,28 @@ some $a \in \Delta$ has a fixed point at $a$.
 If $f: \Delta \to \Delta$ is the identity restricted to the
 disc has every point as a fixed point.
 
-Overall the possibilities for the set of fixed points are $\Delta,
-\{a\}$ where $a \in \Delta$ \wg{can we have no fixed points?}
+Overall, the possibilities for the set of fixed points are $\Delta,
+\{a\}$ where $a \in \Delta$, and $\O$. 
 
 \end{solution}
 
 
 \newpage
+
+%------------------------- Problem 5 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{5.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+
+
+\end{solution}
+
+\newpage
+
 
 %------------------------- Problem 6 -----------------------
 
@@ -235,9 +354,22 @@ upper half plane. And then, if we can construct an inverse function,
 then we have shown that the given function is a biholomorphism $\tilde
 \Delta \to \mathbb H$ where $\tilde \Delta$ denotes the upper half disc. 
 
-\wg{Come back and argue that the outputs of the function are in the upper half plane}
+First we show that the proposed function outputs to $\mathbb H$.
+Let $z \in \Delta$, we need to show that $Im(f(z)) > 0$.
+Recall that $Im(f(z)) = (f(z) - \overline(f(z))) / 2i$. 
+A quick computation gives that 
+\[
+	Im(f(z)) = 
+	\frac{1}{2i}\left(f(z) - \overline{f(z)}\right) = -\frac{1}{2} Im(z) \left(1 - \frac{1}{\abssq{z}}\right). 
+\]
+However, recall that $z \in \Delta$ and so, $1 - 1/\abssq{z} < 0$.
+Thus, $Im(f(z)) > 0$ and the proposed function outputs to $\mathbb H$
+for all $z \in \Delta$, and in particular, for all $z \in \tilde
+\Delta$. 
 
-Let $w \in \mathbb H$. We want to show that there is a unique $z \in
+Now, we show that the proposed function has an inverse $\mathbb H \to
+\Delta$. 
+Let $w \in \mathbb H$, we want to show that there is a unique $z \in
 \tilde \Delta$ such that $w = -1/2(z + 1/z)$. Rearranging this equation
 gives 
 \[
@@ -245,7 +377,7 @@ gives
 \]
 As a quadratic equation, this has two roots $z_0, z_1 \in \C$. 
 Recalling then that we can factor our quadratic as $0 = (z -z_0)(z-z_1)$, 
-the coefficients from this quadratic give the following relations on
+the coefficients from the above give the following relations on
 the roots
 \begin{align}
 	z_0 z_1 &= 1 \\
@@ -265,7 +397,7 @@ the other root lies in $\mathbb C \setminus \Delta$, since $z \mapsto
 \in \Delta$. 
 Now I claim that equation $2$ can only be satisifed if in fact $z_0
 \in \tilde \Delta$. 
-If we write $z_0 = r e^{i \theta}$ for $r < 1$ then $z_1 = z_0^{-1} =
+If we write $z_0 = r e^{i \theta}$, $r < 1$ then $z_1 = z_0^{-1} =
 1/r e^{-i \theta}$ (i.e. $z_1$ lies on the same ray as
 $\overline{z_0}$ but with larger magnitude). And so if $z_0$ were to
 lie in the lower half disc we would have that $z_0 + z_1$ has positive
