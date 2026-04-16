@@ -334,6 +334,37 @@ Overall, the possibilities for the set of fixed points are $\Delta,
 \end{problem}
 
 \begin{solution}
+We say that a family of functions $\mathcal F$ is equicontinuous if
+for all $\epsilon > 0$ there exists some $\delta = c(\epsilon)$ such
+that for all $f \in \mathcal F$ and for all $z, w \in U$ such that 
+$\abs{z - w} < \delta$ then $\abs{f(z) - f(w)} < \epsilon$. 
+That is, every $f$ is uniformally continuous, and the single delta
+works for all functions in the family. 
+
+Suppose we have a condition on the partials of $f \in \mathcal F$ as
+given in the question. For $x \in U$, since $U$ is open, 
+we know that there is a ball
+containing $x$ contained in $U$. Thus there's a line segment
+connecting $x$ to sufficiently close by points and we have 
+\[
+	f(y) - f(x) = \int Df(\gamma)(y-x) dt,
+\]
+where $\gamma$ is some line segment connecting $x$ to $y$ in the
+sufficiently small ball about $x$, and where $Df$ is the Jacobian of
+$f$.
+Now we can use the estimate 
+\[
+	\abs{f(y) - f(x)} \leq \sup_{z \in \gamma} \abs{Df(z)} \abs{y-x}.
+\]
+Here the norm on $Df$ is the operator norm. The condition given on the
+question bounds the entries of the jacobian by $M$. This is enough to
+bound the operator norm by some other constant $\tilde M$. Now if we
+are given $\epsilon > 0$ we have shown that choosing
+\[
+	\abs{y - x} < \frac{\epsilon}{\tilde M }
+\]
+is sufficient to bound $\abs{f(y) - f(x)} < \epsilon$ for all $x,y \in U$
+and for all $f \in F$. Hence $\mathcal F$ is equicontinuous
 
 
 \end{solution}
