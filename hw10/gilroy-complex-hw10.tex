@@ -241,10 +241,51 @@ way for this polygon to be self-intersecting with this particular choice of angl
 %------------------------- Problem 5 -----------------------
 
 \begin{problem}
+	\includegraphics[scale=0.8]{5.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+First recall that the upper half plane is biholomorphic to the disc
+via $z \mapsto i\cdot (1+z)/(1-z)$.
+Next the map $z \mapsto z^2$ ``almost gets us what we want'' since its
+image on the upper half plane is $\C \setminus (0,\infty)$. Note that
+this 
+is indeed a biholomorism from the upper half plane to $\C \setminus
+(0,\infty)$ since the target does
+not contain $0$, and we can take the branch cut along $(0, \infty)$ to
+define our square root function as an inverse.
+Lastly, we can apply a translation $z \mapsto z+1$ so that the output
+is finally $X = \mathbb C \setminus (1, \infty)$. 
+
+To summarize, the proposed map is 
+\[
+	(z \mapsto z+1) \circ (z \mapsto z^2) \circ \left(z \mapsto i \cdot \frac{1 + z}{1 - z}\right)
+	= z \mapsto 1 - \frac{(1+z)^2}{(1-z)^2}. 
+\]
+Plugging in $z = 0$ into the above map shows that its image is zero: 
+$0 \mapsto i \mapsto -1 \mapsto 0$.
+If we call our proposed function $\tilde f$, then 
+an application of the quotient rule and a couple applications of the
+chain rule will give us that 
+\[
+	\tilde f'(z) = \frac{-4(1+z)}{(1-z)^3},
+\]
+i.e $\tilde f'(0) = -4 < 0$.
+And so, if we want $f'(0) > 0$ then we need to ammend this map
+slightly. Note that by the chain rule, $\frac{d}{dz} \tilde f(-z) = -
+\tilde f'(z)$. And so if we can precompose $\tilde f$ by negation then
+we will have fixed our derivative condition. And indeed, recall that
+rotations are biholomorphisms of the unit disc. And so $f(z) := \tilde f(e^{\pi
+i }z) = \tilde f(-z)$ is still a biholomorphism from $\Delta$ to $X$. 
+And so overall
+\[
+	f(z) = 1 - \frac{(1 - z)^2}{(1+z)^2}
+\]
+is a biholomorphism from $\Delta \to X$ which sends $0$ to $0$ and for
+which $f'(0) = 4 > 0$. 
+
+
 \end{solution}
 
 \newpage
