@@ -38,11 +38,56 @@
 
 %------------------------- Problem 1 -----------------------
 
-\begin{problem}[1]
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Since we have uniform convergence on compact subsets we have that $f$
+is holomorphic\footnote{
+Consider applying Morera's theorem to small
+rectangles about each point, and since the convergence is uniform on
+compact subsets we can exchange the limit and the integral.
+}
+on $U$. By isolation of zeroes there's some neighbourhood of $w$
+contained in $U$ where $f$ is nonvanishing. Now consider a slightly
+smaller neighbourhood about $w$ whose closure is contained in the ball
+of nonvanishing $f$. Call this final ball $B$. In particular on
+$\partial B$ we have $\abs{f(z)} \geq \delta$ for some positive
+$\delta$. On the other hand, for sufficiently large $n$ we have that 
+$\abs{f_n(z) - f(z)} < \delta$ for all $z \in \partial B$ since the
+convergence is uniform, and so $\abs{f(z)} > \abs{f_z(z) -f(z)}$ on
+$\partial B$. We have met the conditions for Morera's theorem and so
+it follows that $``f + g'' = f_n(z)$ has the same number of zeroes,
+counted with multiplicity, in $B$ as $f(z)$.
+
+By construction, we have that $f$ has exactly one zero in $B$. And so
+for each $n$ sufficiently large we have that $f_n$ has exactly one
+zero contained in $B$. Call this sequence $\tilde z_n$. 
+Since $z_n \in \overline B$ a compact set, we have that some
+subsequence of $\tilde z_n$
+converges to some point in $z_* \in \overline B$, call this subsequence $z_n$. 
+Now, since $f_n \to f$ and $f$ has exactly one zero at $w$ we must
+have that $z_n \to w$. 
+Indeed 
+\[
+	0 = \lim_{n \to \infty} f_n(z_n) = f(z_*),
+\]
+but $f = 0$ only at $w \in \overline B$, and so $z_* = w$. 
+The $z_n$ is our desired sequence. 
+
+The argument above only used constructions that were local about the
+point $w$ where $f$ vanished, and so I think this conclusion still
+holds if $U$ is a non-connected open set, given that $f$ is not
+identically zero on any component. 
+The existence of the nonvanishing neighbourhood about $w$ depends on
+the fact that $f$ is nonvanishing. Given the wording of the
+hypothesis, we could have an $f$ which is nonvanishing on all of $U$
+but vanishes identically on some connected component. On that
+component this argument would not work.
+
+
 \end{solution}
 
 \newpage
