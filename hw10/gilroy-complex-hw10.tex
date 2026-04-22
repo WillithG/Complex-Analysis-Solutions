@@ -101,34 +101,19 @@ component this argument would not work.
 
 \begin{solution}
 Consider for a moment holomorphic functions on the set $X := \C
-\setminus \{0,1\}$. 
-From our classification of singularities such
-functions can either $(1)$ extend to a holomorphic function at either
-$0,1$ or both or $(2)$ we can have a pole at either $0$, or $1$. 
-\wg{why not both?}. We cannot have an essential singularity at either
-$0,1$ because then otherwise, by Castorati-Weirstrass, our function
-would not be injective (the image would hit almost every value of $\C$
-infinitely often). 
-
-Let us first understand the functions of $f \in Aut(X)$ which extend
-to a holomorphic function at both $0,1$. In other words, $f$ is
-actually also an automorphism of $\mathbb C$. \wg{wait this might not
-be true}
-
-...
-
-Consider for a moment holomorphic functions on the set $X := \C
-\setminus \{0,1\}$. Notice that any $f \in Aut(X)$ cannot have an
+\setminus \{0,1\}$. We can consider the holomorphic functions on $X$ as
+meromorphic functions on $\C$ with potentially singularities at $0,1$. 
+Notice that any $f \in Aut(X)$ cannot have an
 essential singularity at either $0,1$, otherwise Castorati-Weirstrass
 implies that $f$ would not be injective (its image would hit almost
 every value of $\C$ infinitely often). That is, any $f \in Aut(X)$
 ``at worst'' has a pole at $0,1$. It could also extend to a
 holomorphic function at either of these points. In other words, a
-priori $f: X \to X$ bijective and holomorphic however, we can instead
+priori $f: X \to X$ is bijective and holomorphic, however, we can instead
 think about it as a function $f: \hat \C \to \hat \C$.
-Moreover, by definition any inverse $f\inv$ is also holomorphic on
+Moreover, by definition, the inverse of any $f \in Aut(X)$ is also holomorphic on
 $X$. And so by the same argument we can also think of $f\inv$ as a
-function $\hat C \to \hat \C$.
+function $\hat \C \to \hat \C$.
 
 First consider the case where $f$ extends to a holomorphic function at
 either $0,1$. Since $f$ still needs to be bijective on $X$, if $f$ is
@@ -139,11 +124,11 @@ either have that $f$ fixes both $0,1$ or $f$ exchanges $0,1$.
 The first case is satisfied by only the identity $f(z) = z$ and the
 second is satisfied by $f(z) = -z+1$. The latter was found by
 recalling that in such a case $f$ is a bijective holomphism of the
-entire plane, we found these to be of the form $f(z) = az +b$. 
+entire plane and we found these to be of the form $f(z) = az +b$. 
 
 Now, suppose that $f$ does not extend to a holomorphic function at
 both $0,1$. Then we argued above that we can think of $f,f\inv$ as
-being extended to $\hat \C \to \hat \C$. Notice that the extended
+being extended to holomorphic maps $\hat \C \to \hat \C$. Notice that the extended
 $f,f\inv$ must still be inverses of each other as functions $\hat \C
 \to \hat \C$, since they agree with their original versions on the
 dense open set $\hat \C \setminus \{0,1,\infty\}$. 
@@ -158,8 +143,13 @@ transformation which sends the triple $(0,1,\infty)$ to some
 permutation of the same triple. It must send this triple to some
 permutation of itself, because we need $f,f\inv$ to be functions on
 $X = \C \setminus \{0,1,\infty\}$. 
+Recall that the Mobius transformations are triply transitive, and so, once we
+specify which permutation the triple $(0,1,\infty)$ is sent to, then we
+have exactly determined the Mobius transformation.
 
-\wg{now, we should just write down what these can possibly be.}
+We have argued that we have an automorphism of $X$ for each permutation of the
+triple $(0,1,\infty)$ (i.e. there are $6$ such automorphisms).
+\wg{we should write exactly what these are.}
 
 \end{solution}
 
@@ -219,11 +209,31 @@ of the entire boundary $\R \cup \infty$ is a closed polygon with three vertices
 
 %------------------------- Problem 4 -----------------------
 
-\begin{problem}[4]
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+We have seen that for some points $A_1, \cdots, A_n \in \R$, 
+and some $\beta_1, \cdots, \beta_n \in \R$ gives a
+Schwarz-Christoffel map
+\[
+	f(z) = \int_0^z (\zeta - A_1)^{-\beta_1}
+		(\zeta -A_2)^{-\beta_2} \cdots (\zeta -A_n)^{-\beta_n} d\zeta.
+\]
+whose image of $\R \cup \infty$ a series of line segments, which forms a polygon
+under appropriate assumptions for the $\beta_i$ (see previous question for
+example). The polygon given has exterior angles $\pi\beta_i$. 
+
+Consider the choice of $\beta_1 = -1$, and then $\beta_i = 1$ for 
+$n = 2, \cdots, 6$. Choose any $A_i \in \R_+$, say. 
+Thinking about varying $z$ continuously from $0$ to $\infty$, the image of this
+map has one ``turn to the right'' by $\pi$, and then the rest of the turns ``are
+to the left'' by $\pi$ \wg{see the figure below}.
+Here the choice of the $A_i \in \R$ does not matter, since I think there is no
+way for this polygon to be self-intersecting with this particular choice of angles.
+
 \end{solution}
 
 \newpage

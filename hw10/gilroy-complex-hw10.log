@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/VoidLinux) (preloaded format=pdflatex 2026.3.8)  22 APR 2026 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/VoidLinux) (preloaded format=pdflatex 2026.3.8)  22 APR 2026 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -647,7 +647,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 <3.png, id=30, 594.72188pt x 105.39375pt>
 File: 3.png Graphic file (type png)
 <use 3.png>
-Package pdftex.def Info: 3.png  used on input line 171.
+Package pdftex.def Info: 3.png  used on input line 161.
 (pdftex.def)             Requested size: 416.30247pt x 73.7751pt.
 
 
@@ -659,6 +659,22 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
 [5 <./3.png (PNG copy)>]
+<4.png, id=35, 594.72188pt x 46.67438pt>
+File: 4.png Graphic file (type png)
+<use 4.png>
+Package pdftex.def Info: 4.png  used on input line 213.
+(pdftex.def)             Requested size: 475.77815pt x 37.33952pt.
+
+Overfull \hbox (12.82312pt too wide) in paragraph at lines 213--215
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--215
+
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -667,7 +683,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[6]
+[6 <./4.png (PNG copy)>]
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -694,18 +710,18 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17095 strings out of 473190
- 343169 string characters out of 5722570
- 723330 words of memory out of 5000000
- 39995 multiletter control sequences out of 15000+600000
- 583451 words of font info for 107 fonts, out of 8000000 for 9000
+ 17105 strings out of 473190
+ 343271 string characters out of 5722570
+ 724330 words of memory out of 5000000
+ 40002 multiletter control sequences out of 15000+600000
+ 584736 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,11n,101p,593b,386s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on gilroy-complex-hw10.pdf (8 pages, 182443 bytes).
+Output written on gilroy-complex-hw10.pdf (8 pages, 201304 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
+ 99 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
