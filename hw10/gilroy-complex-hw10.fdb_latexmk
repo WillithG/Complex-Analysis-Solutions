@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1776888289.38647 "/home/willithg/repos/Complex-Analysis-Solutions/hw10/gilroy-complex-hw10.tex" "gilroy-complex-hw10.pdf" "gilroy-complex-hw10" 1776888290.19149 0
-  "/home/willithg/repos/Complex-Analysis-Solutions/hw10/gilroy-complex-hw10.tex" 1776888289.07443 8387 02425e9e0022d01153bf1ea54a5fd87a ""
+["pdflatex"] 1776888844.23759 "/home/willithg/repos/Complex-Analysis-Solutions/hw10/gilroy-complex-hw10.tex" "gilroy-complex-hw10.pdf" "gilroy-complex-hw10" 1776888845.10475 0
+  "/home/willithg/repos/Complex-Analysis-Solutions/hw10/gilroy-complex-hw10.tex" 1776888843.83155 9491 4acd1382ef0510c534001e6c710c865b ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1769742353 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1769742353 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplb7t.tfm" 1769742353 1616 371d1ee60c04b008c8fd760060cd34f1 ""
@@ -167,8 +167,8 @@
   "1.png" 1776887339.34303 32121 9ef1f4e63c7782d6a2d1abc70de75e88 ""
   "2.png" 1776887339.34303 6590 02e461a605e6abff670b1dabaa07bc79 ""
   "3.png" 1776887636.97206 20236 d702b86bc61bd89b75e90d5b45769921 ""
-  "gilroy-complex-hw10.aux" 1776888290.09143 120 4d497c51a3f8314dc49b4ed77069e3cc "pdflatex"
-  "gilroy-complex-hw10.tex" 1776888289.07443 8387 02425e9e0022d01153bf1ea54a5fd87a ""
+  "gilroy-complex-hw10.aux" 1776888844.98055 120 4d497c51a3f8314dc49b4ed77069e3cc "pdflatex"
+  "gilroy-complex-hw10.tex" 1776888843.83155 9491 4acd1382ef0510c534001e6c710c865b ""
   "hmcpset.cls" 1776887339.34803 4085 98027ce36439082fce2e02ac517d4e29 ""
   (generated)
   "gilroy-complex-hw10.aux"

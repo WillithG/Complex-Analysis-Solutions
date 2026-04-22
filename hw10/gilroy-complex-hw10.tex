@@ -172,25 +172,45 @@ $X = \C \setminus \{0,1,\infty\}$.
 	\hfill
 \end{problem}
 \begin{solution}
+To set the stage, recall that the image of this is piecewise linear with
+``turns'' at $z = 0$ and $z = 1$ where the angle of turning is given by $\beta_1
+\pi$ and $\beta_2 \pi$. 
+
 Let us first discuss the boudnary cases. 
-When $\abs{z}$ is large we have that this integral goes like
+In general, 
+when $\abs{z}$ is large we have that this integral goes like
 \[
-	f(z) \sim \int \zeta^{-(\beta_1 + \beta_2)} d\zeta
+	f(z) \sim \int \zeta^{-(\beta_1 + \beta_2)} d\zeta. 
 \]
 In the case where $\beta_1 + \beta_2 \leq 
 1$ we have that this integral does not converge and so ``the image of $\infty$
 '' is not finite. In other words we get the the image of $\partial \mathbb H$ is
 a piecewise union of straight lines, not bounded. In particular, if $\beta_1 +
-\beta_2 = 1$ then we have that the angles are both straight lines and we recover
+\beta_2 = 1$ then we have that the angles are both right angles and we recover
 the case of the unbounded strip that we saw in class. On the other hand, if
 $\beta_1 + \beta_2 < 1$ then we have that $\beta_1, \beta_2 < 1$ and then we
 have an ``obtuse'' unbounded strip.
 
 Now if $\beta_1 + \beta_2 > 1$ we have that $f(\infty)$ is some finite point.
-Recall also that $f(\infty)$ and $f(-\infty)$ converge to the same point (we
+Recall also that the integrals given by  $f(\infty)$ and $f(-\infty)$ converge to the same point (we
 showed this in class by considering a contour integral of an expanding
 semicircle in the upper half plane). 
-Consider $\beta_1 + \beta_2 = 2$
+Consider $\beta_1 + \beta_2 = 2$, in particular $\beta_1 = 1$ and
+$\beta_2 = 1$. In this case the image is a line segment --- for $z$ between $-\infty$
+to $0$ we have a straight line segment, then a turn of $\pi$ and then a straight
+line segment for $z$ from $0$ to $1$, a turn of $\pi$ again, and then a straight
+line segment.
+
+Now consider what happens when $1 < \beta_1 + \beta_2 < 2$ we know that 
+the image of $(-\infty, 0)$ is a straight line segment, followed by a turn of
+$\beta_1 \pi$, followed by another straight line segment for $(0,1)$, a turn of
+$\beta_2\pi$, and then another line segment for $(1, \infty)$. 
+The fact that these line segments connect is given by the fact that the
+definition of $f$ gives a continuous function.
+We know from prior argument that $f(\infty) = f(-\infty)$ and so the image 
+of the entire boundary $\R \cup \infty$ is a closed polygon with three vertices
+(i.e. a triangle). 
+
 
 
 \end{solution}
