@@ -292,11 +292,55 @@ which $f'(0) = 4 > 0$.
 
 %------------------------- Problem 6 -----------------------
 
-\begin{problem}[4]
+\begin{problem}
+	\includegraphics[scale=0.8]{6.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Allow me to connect some ideas here briefly. We saw in class that any
+biholomorphism from $\Delta \to \mathcal P$ for some polygon $\mathcal
+P$ extends continuously to a homeomorphism $\bar \Delta \to
+\bar{\mathcal P}$. So here, we are allowing a more general class of
+functions, bijective smooth functions $\Delta \subseteq \R \to
+\mathcal P$ which behaves badly enough on the boundary to not be
+continuously extendable. In particular, whatever function we come up
+with should not be holomorphic.
+
+To begin,
+consider a smooth bijection $\Delta \to \Delta$ where a circle of
+radius $r < 1$ is mapped to the same circle, but rotated by some
+$\theta(r)$ where $\theta \to \infty$ as $r \to \infty$. For example,
+consider $f: \Delta \to \Delta$ via
+\[
+	f(z) := e^{\frac{i}{1-\abs{z}}} z \qquad \text{or } \qquad
+	f(r,\theta) := (r, \theta + 1/(1-r)). 
+\]
+This function is infinitely differentiable when viewed as a function
+from $\R^2 \to \R^2$. Viewed from the polar coordinate lens, all the
+partials exist and are continuous, away from $r = 0$, since the
+transformation is the identity in $r$ and a translation in $\theta$. 
+For $r =0$ we could rewrite the function in cartesian coordinates,
+(the definition would now involve some $\sin,\cos$ terms), 
+and we would find that the function is still smooth. 
+Moreover, this map is bijective because it has an inverse given by 
+\[
+	f\inv(z) = e^{\frac{-i}{1-\abs{z}}} z.
+\]
+On the other hand, this function does not have a continuous extension
+to the boundary of $\Delta$, because the rotations diverge as we
+approach the boundary.
+
+We have a diffeomorphism $\Delta \to \Delta$ which does not extend
+continuously to the boundary. Now to find the desired function we can
+compose $f$ with our biholomorphism $\Delta \to \mathbb H$ via $z
+\mapsto i \cdot (1+z)/(1-z)$, and then
+compose this with the Schwarz-Christoffel map which sends $\mathbb H
+\to \mathcal P$. Recall that holomorphic function is
+always also smooth when viewed as a real vector function, and so the
+composition would give a diffeomorphism $\Delta \to \mathcal P$ which
+does not extend continuously to $\bar \Delta$. 
+
 \end{solution}
 
 \newpage

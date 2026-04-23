@@ -1,11 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1776900959 "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" "gilroy-complex-hw10.pdf" "gilroy-complex-hw10" 1776900959 0
+["pdflatex"] 1776905799 "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" "gilroy-complex-hw10.pdf" "gilroy-complex-hw10" 1776905800 0
   "/etc/texmf/web2c/texmf.cnf" 1714944770 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" 1776900959 11983 3f824968d3faee8d5698d8515ea2f01d ""
+  "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" 1776905799 14146 efc442f48ad03528ff143ce72411a9ea ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplb7t.tfm" 1136768653 1616 371d1ee60c04b008c8fd760060cd34f1 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm" 1136768653 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm" 1136768653 2796 d37c29814a6717720ee1a7c9a0b2c3b8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm" 1136768653 2720 70000d5e623e601132eab3cded5b819b ""
@@ -33,10 +31,8 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb" 1136849748 12410 7504dd653d0e7cf266cb973aeafd597c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb" 1136849748 9356 a3851bc942e9b6995883193472ba1847 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb" 1136849748 15213 d999bbe8bd9c8f231f3f66a737c76478 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb" 1136849748 52406 dad2f72863a03727d5f536c64a69c452 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb" 1136849748 52665 661b1e6b26edb5f50dd491f8a701cb57 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb" 1136849748 50022 90249cba7e3e4e9845f80328d6f9bd13 ""
-  "/usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplb7t.vf" 1136768653 1380 798ef26de8f0a21f37c9b1147f4fe5d8 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr7t.vf" 1136768653 1380 037725697594405988999f61172f52de ""
   "/usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf" 1136768653 1812 de7624743c8bafe2ce204bec2f72ce7e ""
   "/usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf" 1136768653 1532 73e2c76c81e4f977ab65540630baf4f0 ""
@@ -169,8 +165,9 @@
   "3.png" 1776899006 20236 d702b86bc61bd89b75e90d5b45769921 ""
   "4.png" 1776899006 17756 bdf1298cc675bd1bdb1893782a485ed0 ""
   "5.png" 1776899613 8175 c0bd6eb637bbe3c1adbd0e79e07043d0 ""
-  "gilroy-complex-hw10.aux" 1776900959 114 297236e346b4a25ffc37c27abec3ef29 "pdflatex"
-  "gilroy-complex-hw10.tex" 1776900959 11983 3f824968d3faee8d5698d8515ea2f01d ""
+  "6.png" 1776904577 14567 24bc49c3b4fabd76e3236579a6a7f207 ""
+  "gilroy-complex-hw10.aux" 1776905800 114 297236e346b4a25ffc37c27abec3ef29 "pdflatex"
+  "gilroy-complex-hw10.tex" 1776905799 14146 efc442f48ad03528ff143ce72411a9ea ""
   "hmcpset.cls" 1776785682 4085 98027ce36439082fce2e02ac517d4e29 ""
   (generated)
   "gilroy-complex-hw10.aux"
