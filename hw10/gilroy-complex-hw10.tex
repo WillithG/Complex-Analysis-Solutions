@@ -34,7 +34,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Homework \#10 } 
 
 %------------------------- Problem 1 -----------------------
 
@@ -149,7 +149,25 @@ have exactly determined the Mobius transformation.
 
 We have argued that we have an automorphism of $X$ for each permutation of the
 triple $(0,1,\infty)$ (i.e. there are $6$ such automorphisms).
-\wg{we should write exactly what these are.}
+
+We can compute the form of these maps exactly.
+Consider the automorphism of $X$ which sends $(0,1,\infty)$ to
+$(\infty, 1, 0)$. We start with a Mobius transformation $f(z) =
+(az+b)/(cz+d)$. The condition $f(0) = \infty$ implies $d = 0$. The
+condition $f(1) = 1$ implies $c = a + b$. Then lastly the condition
+$f(\infty) = 0$ implies $a = 0$ and that one automorphism of $X$ is $f(z) =
+1/z$. Proceeding in a similar way for the other permutations gives us
+the following list for the automorphisms of $X$. 
+The right column indicates where the triple
+$(0,1,\infty)$ is sent to.
+\begin{align*}
+	f(z) &= z & (0,1, \infty) \\
+	f(z) &= \frac{z}{z-1} & (0, \infty, 1) \\ 
+	f(z) &= 1 - z & (1, 0, \infty) \\ 
+	f(z) &= \frac{1}{1-z} & (1, \infty, 0) \\
+	f(z) &= \frac{z-1}{z} & (\infty, 0, 1) \\
+	f(z) &= \frac{1}{z} & (\infty, 1, 0). 
+\end{align*}
 
 \end{solution}
 
@@ -201,7 +219,21 @@ We know from prior argument that $f(\infty) = f(-\infty)$ and so the image
 of the entire boundary $\R \cup \infty$ is a closed polygon with three vertices
 (i.e. a triangle). 
 
+See the figures below.
 
+\begin{center}
+	\includegraphics[scale=0.8]{img1.png}
+\end{center}
+
+Here are some images of different cases. The top left image shows when
+$\beta_1 + \beta_2 = 1$ and the lower left image shows $\beta_1 +
+\beta_2 < 1$. The images here are noncompact.
+The image on the right shows the situation when $1 < \beta_1 + \beta_2
+< 2$. In principle $a_{-\infty}$ and $a_{\infty}$ must lie on the
+dotted line segments, since the derivative of the given map is smooth
+away from $0,1$. However, since $a_{\infty} = a_{-\infty}$ we have
+that the value at infinity must be the intersection of these two
+dotted lines, giving the image of the boundary is indeed a triangle.
 
 \end{solution}
 
@@ -230,9 +262,18 @@ Consider the choice of $\beta_1 = -1$, and then $\beta_i = 1$ for
 $n = 2, \cdots, 6$. Choose any $A_i \in \R_+$, say. 
 Thinking about varying $z$ continuously from $0$ to $\infty$, the image of this
 map has one ``turn to the right'' by $\pi$, and then the rest of the turns ``are
-to the left'' by $\pi$ \wg{see the figure below}.
+to the left'' by $\pi$ (see the figure below). 
 Here the choice of the $A_i \in \R$ does not matter, since I think there is no
-way for this polygon to be self-intersecting with this particular choice of angles.
+way for this polygon to be self-intersecting with this particular
+choice of angles.
+
+\begin{center}
+	\includegraphics[scale=0.8]{img2.png}
+\end{center}
+
+This image shows the map and its output. Here, the turning angle is
+$\pi$ except at $A_1$ which has turning angle $-\pi$. There is no way
+to get this polygon to self intersect with these angle constraints. 
 
 \end{solution}
 

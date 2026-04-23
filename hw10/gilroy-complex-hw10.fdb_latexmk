@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1776905799 "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" "gilroy-complex-hw10.pdf" "gilroy-complex-hw10" 1776905800 0
+["pdflatex"] 1776907784 "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" "gilroy-complex-hw10.pdf" "gilroy-complex-hw10" 1776907785 0
   "/etc/texmf/web2c/texmf.cnf" 1714944770 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" 1776905799 14146 efc442f48ad03528ff143ce72411a9ea ""
+  "/home/willithg/2026Spring/Complex/hw10/gilroy-complex-hw10.tex" 1776907784 15906 a38512b6269e1828a42d88792cedbd66 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768653 1804 7b5f73028f6509167f47ace9d69509ed ""
@@ -166,9 +166,11 @@
   "4.png" 1776899006 17756 bdf1298cc675bd1bdb1893782a485ed0 ""
   "5.png" 1776899613 8175 c0bd6eb637bbe3c1adbd0e79e07043d0 ""
   "6.png" 1776904577 14567 24bc49c3b4fabd76e3236579a6a7f207 ""
-  "gilroy-complex-hw10.aux" 1776905800 114 297236e346b4a25ffc37c27abec3ef29 "pdflatex"
-  "gilroy-complex-hw10.tex" 1776905799 14146 efc442f48ad03528ff143ce72411a9ea ""
+  "gilroy-complex-hw10.aux" 1776907784 114 7cedfb7e9357824d37198c6afb8856fa "pdflatex"
+  "gilroy-complex-hw10.tex" 1776907784 15906 a38512b6269e1828a42d88792cedbd66 ""
   "hmcpset.cls" 1776785682 4085 98027ce36439082fce2e02ac517d4e29 ""
+  "img1.png" 1776906325 113742 59d696225ce5dc1acb3c3089544da314 ""
+  "img2.png" 1776906520 67269 0ab69f742c7b23c89192985d4a1c8001 ""
   (generated)
   "gilroy-complex-hw10.aux"
   "gilroy-complex-hw10.log"

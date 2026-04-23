@@ -825,6 +825,11 @@ INPUT ./3.png
 INPUT 3.png
 INPUT ./3.png
 INPUT ./3.png
+INPUT ./img1.png
+INPUT ./img1.png
+INPUT img1.png
+INPUT ./img1.png
+INPUT ./img1.png
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
@@ -839,6 +844,11 @@ INPUT ./4.png
 INPUT 4.png
 INPUT ./4.png
 INPUT ./4.png
+INPUT ./img2.png
+INPUT ./img2.png
+INPUT img2.png
+INPUT ./img2.png
+INPUT ./img2.png
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
