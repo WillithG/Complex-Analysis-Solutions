@@ -48,6 +48,50 @@
 \end{problem}
 
 \begin{solution}
+Suppose for contradiction that a Riemann map $\Delta \to \mathcal C$
+could not be extended continuously to the boundary. That is, we would
+have two sequences in $\Delta$ converging to some point on the
+boundary, $z_n, z_n' \to z_0 \in S^1$, such that their images
+converged to distinct points on $\partial \mathcal C$. 
+In other words, there is some positive $\delta$ such that $\abs{f(z_n)
+- f(z_m')} > \delta$ for all $n, m$.
+
+Consider the following series of calculation. 
+Consider circles $\alpha_r$ of radius $r$ about $z_0$. For sufficiently large
+$n,m$ and sufficiently small $r$ there are points in both sequences
+which lie on $\alpha_r$. Now, by the fundamental theorem of calculus
+we have 
+\begin{align*}
+	\delta < \abs{f(z_n) - f(z_m')} &= \abs{ \int_{\alpha_r} f'(\xi) d\xi} \\
+		&= \abs{\int_{\theta_1(r)}^{\theta_2(r)} f'(z_0 + re^{i \theta}) r d\theta} \\
+		&\leq \abs{\int_{\theta_1(r)}^{\theta_2(r)}} \abs{f'(z_0 + re^{i\theta})} r d\theta
+\end{align*}
+where the second equality is given by parameterizing $\alpha_r$ and
+the final inequality given by the triangle inequality; the
+angles $\theta_1(r), \theta_2(r)$ are the angles on which $z_n, z_m'$ respectively
+lie on $\alpha_r$.
+Now, squaring both sides and then applying Cauchy-Schwarz (taking 
+$h = f r^{1/2}$, $g = r^{1/2}$) gives
+\begin{align*}
+	\delta^2 
+	&\leq \int \abs{f'(z)}^2 r d\theta \int_{\theta_1(r)}^{\theta_2(r)} r d\theta \\
+	&\leq \int \abs{f'(z)}^2 r d\theta \int_{0}^{2\pi} r d\theta  \\
+	&\leq \int \abs{f'(z)}^2 r d\theta \left(2\pi r\right).
+\end{align*}
+Rearranging this inequality and then integrating over $r$ gives 
+\[
+	\int_{r=0}^{R} \frac{\delta^2}{r} dr 
+	\leq \int_{r} \int_{\theta} \abs{f'(z)}^2 r d\theta dr = \int\int \abs{f'}^2  dA = \text{Area}(f(\Delta)),
+\]
+where the last equality is given by the fact that the Jacobian for the
+appropriate transformation is $\abs{f'(z)}^2$. 
+Now finally, notice that the left hand side diverges, but the right
+hand side is finite, since it is the area of a bounded open set. A
+contradiction, and so it must have been that $f$ extended continuously
+to the boundary.
+
+\wg{understand this jacobian statement, make a comment about the boundary being nice. }
+
 \end{solution}
 
 \newpage
