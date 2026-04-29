@@ -8,11 +8,15 @@
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Z}{\mathbb Z}
+\renewcommand{\H}{\mathbb H}
+\newcommand{\Hbdy}{\overline \H \cup \infty}
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\im}{\text{im }}
 \newcommand{\inv}{^{-1}}
 \newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
 \newcommand{\anglee}[1]{\langle #1 \rangle}
+\newcommand{\rest}[1]{\vert_{#1}}
+
 \usepackage[shortlabels]{enumitem}
 
 % Numbering macros
@@ -50,11 +54,94 @@
 
 %------------------------- Problem 2 -----------------------
 
-\begin{problem}[2]
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Recall that we have a biholomorphism from the $\Delta \to \H$ given by 
+\[
+	h(z) = i \cdot \frac{1 + z}{1 - z}.
+\]
+This map extends continuously to the boudaries $\bar \Delta \to \Hbdy$
+with $h(1) = \infty$. 
+And so we can define a holomorphic function $g: \H \to \H$ by 
+$g = h \circ f \circ h\inv$ which extends continuously to the actual
+boundary $\bar \H \cup \infty$ and $g(\bar \H \cup \infty) \subseteq
+\bar \H \cup \infty$.
+The preimages of $1$ under $f$ are those which get sent to infinity
+under $g$. 
+
+Suppose for a moment that we have a single point on the real line
+which gets sent to infinity. Say that we translate our coordinates so
+that this point is $z=0$. Let us denote the ``right half upper plane''
+by $\H^+ := \{z \in \H : Re(z) > 0\}$ and similarly let $\H^-$ denote
+the ``left upper half plane''.
+
+Now, the restriction of $g$ to $\H^+$ defines a holomorphic function
+which extends continuously to the interval $(0, \infty)$ with the
+image of $(0, \infty) \subseteq \R$. 
+The Schwarz reflection principle then allows us to extend
+$g\rest{\H^+}$ to a holomorphic function on the entire right half
+plane $\R^+ := \{z \in \C: Re(z) > 0 \}$. The same argument means that
+we can extend $g\rest{\H^-}$ to a holomorphic function on the entire left half plane.
+We now have a holomorphic function $\C \setminus L \to \C$ where $L$
+is the vertical line through $z=0$. Let us denote this function by
+$\tilde g$. 
+
+\begin{center}
+	\begin{tikzpicture}[scale=2]
+
+  % Axes
+  \draw[->] (-2,0) -- (2,0) node[right] {$Re(z)$};
+  %\draw[->] (0,-2) -- (0,2) node[above] {$\Im(z)$};
+
+  % Dotted vertical line at z = 0
+  \draw[dotted, thick] (0,-2) -- (0,2);
+
+  % Labels for regions
+  \node at (1,1) {$\mathbb{H}^+$};
+  \node at (-1,1) {$\mathbb{H}^-$};
+  \node at (0.3,-0.2) {$z=0$};
+  \fill (0,0) circle (1pt);
+\end{tikzpicture}
+\end{center}
+
+We can extend $\tilde g$ further to a function $G: \C \setminus
+\{z=0\} \to \C$ in the following way
+\[
+	G(z) = \begin{cases}
+		\tilde g(z) & z \not\in L \\
+		g(z) & z \in L \cap \H \\
+		\overline{g(\bar z)} & z \in L \cap -\H.
+	\end{cases}
+\]
+The proof that Scharz reflection gives a holomorphic function also
+proves that this function is holomorphic as a function $\C \setminus
+\{z = 0 \} \to \C$. 
+
+We can translate $G$ into a holomorphic extension of $f$ by
+conjugating $h\inv \circ G \circ h : \C \setminus \{p\} \to \C$ where
+$p$ is the preimage of $1$ under the continuous extension $\overline
+f$.
+
+If $f$ has more than one point on $S^1$ which is sent to $1$ (i.e.
+more than one point on $\R$ is sent to $\infty$ under $h$) then we can
+repeat a similar procedure, except now we Schwarz reflect vertical
+strips bounded by the vertical lines through the points on the real
+line which are sent to $\infty$ by $h$.
+
+\wg{Lastly, must there only be finitely many points?}
+
+
+
+
+
+
+
+
+
 \end{solution}
 
 \newpage
