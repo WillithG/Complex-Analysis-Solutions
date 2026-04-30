@@ -213,21 +213,91 @@ We know from the Riemann mapping theorem that any simply connected open set
 any two bounded simply connected open sets are biholomorphic to each other.
 Thus, we need at least one of our open sets to be non-simply connected.
 Moreover, since we want to find a homeoomrphism between our open sets, it
-follows then that both are not simply connected (and much have the same
+follows then that both are not simply connected (and must have the same
 homology). 
-(From here, how do we show that there's no biholomorphism between two given open
-sets)
+
+Let us conjecture that two annuli of inner radius $1$ and different
+outer radii are not biholomorphic. 
+Let us denote these annuli by $A_1,
+A_2$, the first having outer radius $r_1$ and the latter having outer
+radius $r_2$. 
+Suppose for contradiction that there exists a biholomorphism
+$f: A_1 \to A_2$.
+
+Our initial biholomorphism induces a biholomorphism of vertical strips
+of differing width as follows. 
+These have unversal covers of the vertical strip in the complex plane, 
+the universal cover $S_1$ for $A_1$ is the strip of width $\log r_1$ and
+the latter $S_2$ has width $\log r_2$, both have their left side aligned
+with the vertical line at $z=0$ and the covering map for both of these
+is $e^z$ on the appropriate domains. 
+Notice that we have a map from the simply connected space $S_1 \to
+A_2$ via $f \circ (z \mapsto e^z)$, by the homotopy lifing property we
+have a map $S_1 \to S_2$ (with the appropriate commuting diagram) and
+likewise we have a map $S_2 \to S_1$. Now, given the commuting
+diagrams we get from the homotopy lifting property, we in fact have
+that the induced map $S_1 \to S_2$ is bijective. Moreover, since all
+the maps involved are holomorphic, the induced map $S_1 \to S_2$ is in
+fact a biholomorphism.
+\wg{I think it might be easier to show that these two strips cannot be 
+biholomorphic but I am not sure how to show this}
+
 \end{solution}
 
 \newpage
 
 %------------------------- Problem 5 -----------------------
 
-\begin{problem}[4]
+\begin{problem}
+	\includegraphics[scale=0.8]{5.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+First recall that we have a well defined logarithm on the upper half
+plane (take the branch cut on any ray contained in the lower half
+plane) and so we can write $\log z$ suggestively as 
+\[
+	\log z = \int_0^z \frac{1}{\xi} \, d\xi.
+\]
+On the other hand, writing $\log z = \log(r e^{i\theta}) = \ln r +
+i\theta$, and remembering that points on the upper half plane have $0 <
+\theta < \pi$, the image $\ln(\H)$ is the infinite horizontal strip
+given by $\{z \in \C: 0 < Im(z) < \pi \}$. This ``looks'' like a
+polygon whose corners are occuring off at infinity.
+
+More precisely, any radial ray from $z=0$ at some angle $\theta$ is
+mapped to a horizontal line (``moving to the right'') at $im(z) =
+\theta$. Consider the image of the boundary rays under $\log z$. We
+have that the ray $(0, \infty)$ is mapped to the ``lower''
+boundary component $im(z) = 0$. On the other hand, the ray
+$(0,-\infty)$ is mapped to the ``upper'' boundary component at $im(z) =
+\pi$. 
+
+If we want to think of this map as a degenerate
+Scharz-Christoffel map, then we might want to think of what a
+``continuous extension'' of $\log z$ to the boundary might mean (of
+course, this is a heuristic argument since $\log z$ is ill defined at
+$z= 0$).
+Approaching $z=
+0$ from $+\infty$ gives a point ``infinitely far to the left'' on the
+line in the image $im(z) = 0$ whereas approaching $z=0$ from $-\infty$ gives a
+point also ``infinitely far to the left'' but now on the line $im(z) =
+\pi$. If we want to think about a continuous extension, we can then
+think of these two boundary lines as meeting at infinity. Then we can
+think of this infinite strip as having a ``corner'' at $z = \infty$ in
+the image, or at $z = 0$ on the boundary of the upper half plane. And
+indeed, this is manifest in $\log z = \int_0^z 1/\xi d\xi$ since the
+corners in Schwarz-Christoffel maps are supposed to occur at the images
+of the denominator points. 
+That is all to say, we can think of the image of $\log z$ applied to
+the upper half plane as a degenerate polygon, with one corner at $z =
+\infty$. 
+If we want to extend our source domain to include the point at
+infinity, then we can also think of the image of $\log(z)$ as having
+another corner ``infinitely far to the right'', or at the image of
+$\infty$.
+
 \end{solution}
 
 \newpage
