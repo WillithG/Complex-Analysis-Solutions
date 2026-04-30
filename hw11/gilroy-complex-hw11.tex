@@ -22,8 +22,8 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Homework \#11}
+\rhead{29 April 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -38,7 +38,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Analysis Homework \#11} 
 
 %------------------------- Problem 1 -----------------------
 
@@ -90,7 +90,10 @@ hand side is finite, since it is the area of a bounded open set. A
 contradiction, and so it must have been that $f$ extended continuously
 to the boundary.
 
-\wg{understand this jacobian statement, make a comment about the boundary being nice. }
+As a final note, notice that the hypothesis that the boundary be
+homeomorphic to the circle means that our boundary cannot have any
+self intersections. I.e. we have a ``nice boundary'', and the
+situation really is like the polygon case.
 
 \end{solution}
 
@@ -166,7 +169,7 @@ proves that this function is holomorphic as a function $\C \setminus
 \{z = 0 \} \to \C$. 
 
 We can translate $G$ into a holomorphic extension of $f$ by
-conjugating $h\inv \circ G \circ h : \C \setminus \{p\} \to \C$ where
+conjugating $F := h\inv \circ G \circ h : \C \setminus \{p\} \to \C$ where
 $p$ is the preimage of $1$ under the continuous extension $\overline
 f$.
 
@@ -174,9 +177,34 @@ If $f$ has more than one point on $S^1$ which is sent to $1$ (i.e.
 more than one point on $\R$ is sent to $\infty$ under $h$) then we can
 repeat a similar procedure, except now we Schwarz reflect vertical
 strips bounded by the vertical lines through the points on the real
-line which are sent to $\infty$ by $h$.
+line which are sent to $\infty$ by $h$. 
 
-\wg{Lastly, must there only be finitely many points?}
+Now notice that our extended function $F$ may have poles. 
+In particular, the Riemann map $h\inv: \H \to \Delta$
+is given by
+\[
+	w \mapsto \frac{w - i}{w+i}
+\]
+which has a pole whenever $w = -i$. That is to say, any $z \in \C
+\setminus \{p\}$ such that $G(z) = -i$ corresponds to a pole on the
+``unit disk'' side. 
+Now, recall that $g$ mapped $\H \to \H$ since $f$ mapped $\Delta \to
+\Delta$. And so the only points which have image $-i$ under $G$ are
+those in the lower half plane. That is, consider the points in the
+lower half plane such that $\overline{g(\bar z)} = -i$ or the points
+in the upper half plane such that $g(z) = i$. Recalling the
+biholomorphism $\Delta \to \H$, these are exactly the points $z \in
+\Delta$ such that $f(z) = 0$. I.e. the reflected zeroes of $f$ become
+poles in the extended domain.
+Lastly, since $f$ has isolated zeroes (it is holomorphic), and 
+ since $\Delta$ is a compact set, 
+$f$ can only have finitely many zeros --- any discrete set contained
+in a compact set is necessarily finite.
+And so the extended function only has finitely many poles.
+
+Thus we have found an extended function of $f$ which is holomorphic on
+all of $\C$ with only finitely many points removed.
+
 
 
 
@@ -192,10 +220,39 @@ line which are sent to $\infty$ by $h$.
 
 %------------------------- Problem 3 -----------------------
 
-\begin{problem}[3]
+\begin{problem}
+	\includegraphics[scale=0.8]{3.png}
 	\hfill
 \end{problem}
 \begin{solution}
+I think the idea with this question is that we can apply a
+``reflection principle'' to this set with these conditions on
+$f$ (similar to how we used inversion to apply a reflection principle
+to the unit disc in the previous question).
+
+More precisely, the Riemann mapping theorem gives us that there's a
+biholomorphism from $U$ to either the upper half plane or the unit
+disc. Indeed, $U$ is simply connected and not all of $\C$. 
+Moreover, since the boundary of $U$ is ``sufficiently nice'',
+this Riemann map extends to a homeomorphism on the boundary. 
+Then, we can define a holomorphic function on the upper half plane, by
+conjugating our original $f$ with the Riemann map, and this new
+function satisfies the conditions for Schwarz reflection.
+This gives us a new holomorphic function defined on an open set strictly larger
+than the upper
+half plane. 
+We can map this larger set back to original domain with
+the parabola using our Riemann map again. And then our desired
+extended function is given
+by conjugating the extended function on the ``upper half plane side''
+by our Riemann map. 
+
+There are some details with poles which need to be thought about. 
+We may have a nonfinite number of poles in our extension, since the parabola is not a
+compact set. However, they need to be isolated, and so we can remove
+any poles found in our extension and still be left with a strictly
+larger open set than the original parabola on which our new function
+is defined on.
 \end{solution}
 
 \newpage
@@ -224,24 +281,9 @@ radius $r_2$.
 Suppose for contradiction that there exists a biholomorphism
 $f: A_1 \to A_2$.
 
-Our initial biholomorphism induces a biholomorphism of vertical strips
-of differing width as follows. 
-These have unversal covers of the vertical strip in the complex plane, 
-the universal cover $S_1$ for $A_1$ is the strip of width $\log r_1$ and
-the latter $S_2$ has width $\log r_2$, both have their left side aligned
-with the vertical line at $z=0$ and the covering map for both of these
-is $e^z$ on the appropriate domains. 
-Notice that we have a map from the simply connected space $S_1 \to
-A_2$ via $f \circ (z \mapsto e^z)$, by the homotopy lifing property we
-have a map $S_1 \to S_2$ (with the appropriate commuting diagram) and
-likewise we have a map $S_2 \to S_1$. Now, given the commuting
-diagrams we get from the homotopy lifting property, we in fact have
-that the induced map $S_1 \to S_2$ is bijective. Moreover, since all
-the maps involved are holomorphic, the induced map $S_1 \to S_2$ is in
-fact a biholomorphism.
-\wg{I think it might be easier to show that these two strips cannot be 
-biholomorphic but I am not sure how to show this}
-
+\wg{I think this is true, but I was not sure what kind of
+contradiction I could derive (perhaps I will come chat to you about
+this one next week if you have office hours. )}
 \end{solution}
 
 \newpage
