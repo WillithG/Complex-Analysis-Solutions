@@ -1,0 +1,132 @@
+\documentclass[12pt,letterpaper,boxed]{hmcpset}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, enumerate, fancyhdr, gensymb, lastpage, mathtools, parskip, graphicx}
+\usepackage{xcolor, tikz-cd}
+\newcommand{\wg}[1]{\textcolor{violet}{#1}}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\im}{\text{im }}
+\newcommand{\inv}{^{-1}}
+\newcommand{\normal}{\unlhd} %% one can also use \trianglelelefteq
+\newcommand{\anglee}[1]{\langle #1 \rangle}
+\usepackage[shortlabels]{enumitem}
+
+% Numbering macros
+\pagestyle{fancy}
+\lhead{Will Gilroy}
+\chead{Algs Homework \#}
+\rhead{03 November 2021}
+\lfoot{}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+\linespread{1.5}
+
+\newcommand\blankpage{
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+\renewcommand\footrulewidth{0.4pt}
+
+\begin{document}
+
+\problemlist{Algorithms HW } 
+
+%------------------------- Problem 1 -----------------------
+
+\begin{problem}
+	\includegraphics[scale=0.8]{1.png}
+	\hfill
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+\item Let us write $\omega_1/ \omega_2 = p/q$ for some coprime
+integers $p,q$. 
+Let us define $\omega_0 := \omega_1/p$.
+We need to show that $(1)$ $f$ is periodic with repsect to $\omega_0$
+and $(2)$ that $\omega_1, \omega_2$ are multiples of $\omega_0$. 
+
+We show $(2)$ first. Notice that $\omega_1 = p\omega_0$ by definition.
+And also, $\omega_2 = \frac{q\omega_1}{p} = q \omega_0$. 
+
+Next we show $(1)$, that $f$ is periodic with repsect to $\omega_0$. 
+Recall B\'ezout's identity gives us that there exists integers $m,n$
+such that $mp + nq = 1$ since $p,q$ are coprime. 
+Rearragnging gives us that 
+\begin{align*}
+	\frac{\omega_1}{p}
+		&= \omega_1\left(m + n \frac{q}{p}\right) \\
+		&= \omega_1\left(m + n \frac{\omega_2}{\omega_1}\right) \\
+	\omega_0 &= m\omega_1 + n \omega_2.
+\end{align*}
+Since $f$ is periodic in $\omega_1$ and $\omega_2$ it thus follows
+that $f$ is periodic in $\omega_0$. 
+
+\item Let $\tau := \omega_1/\omega_2$, we have that $\tau$ is
+irrational.
+Let $m,n \in \Z$ and notice that $m\omega_1 + n \omega_2 =
+\omega_2(m\tau + n)$. Now since $\tau$ is irrational we have that the
+set $\{\omega_2(m \tau + n)\}$ is dense in the line $\R\omega_2$. 
+We will show that $f$ is thus constant on the line $\R\omega_2$. 
+
+Let $c \in \R\omega_2$ be a point where $f$ is holomorphic.
+Since $\{\omega_2(m\tau + n)\}$ is dense in $\R \omega_2$
+we have a sequence $z_k = \omega_2(m_k \tau + n_k)$ with $m_k,n_k \in \Z$ which converges to $c$. 
+Since $f$ is holomorphic at $c$ we have that it is in particular
+continuous at $c$, and so $f(c) = \lim_{k \to \infty}f(z_k)$. 
+Moreover since $\omega_2(m_k\tau +n_k) = m_k\omega_1 + n_k\omega_2$
+for all $k$ we have
+that $f(\omega_2(m\tau+n)) = f(0)$ for all $m,n \in \Z$. 
+But then $f(c) = \lim_{k \to \infty} f(z_k) = f(0)$, i.e. $f$ is constant along
+$\R\omega_2$.
+
+We have shown that $f$ is constant on a closed subset of its domain of holomorphicity.
+It follows by the identity theorem that $f$ is thus constant on its
+entire domain.
+
+
+
+
+\end{enumerate}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 2 -----------------------
+
+\begin{problem}[2]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 3 -----------------------
+
+\begin{problem}[3]
+	\hfill
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\newpage
+
+%------------------------- Problem 4 -----------------------
+
+\begin{problem}[4]
+	\hfill
+\end{problem}
+
+\begin{solution}
+\end{solution}
+
+\newpage
+
+\end{document}
