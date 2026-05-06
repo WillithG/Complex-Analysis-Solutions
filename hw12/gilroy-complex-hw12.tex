@@ -8,6 +8,7 @@
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Z}{\mathbb Z}
+\renewcommand{\H}{\mathbb H}
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\abssq}[1]{\left|#1\right|^2}
 \newcommand{\im}{\text{im }}
@@ -19,8 +20,8 @@
 % Numbering macros
 \pagestyle{fancy}
 \lhead{Will Gilroy}
-\chead{Algs Homework \#}
-\rhead{03 November 2021}
+\chead{Complex Homework \#12}
+\rhead{06 May 2026}
 \lfoot{}
 \cfoot{}
 \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -35,7 +36,7 @@
 
 \begin{document}
 
-\problemlist{Algorithms HW } 
+\problemlist{Complex Analysis Homework \#12} 
 
 %------------------------- Problem 1 -----------------------
 
@@ -242,11 +243,146 @@ which diverges.
 
 %------------------------- Problem 4 -----------------------
 
-\begin{problem}[4]
+\begin{problem}
+	\includegraphics[scale=0.8]{4.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+We approach this problem by attempting to construct the desired
+Riemann map and its inverse. 
+
+
+First we construct a candidate Riemann map $\H \to S$ with the
+prescribed images.
+As a first approach,
+let $f: \H \to S$ via $f(z) = -i\log(iz)$, with the branch cut in the
+lower right quadrant of $\C$.
+
+Consider $f: \H \to \C$ via $f(z) = -i\log(iz)$
+with the branch cut in the lower half plane.
+Notice $f(1) = -i\log(i) = -i\log(e^{i\pi/2}) = -i(i\pi/2) =
+\pi/2$. Likewise, a similar calculation will give that $f(-1) =
+-\pi/2$ and $f(\infty) = \infty$. 
+Since we chose the branch cut appropriately, we have that $f$ is
+holomorphic on $\H$. Consider the image of $f$. 
+Let $z = re^{i\theta} \in \H$ so that $r > 0$ and $0 < \theta < \pi$. 
+Now
+\begin{align*}
+	f(z) &= -i \log(i re^{i\theta}) \\ 
+	&= -i \log(r e^{i(\theta + \pi/2)}) \\
+	&= -i(\ln(r) + i(\theta + \pi/2)) \\ 
+	&=  (\theta + \pi/2) - i \ln(r).
+\end{align*}
+We have that the image has real part contained in $-\pi/2$ and
+$\pi/2$, but the imaginary part takes any value. And so the image of
+this map is the non-truncated strip bounded just by the lines $z =
+-\pi/2$ and $z = \pi/2$.
+Although, $f$ has inverse given by $w \mapsto e^w$.
+
+This calculation may give us an insight the following map, as a second
+guess. 
+Consider $g(z) : S \to \H$ given by $g(z) = \sin(z)$.
+This is holomorphic on $S$ and extends continuously to the boundary since it is
+entire as a function $\C \to \C$. 
+We need to verify that $g$ is a biholomorphism to $\H$ and that it
+takes the prescribed triple to the prescribed image. 
+
+First, we need to verify that the image of $g$ is $\H$. 
+Write $z = a + bi$ with $-\pi/2 < a < \pi/2$ and $b > 0$. 
+Now consider the following
+\begin{align*}
+	\sin(a + bi) &= \sin(a)\cos(bi) + \cos(a)\sin(bi).
+\end{align*}
+Recall the identities
+\[
+	\sin(x) = \frac{e^{ix} - e^{-ix}}{2i} \qquad \cos(x) = \frac{e^{ix} + e^{-ix}}{2} 
+\]
+In particular 
+\[
+	\sin(ib) = \frac{e^{-b} - e^{b}}{2i} \qquad \cos(ib) = \frac{e^{-b} + e^{b}}{2} \in R.
+\]
+And so we have that the real part of $\sin(a+bi)$ is given entirely by
+the second term, 
+$Im(\sin(a+bi)) = Im(\cos(a)\sin(bi))$. 
+Consider 
+\begin{align*}
+	\cos(a)\sin(bi) 
+	&= \cos(a) \frac{e^{-b} - e^{b}}{2i} \\
+	&= \cos(a) (-2i) \frac{e^{-b} - e^{b}}{4} > 0.
+\end{align*}
+Where the final inequality follows
+since $-\pi/2 < a < \pi/2$ gives $\cos(a) > 0$, and $b >
+0$ gives $e^{-b} - e^{b} < 0$.
+That is \[
+	Im(\sin(a+ib)) > 0
+\]
+And so the image of $g$ is contained in $\H$.
+
+Consider the prescribed triples.
+We have $\sin(-\pi/2) = -1$ and $\sin(\pi/2) = 1$. 
+Note that $\sin$ does not have a well-defined extension to infinity,
+when considered as a function $\C \to \C$. In particular, if we
+restrict our attention to the real line, $\sin(x)$ does not grow
+unboundedly as $x \to \infty$ along $\R$ (the more formal way to argue
+this would be to study what happens with $\lim_{z \to 0}\sin(1/z)$). 
+However, since we are considering $\sin$ as a function on $S$, the
+only way for $z$ to approach $\infty$ is by sequences $z_n$ where
+$-\pi/2 < Re(z_n) < \pi/2$ and $Im(z_n) > 0$ for all $n$. 
+In other words, we can only construct sequences that approach infinity
+by following the positive imaginary direction. For all such sequences
+$\abs{\sin(z_n)}$ does indeed grow without bound (in particular $(e^{-b} -
+e^{b})/4 \to -\infty$ as $b \to \infty$). 
+Thus we have that $\sin(\infty) = \infty$. 
+We have shown that $g$ takes $(-\pi/2, \pi/2, \infty) \mapsto
+(-1,1,\infty)$. 
+
+Lastly, we argue that $g$ is a bijection. Notice that the quantity 
+$(e^{-b} - e^{b})/4$ is surjective to $\R_-$ for $b>0$, and so $Im(g)$ takes every
+positive imaginary value. Likewise $(e^{-b} + e^b) / 2$ is surjective
+to $\R_+$ for $b > 0$, moreover, $\sin(a)$ takes each value between
+$-1, 1$ as $-\pi/2 < a < \pi/2$. And so $Re(g)$ takes every real
+value. We can thus achieve any value in the upper half plane via $g$
+by tuning $a,b$. 
+
+We argue that $g$ is injective. Suppose we had $z_1, z_2 \in S$ such
+that $g(z_1) = g(z_2)$. Recalling the exponential identity for $\sin$
+this becomes the condition 
+\[
+	k - \frac{1}{k} = m - \frac{1}{m},
+\]
+where $k = e^{iz_1}$ and $m = e^{iz_2}$. 
+This can be rearranged as follows
+\begin{align*}
+	(k-m) - \left(\frac{1}{k} - \frac{1}{m}\right) &= 0\\
+	(k-m)  - \left(\frac{m - k}{mk}\right) &= 0 \\
+	(k-m)\left(1 + \frac{1}{mk}\right) &= 0.
+\end{align*}
+Now if $k = m$ then we have $e^{iz_1} = e^{iz_2}$ which implies 
+$iz_1 = iz_2 + 2\pi i \ell$ for some integer $\ell$. However 
+this then gives $z_1 = z_2 + 2\pi k$, and no two elements of $S$ can
+differ by a nonzero integer multiple of $2\pi i$ since the strip has
+real width $\pi$. In other words $k=m$ implies $z_1 = z_2$.
+Now, on the other hand, consider the condition $1 + 1/mk = 0$.
+We can rearrange this to acquire $mk = -1$. 
+First, note that $m,k$ are contained in the right half plane. 
+Indeed if $a + bi$ satisfies $-\pi/2 < a < \pi/2$ then
+$e^{i (a+bi)} = e^{ia - b} = e^{-b} e^{ia}$ has argument $-\pi/2 < a <
+\pi/2$. There exist no $m,k$ in the right half plane which satisfy $mk
+= -1$; there are no two angles in $[-\pi/2, \pi/2]$ that we can sum
+to $\pi$.  And so the condition $1 + 1/mk = 0$ gives a contradiction.
+We have shown that $g$ is injective as a map $S \to \H$. 
+We have overall shown that $g$ is a biholomorphism $S \to \H$. 
+
+We have shown that $g(z) = \sin(z)$ is the inverse for the claimed
+Riemann map. And indeed this map can be extended to a holomorphic map
+on all of $\C$ since $\sin(z)$ is entire. 
+
+
+
+
+
+
 \end{solution}
 
 \newpage
