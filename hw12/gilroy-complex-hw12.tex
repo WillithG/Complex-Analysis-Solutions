@@ -100,11 +100,88 @@ entire domain.
 
 %------------------------- Problem 2 -----------------------
 
-\begin{problem}[2]
+\begin{problem}
+	\includegraphics[scale=0.8]{2.png}
 	\hfill
 \end{problem}
 
 \begin{solution}
+Since $F$ is a meromorphic function on $\C/\Lambda$ it lifts to a
+doubly periodic meromorphic function on $\C$, let us also refer to
+this meromorphic function on $\C$ as $F$ (I will note when we start
+thinking about it as a function on the torus again). 
+Consider a fundamental paralellogram $P$ of $\Lambda$ in $\C$ such that
+$F$ has no zeroes or poles on the boundary of $P$. 
+Recall that the following variation of the argument principle integral
+counts the sum of the points which gives zeroes and poles for $F$.
+\[
+	\int_{\partial P} z \cdot \frac{f'(z)}{f(z)} dz = \sum_{z_i \in \C} z_i - \sum_{p_j \in \C} p_j.
+\]
+
+Let us normalize our lattice so that one of the generators is given by
+$1$ and the other is given by $\tau \in \mathbb H$. 
+Let us label the sides of our fundamental paralellogram by $\alpha,
+\alpha', \beta, \beta'$.
+Then notice that we have the following identity 
+\begin{align*}
+	\int_{\beta} z \cdot \frac{f'(z)}{f(z)} dz 
+	&= \int_{-\beta' + \tau} z \cdot \frac{f'(z)}{f(z)} dz \\
+	&= \int_{-\beta'} (z + \tau) \cdot \frac{f'(z+\tau)}{f(z+\tau)} dz \\
+	&= \int_{-\beta'} (z + \tau) \cdot \frac{f'(z)}{f(z)} dz \\
+	&= -\int_{\beta'} (z + \tau) \cdot \frac{f'(z)}{f(z)} dz,
+\end{align*}
+where the third equality follows since $f$ is periodic in $\tau$ and
+so $f'$ is also periodic in $\tau$. 
+Similar reasoning gives that 
+\[
+	\int_{\alpha} z \cdot \frac{f'(z)}{f(z)} dz = -\int_{\alpha'} (z+1) \cdot \frac{f'(z)}{f(z)}.
+\]
+Now, consider the following
+\begin{align*}
+	\int_{\partial P} z \cdot \frac{f'(z)}{f(z)} dz 
+	&= \int_{\alpha + \beta + \alpha' + \beta'} z \cdot \frac{f'(z)}{f(z)} dz \\
+	&= \int_{\alpha'} \frac{f'(z)}{f(z)} dz - \tau \int_{\beta'} \frac{f'(z)}{f(z)} dz.
+\end{align*}
+Now, we claim (as prompted by the book hint) that the integral $\int
+f'(z) / f(z) dz$ along any of the side lengths of the fundamental
+parallelogram is some multiple of $2\pi i$. 
+Consider 
+\[
+	\int_{\alpha'} \frac{f'(z)}{f(z)} dz 
+	= \int_{z_0}^{z_0 + \tau} \frac{f'(z)}{f(z)} dz 
+	= \log(f(z_0)) - \log(f(z_0 + \tau)),
+\]
+where $z_0$ is one endpoint for $\alpha'$. Note that, 
+since we are integrating just over an interval in $\C$, we can
+take the branch cut of $\log$ to be away from either of the line segments
+that we care about. 
+Now recall that $f$ is periodic with respect to $\tau$, i.e., $f(z_0)
+= f(z_0 + \tau)$. 
+That means, 
+the image of $f$ under $\alpha'$ traces out some closed curve in
+$\C^\times$ (recall that we chose $P$ so that $f$ does not vanish on
+$\partial P$). 
+It follows then that 
+\[
+	\int \frac{f'(z)}{f(z)} dz = k(2\pi i),
+\]
+for some integer $k$. 
+
+Now returning the the integral that we are concerned with, we thus have 
+\[
+	\int_{\alpha'} \frac{f'(z)}{f(z)} dz - \tau \int_{\beta'} \frac{f'(z)}{f(z)} dz
+	= (2\pi i)(k_1 - k_2 \tau).
+\]
+For some $k_1, k_2 \in \Z$. 
+Now notice that $k_1 - k_2 \tau$ is a lattice point. And so 
+$k_1 - k_2 \tau \equiv 0 \bmod \Lambda$. 
+In other words, we have shown 
+\[
+	\sum z_i - \sum p_j = 
+	\int_{\partial P} z \cdot \frac{f'(z)}{f(z)} dz \equiv 0 \bmod \Lambda.
+\]
+
+
 \end{solution}
 
 \newpage

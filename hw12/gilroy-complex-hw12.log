@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.1.17)  5 MAY 2026 22:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.1.17)  6 MAY 2026 09:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -586,6 +586,21 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
 [2]
+<2.png, id=23, 593.21625pt x 148.30406pt>
+File: 2.png Graphic file (type png)
+<use 2.png>
+Package pdftex.def Info: 2.png  used on input line 104.
+(pdftex.def)             Requested size: 474.57364pt x 118.64339pt.
+
+Overfull \hbox (11.6186pt too wide) in paragraph at lines 104--106
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -593,24 +608,32 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[3]
-<3.png, id=27, 593.21625pt x 117.43875pt>
+[3 <./2.png (PNG copy)>]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
+
+[4]
+<3.png, id=30, 593.21625pt x 117.43875pt>
 File: 3.png Graphic file (type png)
 <use 3.png>
-Package pdftex.def Info: 3.png  used on input line 115.
+Package pdftex.def Info: 3.png  used on input line 192.
 (pdftex.def)             Requested size: 474.57364pt x 93.95111pt.
 
-Overfull \hbox (11.6186pt too wide) in paragraph at lines 115--117
+Overfull \hbox (11.6186pt too wide) in paragraph at lines 192--194
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
 
-Overfull \hbox (18.88615pt too wide) detected at line 143
+Overfull \hbox (18.88615pt too wide) detected at line 220
 []
  []
 
@@ -621,7 +644,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[4 <./3.png (PNG copy)>]
+[5 <./3.png (PNG copy)>]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -629,7 +652,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[5]
+[6]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -637,22 +660,22 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-[6] 
+[7] 
 AED: lastpage setting LastPage
 (./gilroy-complex-hw12.aux) ) 
 Here is how much of TeX's memory you used:
- 16963 strings out of 476091
- 344292 string characters out of 5794081
+ 16972 strings out of 476091
+ 344369 string characters out of 5794081
  1862330 words of memory out of 5000000
- 36996 multiletter control sequences out of 15000+600000
- 529942 words of font info for 83 fonts, out of 8000000 for 9000
+ 37002 multiletter control sequences out of 15000+600000
+ 530440 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,94p,579b,426s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on gilroy-complex-hw12.pdf (6 pages, 157598 bytes).
+Output written on gilroy-complex-hw12.pdf (7 pages, 201766 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
